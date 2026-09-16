@@ -83,8 +83,7 @@
   <p class="muted">StatLume is an independent application and is not affiliated with or endorsed by Google LLC or YouTube.</p>
 </main>
 <script>
-  // Replace this URL after deploying the Cloudflare Worker in /cloudflare-worker.
-  const SUPPORT_ENDPOINT = "https://statlume-support.YOUR_SUBDOMAIN.workers.dev";
+  const SUPPORT_ENDPOINT = "https://statlume-github-io.pavelsimonua.workers.dev";
 
   const form = document.getElementById("support-form");
   const button = document.getElementById("submit-button");
@@ -96,11 +95,6 @@
     status.textContent = "";
 
     if (!form.reportValidity()) return;
-    if (SUPPORT_ENDPOINT.includes("YOUR_SUBDOMAIN")) {
-      status.className = "status error";
-      status.textContent = "Support form backend is not configured yet.";
-      return;
-    }
 
     button.disabled = true;
     button.textContent = "Sending...";
