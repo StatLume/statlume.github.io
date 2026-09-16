@@ -1,3 +1,5 @@
+[Home](/) · [Privacy](/privacy/) · [Terms](/terms/) · [Support](/support/)
+
 # StatLume
 
 **Realtime stats on your Windows desktop.**
