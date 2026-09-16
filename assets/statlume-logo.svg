@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-labelledby="title desc">
+  <title id="title">StatLume logo</title>
+  <desc id="desc">Blue vertical statistics bars above a rounded baseline.</desc>
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#5bd8f2"/>
+      <stop offset="1" stop-color="#1689e8"/>
+    </linearGradient>
+  </defs>
+  <rect x="16" y="214" width="224" height="14" rx="7" fill="#1689e8" stroke="#48d2ef" stroke-width="4"/>
+  <rect x="28" y="137" width="22" height="71" rx="5" fill="url(#g)"/>
+  <rect x="58" y="74" width="22" height="134" rx="5" fill="url(#g)"/>
+  <rect x="88" y="116" width="22" height="92" rx="5" fill="url(#g)"/>
+  <rect x="118" y="151" width="22" height="57" rx="5" fill="url(#g)"/>
+  <rect x="148" y="98" width="22" height="110" rx="5" fill="url(#g)"/>
+  <rect x="178" y="114" width="22" height="94" rx="5" fill="url(#g)"/>
+  <rect x="208" y="164" width="22" height="44" rx="5" fill="url(#g)"/>
+</svg>
