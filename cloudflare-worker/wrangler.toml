@@ -1,4 +1,8 @@
-name = "statlume-support"
+name = "statlume-github-io"
 main = "src/index.js"
 compatibility_date = "2026-09-16"
 workers_dev = true
+keep_vars = true
+
+[secrets]
+required = ["GITHUB_TOKEN"]
