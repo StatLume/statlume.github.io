@@ -1,3 +1,5 @@
+[Home](/) · [Privacy](/privacy/) · [Terms](/terms/) · [Support](/support/)
+
 # StatLume Terms of Use
 
 Last updated: September 16, 2026
@@ -62,6 +64,4 @@ The current version will be made available with the product documentation.
 
 ## 10. Contact
 
-For questions about these Terms or StatLume, open an issue in the official StatLume documentation repository:
-
-https://github.com/StatLume/statlume.github.io/issues
+For questions about these Terms or StatLume, use the [StatLume support page](/support/).
