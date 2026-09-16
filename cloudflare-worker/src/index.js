@@ -1,10 +1,10 @@
 const ALLOWED_ORIGIN = "https://statlume.github.io";
-const GITHUB_REPO = "StatLume/statlume.github.io";
+const GITHUB_REPO = "StatLume/statlume-support";
 
 function corsHeaders(origin) {
   return {
     "Access-Control-Allow-Origin": origin === ALLOWED_ORIGIN ? ALLOWED_ORIGIN : ALLOWED_ORIGIN,
-    "Access-Control-Allow-Methods": "GET, POST, OPTIONS",
+    "Access-Control-Allow-Methods": "POST, OPTIONS",
     "Access-Control-Allow-Headers": "Content-Type",
     "Vary": "Origin",
     "Content-Type": "application/json; charset=utf-8"
@@ -25,14 +25,9 @@ function clean(value, max) {
 export default {
   async fetch(request, env) {
     const origin = request.headers.get("Origin") || "";
-    const url = new URL(request.url);
 
     if (request.method === "OPTIONS") {
       return new Response(null, { status: 204, headers: corsHeaders(origin) });
-    }
-
-    if (request.method === "GET" && url.pathname === "/debug") {
-      return json({ githubTokenConfigured: Boolean(env.GITHUB_TOKEN) }, 200, origin);
     }
 
     if (request.method !== "POST") {
