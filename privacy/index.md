@@ -1,3 +1,5 @@
+[Home](/) · [Privacy](/privacy/) · [Terms](/terms/) · [Support](/support/)
+
 # Privacy Policy for StatLume
 
 Last updated: September 16, 2026
@@ -73,7 +75,7 @@ Support submissions are transmitted only for the purpose of handling the user's 
 
 ## 9. Support form data
 
-If a user submits the support form at https://statlume.github.io/support/, StatLume may process information the user chooses to provide, including:
+If a user submits the support form at [https://statlume.github.io/support/](https://statlume.github.io/support/), StatLume may process information the user chooses to provide, including:
 
 - support category and ticket title;
 - StatLume version;
@@ -113,6 +115,4 @@ The current version will be published at the Privacy Policy URL associated with 
 
 ## 13. Contact
 
-For privacy questions or support, use the StatLume support page:
-
-https://statlume.github.io/support/
+For privacy questions or support, use the [StatLume support page](/support/).
