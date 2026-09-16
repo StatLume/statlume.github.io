@@ -22,6 +22,24 @@
     <h1>Realtime stats on your Windows desktop.</h1>
     <p class="lead">StatLume is a compact Windows desktop widget for near-real-time <strong>YouTube Studio</strong> statistics.</p>
 
+    <section class="screenshots" aria-labelledby="screenshots-title">
+      <h2 id="screenshots-title">Screenshots</h2>
+      <div class="screenshot-grid">
+        <button class="screenshot-thumb" type="button" data-full="/assets/screenshots/01-realtime-overview.png" data-alt="StatLume realtime overview">
+          <img src="/assets/screenshots/01-realtime-overview.png" alt="StatLume realtime overview" loading="lazy">
+        </button>
+        <button class="screenshot-thumb" type="button" data-full="/assets/screenshots/02-view-periods.png" data-alt="StatLume view periods">
+          <img src="/assets/screenshots/02-view-periods.png" alt="StatLume view periods" loading="lazy">
+        </button>
+        <button class="screenshot-thumb" type="button" data-full="/assets/screenshots/03-fullscreen-focus.png" data-alt="StatLume focus mode">
+          <img src="/assets/screenshots/03-fullscreen-focus.png" alt="StatLume focus mode" loading="lazy">
+        </button>
+        <button class="screenshot-thumb" type="button" data-full="/assets/screenshots/04-customize-widget.png" data-alt="StatLume widget customization settings">
+          <img src="/assets/screenshots/04-customize-widget.png" alt="StatLume widget customization settings" loading="lazy">
+        </button>
+      </div>
+    </section>
+
     <h2>What StatLume does</h2>
     <div class="card">
       <ul>
@@ -48,5 +66,47 @@
   </main>
   <footer>StatLume is an independent application and is not affiliated with, endorsed by, sponsored by, or officially connected with Google LLC or YouTube.</footer>
 </div>
+
+<div class="lightbox" id="screenshot-lightbox" aria-hidden="true">
+  <button class="lightbox-close" type="button" aria-label="Close screenshot">×</button>
+  <img src="" alt="">
+</div>
+<script>
+(() => {
+  const lightbox = document.getElementById('screenshot-lightbox');
+  const image = lightbox.querySelector('img');
+  const close = lightbox.querySelector('.lightbox-close');
+  let previousFocus = null;
+
+  function openLightbox(button) {
+    previousFocus = button;
+    image.src = button.dataset.full;
+    image.alt = button.dataset.alt || '';
+    lightbox.classList.add('open');
+    lightbox.setAttribute('aria-hidden', 'false');
+    document.body.classList.add('lightbox-open');
+    close.focus();
+  }
+
+  function closeLightbox() {
+    lightbox.classList.remove('open');
+    lightbox.setAttribute('aria-hidden', 'true');
+    document.body.classList.remove('lightbox-open');
+    image.src = '';
+    if (previousFocus) previousFocus.focus();
+  }
+
+  document.querySelectorAll('.screenshot-thumb').forEach(button => {
+    button.addEventListener('click', () => openLightbox(button));
+  });
+  close.addEventListener('click', closeLightbox);
+  lightbox.addEventListener('click', event => {
+    if (event.target === lightbox) closeLightbox();
+  });
+  document.addEventListener('keydown', event => {
+    if (event.key === 'Escape' && lightbox.classList.contains('open')) closeLightbox();
+  });
+})();
+</script>
 </body>
 </html>
