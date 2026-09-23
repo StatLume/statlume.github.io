@@ -2,7 +2,7 @@
 
 # StatLume Terms of Use
 
-Last updated: September 16, 2026
+Last updated: September 23, 2026
 
 These Terms of Use apply to StatLume, a Windows desktop application that displays statistics from the user's authenticated YouTube Studio session.
 
@@ -43,6 +43,8 @@ Users must not use StatLume to access accounts or information they are not autho
 ## 6. Availability and updates
 
 StatLume may receive updates that change functionality, compatibility, appearance, or technical behavior.
+
+To recover from temporary connectivity or service interruptions, StatLume may monitor the local Windows network-reachability state and make rate-limited attempts to reload YouTube Studio. These recovery features do not guarantee that YouTube Studio or any dependent feature will be available.
 
 The developer may discontinue features that can no longer be maintained reliably or safely.
 
