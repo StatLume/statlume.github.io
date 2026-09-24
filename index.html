@@ -25,19 +25,30 @@
 
     <section class="screenshots" aria-labelledby="screenshots-title">
       <h2 id="screenshots-title">Screenshots</h2>
-      <div class="screenshot-grid">
-        <button class="screenshot-thumb" type="button" data-full="/assets/screenshots/01-realtime-overview.png" data-alt="StatLume realtime overview">
-          <img src="/assets/screenshots/01-realtime-overview.png" alt="StatLume realtime overview" loading="lazy">
+      <div class="screenshot-carousel" aria-label="StatLume screenshot gallery">
+        <button class="carousel-main" type="button" data-full="/assets/screenshots/02-main-window-promo.png" data-alt="StatLume main window showing YouTube Studio statistics" aria-label="Open selected screenshot">
+          <img src="/assets/screenshots/02-main-window-promo.png" alt="StatLume main window showing YouTube Studio statistics">
         </button>
-        <button class="screenshot-thumb" type="button" data-full="/assets/screenshots/02-view-periods.png" data-alt="StatLume view periods">
-          <img src="/assets/screenshots/02-view-periods.png" alt="StatLume view periods" loading="lazy">
-        </button>
-        <button class="screenshot-thumb" type="button" data-full="/assets/screenshots/03-fullscreen-focus.png" data-alt="StatLume focus mode">
-          <img src="/assets/screenshots/03-fullscreen-focus.png" alt="StatLume focus mode" loading="lazy">
-        </button>
-        <button class="screenshot-thumb" type="button" data-full="/assets/screenshots/04-customize-widget.png" data-alt="StatLume widget customization settings">
-          <img src="/assets/screenshots/04-customize-widget.png" alt="StatLume widget customization settings" loading="lazy">
-        </button>
+        <div class="carousel-thumbs" role="list" aria-label="Choose a screenshot">
+          <button class="screenshot-thumb" type="button" role="listitem" data-full="/assets/screenshots/01-compact-view-promo.png" data-alt="StatLume compact view promotional screenshot" aria-label="Show compact view promotional screenshot">
+            <img src="/assets/screenshots/01-compact-view-promo.png" alt="" loading="lazy">
+          </button>
+          <button class="screenshot-thumb active" type="button" role="listitem" data-full="/assets/screenshots/02-main-window-promo.png" data-alt="StatLume main window showing YouTube Studio statistics" aria-label="Show main window promotional screenshot" aria-current="true">
+            <img src="/assets/screenshots/02-main-window-promo.png" alt="" loading="lazy">
+          </button>
+          <button class="screenshot-thumb" type="button" role="listitem" data-full="/assets/screenshots/03-normal-view-real-workspace.png" data-alt="StatLume normal view in a Windows workspace" aria-label="Show normal view workspace screenshot">
+            <img src="/assets/screenshots/03-normal-view-real-workspace.png" alt="" loading="lazy">
+          </button>
+          <button class="screenshot-thumb" type="button" role="listitem" data-full="/assets/screenshots/04-compact-view-real-workspace.png" data-alt="StatLume compact view in a Windows workspace" aria-label="Show compact view workspace screenshot">
+            <img src="/assets/screenshots/04-compact-view-real-workspace.png" alt="" loading="lazy">
+          </button>
+          <button class="screenshot-thumb" type="button" role="listitem" data-full="/assets/screenshots/05-settings-promo.png" data-alt="StatLume settings window" aria-label="Show settings screenshot">
+            <img src="/assets/screenshots/05-settings-promo.png" alt="" loading="lazy">
+          </button>
+          <button class="screenshot-thumb" type="button" role="listitem" data-full="/assets/screenshots/06-connection-promo.png" data-alt="StatLume YouTube Studio connection window" aria-label="Show connection screenshot">
+            <img src="/assets/screenshots/06-connection-promo.png" alt="" loading="lazy">
+          </button>
+        </div>
       </div>
     </section>
 
@@ -77,6 +88,9 @@
   const lightbox = document.getElementById('screenshot-lightbox');
   const image = lightbox.querySelector('img');
   const close = lightbox.querySelector('.lightbox-close');
+  const mainButton = document.querySelector('.carousel-main');
+  const mainImage = mainButton.querySelector('img');
+  const thumbnails = [...document.querySelectorAll('.screenshot-thumb')];
   let previousFocus = null;
 
   function openLightbox(button) {
@@ -97,9 +111,31 @@
     if (previousFocus) previousFocus.focus();
   }
 
-  document.querySelectorAll('.screenshot-thumb').forEach(button => {
-    button.addEventListener('click', () => openLightbox(button));
+  function selectScreenshot(button) {
+    mainImage.src = button.dataset.full;
+    mainImage.alt = button.dataset.alt || '';
+    mainButton.dataset.full = button.dataset.full;
+    mainButton.dataset.alt = button.dataset.alt || '';
+    thumbnails.forEach(thumbnail => {
+      const selected = thumbnail === button;
+      thumbnail.classList.toggle('active', selected);
+      if (selected) thumbnail.setAttribute('aria-current', 'true');
+      else thumbnail.removeAttribute('aria-current');
+    });
+  }
+
+  thumbnails.forEach((button, index) => {
+    button.addEventListener('click', () => selectScreenshot(button));
+    button.addEventListener('keydown', event => {
+      if (event.key !== 'ArrowLeft' && event.key !== 'ArrowRight') return;
+      event.preventDefault();
+      const direction = event.key === 'ArrowRight' ? 1 : -1;
+      const next = thumbnails[(index + direction + thumbnails.length) % thumbnails.length];
+      selectScreenshot(next);
+      next.focus();
+    });
   });
+  mainButton.addEventListener('click', () => openLightbox(mainButton));
   close.addEventListener('click', closeLightbox);
   lightbox.addEventListener('click', event => {
     if (event.target === lightbox) closeLightbox();
