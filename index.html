@@ -6,7 +6,7 @@
   <title>StatLume</title>
   <meta name="description" content="Realtime YouTube Studio stats on your Windows desktop.">
   <link rel="icon" href="/assets/statlume-logo.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="/assets/site.css">
+  <link rel="stylesheet" href="/assets/site.css?v=20260924-2">
 </head>
 <body>
 <div class="page">
@@ -26,9 +26,13 @@
     <section class="screenshots" aria-labelledby="screenshots-title">
       <h2 id="screenshots-title">Screenshots</h2>
       <div class="screenshot-carousel" aria-label="StatLume screenshot gallery">
-        <button class="carousel-main" type="button" data-full="/assets/screenshots/02-main-window-promo.png" data-alt="StatLume main window showing YouTube Studio statistics" aria-label="Open selected screenshot">
-          <img src="/assets/screenshots/02-main-window-promo.png" alt="StatLume main window showing YouTube Studio statistics">
-        </button>
+        <div class="carousel-stage">
+          <button class="carousel-arrow carousel-prev" type="button" aria-label="Previous screenshot">&#8249;</button>
+          <button class="carousel-main" type="button" data-full="/assets/screenshots/02-main-window-promo.png" data-alt="StatLume main window showing YouTube Studio statistics" aria-label="Open selected screenshot">
+            <img src="/assets/screenshots/02-main-window-promo.png" alt="StatLume main window showing YouTube Studio statistics">
+          </button>
+          <button class="carousel-arrow carousel-next" type="button" aria-label="Next screenshot">&#8250;</button>
+        </div>
         <div class="carousel-thumbs" role="list" aria-label="Choose a screenshot">
           <button class="screenshot-thumb" type="button" role="listitem" data-full="/assets/screenshots/01-compact-view-promo.png" data-alt="StatLume compact view promotional screenshot" aria-label="Show compact view promotional screenshot">
             <img src="/assets/screenshots/01-compact-view-promo.png" alt="" loading="lazy">
@@ -91,6 +95,8 @@
   const mainButton = document.querySelector('.carousel-main');
   const mainImage = mainButton.querySelector('img');
   const thumbnails = [...document.querySelectorAll('.screenshot-thumb')];
+  const previous = document.querySelector('.carousel-prev');
+  const next = document.querySelector('.carousel-next');
   let previousFocus = null;
 
   function openLightbox(button) {
@@ -124,6 +130,13 @@
     });
   }
 
+  function moveSelection(direction) {
+    const current = Math.max(0, thumbnails.findIndex(thumbnail => thumbnail.classList.contains('active')));
+    const target = thumbnails[(current + direction + thumbnails.length) % thumbnails.length];
+    selectScreenshot(target);
+    target.scrollIntoView({behavior: 'smooth', block: 'nearest', inline: 'center'});
+  }
+
   thumbnails.forEach((button, index) => {
     button.addEventListener('click', () => selectScreenshot(button));
     button.addEventListener('keydown', event => {
@@ -135,6 +148,8 @@
       next.focus();
     });
   });
+  previous.addEventListener('click', () => moveSelection(-1));
+  next.addEventListener('click', () => moveSelection(1));
   mainButton.addEventListener('click', () => openLightbox(mainButton));
   close.addEventListener('click', closeLightbox);
   lightbox.addEventListener('click', event => {
