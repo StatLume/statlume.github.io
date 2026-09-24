@@ -1,6 +1,6 @@
 # Privacy Policy for StatLume
 
-Last updated: September 23, 2026
+Last updated: September 24, 2026
 
 StatLume is a Windows desktop application that displays YouTube Studio statistics directly on the user's device.
 
@@ -63,7 +63,7 @@ The StatLume support form uses Cloudflare Workers to receive support submissions
 
 StatLume provides a way to disconnect the local YouTube Studio session.
 
-Disconnecting clears locally cached channel statistics and schedules the embedded-browser profile, including its cookies and session data, for deletion after the browser releases the files. If Windows or the browser temporarily prevents deletion, StatLume retains a local deletion marker and retries when the application next starts. Operating-system backups or other residual data outside StatLume's control may remain. Users may also remove local application data through Windows application settings or by uninstalling StatLume.
+Disconnecting clears locally cached channel statistics and schedules the embedded-browser profile, including its cookies and session data, for deletion after the browser releases the files. If Windows or the browser temporarily prevents deletion, StatLume retains a local deletion marker and retries when the application next starts. For the MSIX installation, StatLume stores application data in package-local storage that Windows normally removes when the package is uninstalled. Portable installations keep data in the user's local application-data directory and do not receive this Windows package cleanup. Operating-system backups, data from older installations, or other residual data outside StatLume's control may remain. Users may also remove local application data through Windows application settings.
 
 ## 8. Data sharing
 
