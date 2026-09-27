@@ -90,7 +90,7 @@ body.home::after{content:"";position:fixed;z-index:0;inset:0;pointer-events:none
 .home .store-links{display:flex;flex-wrap:wrap;align-items:flex-start;gap:18px;margin-top:34px}
 .home .store-card img{height:66px}
 .home .store-card-active:focus-visible{outline-color:#193a60}
-.home .store-status{background:rgba(15,39,68,.09);color:#29435f;border:1px solid rgba(15,39,68,.14)}
+.home .store-status{padding:0;border:0;border-radius:0;background:transparent;color:#425a73;font-size:11px;letter-spacing:.06em}
 .home .screenshots{min-width:0;margin:0}
 .home .screenshot-carousel{margin:0}
 .carousel-viewport{overflow:hidden;padding:28px 4px 66px;margin-bottom:-34px}
