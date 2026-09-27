@@ -75,39 +75,39 @@ footer{margin:48px 0 0;padding:22px 0 0;border-top:1px solid var(--border);color
 @media(prefers-reduced-motion:reduce){.carousel-arrow,.carousel-arrow svg{transition:none}}
 
 /* Home hero */
-body.home{--space-shift:0px;position:relative;isolation:isolate;min-height:100vh;overflow-x:hidden;background:#000;color:#fff}
-body.home::before{content:"";position:fixed;z-index:0;inset:-8vh -3vw;pointer-events:none;background:url('/assets/hero/solar-system.jpg') center/cover no-repeat;transform:translate3d(0,var(--space-shift),0) scale(1.08);will-change:transform}
-body.home::after{content:"";position:fixed;z-index:0;inset:0;pointer-events:none;background:linear-gradient(90deg,rgba(0,0,0,.84) 0%,rgba(0,2,8,.58) 42%,rgba(0,1,5,.2) 72%,rgba(0,0,0,.32) 100%)}
+body.home{--space-shift:0px;position:relative;isolation:isolate;min-height:100vh;overflow-x:hidden;background:#edf4fa;color:#10233f}
+body.home::before{content:"";position:fixed;z-index:0;inset:-8vh -3vw;pointer-events:none;background:url('/assets/hero/light-glass.jpg') center/cover no-repeat;transform:translate3d(0,var(--space-shift),0) scale(1.08);will-change:transform}
+body.home::after{content:"";position:fixed;z-index:0;inset:0;pointer-events:none;background:linear-gradient(90deg,rgba(255,255,255,.62) 0%,rgba(244,249,253,.28) 42%,rgba(234,243,251,.08) 76%,rgba(232,241,249,.16) 100%)}
 .home .page{position:relative;z-index:1;width:min(100% - 32px,1920px);padding:20px 0 34px}
-.home header{margin:0;padding:0 0 28px;border:0;color:#fff}
-.home .brand,.home nav a{color:#fff}
-.home nav a:hover{color:#bfe7ff}
-.home nav a[aria-current="page"]{color:#fff;border-bottom-color:rgba(255,255,255,.7)}
+.home header{margin:0;padding:0 0 28px;border:0;color:#10233f}
+.home .brand,.home nav a{color:#10233f}
+.home nav a:hover{color:#0067b8}
+.home nav a[aria-current="page"]{color:#07182f;border-bottom-color:rgba(0,103,184,.6)}
 .hero{min-height:calc(112vh - 90px);display:grid;grid-template-columns:minmax(390px,.72fr) minmax(650px,1.28fr);align-items:center;gap:32px;padding:24px 0 34px}
 .hero-copy{align-self:center;padding-left:8px}
-.home .hero h1{max-width:660px;margin:0;color:#fff;font-size:clamp(46px,4.1vw,70px);line-height:1.08;letter-spacing:-.045em;text-wrap:balance}
-.home .hero .lead{max-width:620px;margin-top:20px;color:rgba(232,243,255,.82);font-size:clamp(18px,1.35vw,23px);line-height:1.5}
+.home .hero h1{max-width:660px;margin:0;color:#091a33;font-size:clamp(46px,4.1vw,70px);line-height:1.08;letter-spacing:-.045em;text-wrap:balance}
+.home .hero .lead{max-width:620px;margin-top:20px;color:#4c6179;font-size:clamp(18px,1.35vw,23px);line-height:1.5}
 .home .store-links{display:flex;flex-wrap:wrap;align-items:flex-start;gap:18px;margin-top:34px}
 .home .store-card img{height:66px}
-.home .store-card-active:focus-visible{outline-color:#fff}
-.home .store-status{background:rgba(255,255,255,.14);color:#fff;border:1px solid rgba(255,255,255,.2)}
+.home .store-card-active:focus-visible{outline-color:#193a60}
+.home .store-status{background:rgba(15,39,68,.09);color:#29435f;border:1px solid rgba(15,39,68,.14)}
 .home .screenshots{min-width:0;margin:0}
 .home .screenshot-carousel{margin:0}
 .carousel-viewport{overflow:hidden;padding:28px 4px 66px;margin-bottom:-34px}
 .home .carousel-thumbs{display:flex!important;gap:18px;width:max-content;margin:0;transform:translateX(0)}
-.home .screenshot-thumb{flex:0 0 clamp(420px,42vw,700px);width:clamp(420px,42vw,700px);aspect-ratio:16/9;border:0;border-radius:0;opacity:.48;box-shadow:0 15px 34px rgba(0,8,35,.28);transform:scale(.92);transition:opacity .22s ease,transform .22s ease,box-shadow .22s ease}
-.home .screenshot-thumb.active{opacity:1;border:0;box-shadow:0 20px 44px rgba(0,7,32,.4);transform:scale(1)}
+.home .screenshot-thumb{flex:0 0 clamp(420px,42vw,700px);width:clamp(420px,42vw,700px);aspect-ratio:16/9;border:0;border-radius:0;opacity:.58;box-shadow:0 15px 34px rgba(35,58,84,.18);transform:scale(.92);transition:opacity .22s ease,transform .22s ease,box-shadow .22s ease}
+.home .screenshot-thumb.active{opacity:1;border:0;box-shadow:0 20px 44px rgba(35,58,84,.28);transform:scale(1)}
 .home .screenshot-thumb:hover{opacity:.9;transform:scale(.96)}
 .home .screenshot-thumb.active:hover{transform:scale(1)}
 .carousel-controls{width:max-content;display:flex;align-items:center;justify-content:center;gap:18px;margin:0 auto;padding:0;border:0;background:transparent;box-shadow:none}
-.home .carousel-arrow{position:static;width:58px;height:52px;transform:none;border:0;border-radius:0;background:transparent;box-shadow:none;color:#fff;opacity:.62}
+.home .carousel-arrow{position:static;width:58px;height:52px;transform:none;border:0;border-radius:0;background:transparent;box-shadow:none;color:#142d4c;opacity:.58}
 .home .carousel-arrow svg{width:34px;height:34px;stroke-width:3.15}
-.home .carousel-arrow:hover{transform:scale(1.1);border:0;background:transparent;box-shadow:none;color:#fff;opacity:1}
+.home .carousel-arrow:hover{transform:scale(1.1);border:0;background:transparent;box-shadow:none;color:#07182f;opacity:1}
 .home .carousel-arrow:active{transform:scale(.92);background:transparent;opacity:.82}
-.home .carousel-arrow:focus-visible{outline:2px solid rgba(255,255,255,.72);outline-offset:1px}
+.home .carousel-arrow:focus-visible{outline:2px solid rgba(10,41,73,.62);outline-offset:1px}
 .carousel-dots{display:flex;align-items:center;gap:9px;padding:0 8px}
-.carousel-dots span{width:7px;height:7px;border-radius:50%;background:rgba(255,255,255,.34);transition:background .18s ease,transform .18s ease}
-.carousel-dots span.active{width:9px;height:9px;background:rgba(255,255,255,.9);transform:none}
+.carousel-dots span{width:7px;height:7px;border-radius:50%;background:rgba(20,45,76,.25);transition:background .18s ease,transform .18s ease}
+.carousel-dots span.active{width:9px;height:9px;background:rgba(12,37,68,.82);transform:none}
 .home-details{width:min(100%,920px);margin:54px auto 0;padding:48px;border-radius:24px;background:#fff;color:var(--text);box-shadow:0 28px 70px rgba(0,10,42,.22)}
 .home-details>h2:first-child{margin-top:0}
 .home footer{display:none}
