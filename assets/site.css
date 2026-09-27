@@ -75,8 +75,8 @@ footer{margin:48px 0 0;padding:22px 0 0;border-top:1px solid var(--border);color
 @media(prefers-reduced-motion:reduce){.carousel-arrow,.carousel-arrow svg{transition:none}}
 
 /* Home hero */
-body.home{min-height:100vh;background:#07170f url('/assets/hero/redwood-forest.jpg') center/cover fixed no-repeat;color:#fff}
-body.home::before{content:"";position:fixed;inset:0;pointer-events:none;background:linear-gradient(90deg,rgba(2,14,10,.8) 0%,rgba(2,18,12,.54) 40%,rgba(1,12,9,.34) 70%,rgba(1,9,7,.5) 100%)}
+body.home{min-height:100vh;background:#020817 url('/assets/hero/lunar-space.jpg') center/cover fixed no-repeat;color:#fff}
+body.home::before{content:"";position:fixed;inset:0;pointer-events:none;background:linear-gradient(90deg,rgba(1,7,20,.82) 0%,rgba(2,11,30,.5) 42%,rgba(2,9,25,.22) 72%,rgba(1,6,18,.38) 100%)}
 .home .page{position:relative;z-index:1;width:min(100% - 32px,1920px);padding:20px 0 34px}
 .home header{margin:0;padding:0 0 28px;border:0;color:#fff}
 .home .brand,.home nav a{color:#fff}
@@ -110,5 +110,5 @@ body.home::before{content:"";position:fixed;inset:0;pointer-events:none;backgrou
 .home-details{width:min(100%,920px);margin:54px auto 0;padding:48px;border-radius:24px;background:#fff;color:var(--text);box-shadow:0 28px 70px rgba(0,10,42,.22)}
 .home-details>h2:first-child{margin-top:0}
 .home footer{display:none}
-@media(max-width:1080px){.hero{grid-template-columns:1fr;gap:28px;padding-top:42px}.hero-copy{max-width:760px}.home .screenshots{width:100%}.home .screenshot-thumb{flex-basis:min(70vw,560px);width:min(70vw,560px)}}
+@media(max-width:1180px){.home .page{width:min(100% - 40px,1920px)}.hero{grid-template-columns:1fr;gap:28px;padding-top:42px}.hero-copy{max-width:800px}.home .screenshots{width:100%}.home .screenshot-thumb{flex-basis:min(72vw,680px);width:min(72vw,680px)}}
 @media(max-width:680px){body.home{background-attachment:scroll}.home .page{width:min(100% - 24px,1920px)}.home header{padding-bottom:16px}.hero{min-height:0;padding:34px 0 48px}.home .hero h1{font-size:40px}.home .hero .lead{font-size:17px;margin-top:16px}.home .store-links{flex-direction:row;gap:14px;margin-top:26px}.home .store-card img{height:54px}.home .store-card-disabled{align-items:flex-start}.home .screenshot-thumb{flex-basis:86vw;width:86vw;border-radius:0}.carousel-viewport{padding:16px 2px 48px;margin-bottom:-26px}.carousel-controls{gap:12px}.home .carousel-arrow{width:48px;height:44px}.home .carousel-arrow svg{width:29px;height:29px}.carousel-dots{padding:0 5px}}
