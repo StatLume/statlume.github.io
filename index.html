@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://get.microsoft.com">
   <link rel="preconnect" href="https://developer.apple.com">
   <link rel="preload" href="/assets/hero/solar-system.jpg" as="image" fetchpriority="high">
-  <link rel="stylesheet" href="/assets/site.css?v=20260927-14">
+  <link rel="stylesheet" href="/assets/site.css?v=20260927-15">
 </head>
 <body class="home">
 <div class="page">
@@ -158,6 +158,20 @@
     }, {passive: true});
     updateParallax();
   }
+
+  const designWidth = 1600;
+  const designHeight = 920;
+  let resizeFrame = 0;
+  const updateLayoutScale = () => {
+    const scale = window.innerWidth / designWidth;
+    document.body.style.setProperty('--layout-scale', scale.toFixed(4));
+    document.body.style.minHeight = `${Math.ceil(designHeight * scale)}px`;
+    resizeFrame = 0;
+  };
+  window.addEventListener('resize', () => {
+    if (!resizeFrame) resizeFrame = window.requestAnimationFrame(updateLayoutScale);
+  }, {passive: true});
+  updateLayoutScale();
 })();
 </script>
 </body>
