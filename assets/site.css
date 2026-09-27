@@ -76,39 +76,39 @@ footer{margin:48px 0 0;padding:22px 0 0;border-top:1px solid var(--border);color
 @media(prefers-reduced-motion:reduce){.carousel-arrow,.carousel-arrow svg{transition:none}}
 
 /* Home hero */
-body.home{position:relative;isolation:isolate;width:100vw;height:100vh;min-height:0;overflow:hidden;background:#edf4fa;color:#10233f}
-body.home::before{content:"";position:fixed;z-index:0;inset:0;pointer-events:none;background:radial-gradient(ellipse 70% 58% at 82% 74%,rgba(142,190,228,.46) 0%,rgba(207,228,244,.34) 42%,transparent 72%),radial-gradient(ellipse 52% 46% at 68% 22%,rgba(255,255,255,.94) 0%,rgba(219,235,247,.56) 56%,transparent 78%),conic-gradient(from 218deg at 86% 72%,transparent 0deg,rgba(255,255,255,.72) 30deg,rgba(161,202,234,.42) 62deg,rgba(244,249,253,.7) 94deg,transparent 136deg),linear-gradient(135deg,#fff 0%,#f4f8fc 42%,#dfeef8 100%)}
-body.home::after{content:"";position:fixed;z-index:0;inset:0;pointer-events:none;background:linear-gradient(90deg,rgba(255,255,255,.44),transparent 48%,rgba(215,232,246,.1))}
+body.home{position:relative;isolation:isolate;width:100vw;height:100vh;min-height:0;overflow:hidden;background:#0b161b url('/assets/hero/sunset-landscape.png') center center/cover no-repeat;color:#f6f9fc}
+body.home::before{content:"";position:fixed;z-index:0;inset:0;pointer-events:none;background:linear-gradient(90deg,rgba(3,12,18,.58) 0%,rgba(5,15,21,.26) 46%,rgba(3,10,15,.14) 100%)}
+body.home::after{content:"";position:fixed;z-index:0;inset:0;pointer-events:none;background:linear-gradient(180deg,rgba(4,13,18,.18),transparent 48%,rgba(2,8,12,.22))}
 .home .page{position:relative;z-index:1;width:min(100% - 32px,1920px);padding:20px 0 34px}
-.home header{margin:0;padding:0 0 28px;border:0;color:#10233f}
-.home .brand,.home nav a{color:#10233f}
-.home nav a:hover{color:#0067b8}
-.home nav a[aria-current="page"]{color:#07182f;border-bottom-color:rgba(0,103,184,.6)}
+.home header{margin:0;padding:0 0 28px;border:0;color:#f6f9fc}
+.home .brand,.home nav a{color:#f6f9fc;text-shadow:0 1px 12px rgba(0,0,0,.32)}
+.home nav a:hover{color:#fff}
+.home nav a[aria-current="page"]{color:#fff;border-bottom-color:rgba(255,255,255,.72)}
 .hero{min-height:calc(112vh - 90px);display:grid;grid-template-columns:minmax(390px,.72fr) minmax(650px,1.28fr);align-items:center;gap:32px;padding:24px 0 34px}
 .hero-copy{align-self:center;padding-left:8px}
-.home .hero h1{max-width:660px;margin:0;color:#091a33;font-size:clamp(46px,4.1vw,70px);line-height:1.08;letter-spacing:-.015em;font-kerning:normal;text-wrap:balance}
-.home .hero .lead{max-width:620px;margin-top:20px;color:#4c6179;font-size:clamp(18px,1.35vw,23px);line-height:1.5}
+.home .hero h1{max-width:660px;margin:0;color:#fff;font-size:clamp(46px,4.1vw,70px);line-height:1.08;letter-spacing:-.015em;font-kerning:normal;text-wrap:balance;text-shadow:0 3px 24px rgba(0,0,0,.34)}
+.home .hero .lead{max-width:620px;margin-top:20px;color:#dce7ed;font-size:clamp(18px,1.35vw,23px);line-height:1.5;text-shadow:0 2px 16px rgba(0,0,0,.42)}
 .home .store-links{display:flex;flex-wrap:wrap;align-items:flex-start;gap:18px;margin-top:34px}
 .home .store-card img{height:66px}
 .home .store-card-active:focus-visible{outline-color:#193a60}
-.home .store-status{padding:0;border:0;border-radius:0;background:transparent;color:#425a73;font-size:11px;letter-spacing:.06em}
+.home .store-status{padding:0;border:0;border-radius:0;background:transparent;color:#d9e4ea;font-size:11px;letter-spacing:.06em;text-shadow:0 1px 8px rgba(0,0,0,.45)}
 .home .screenshots{min-width:0;margin:0}
 .home .screenshot-carousel{margin:0}
 .carousel-viewport{overflow:hidden;padding:28px 4px 66px;margin-bottom:-34px}
 .home .carousel-thumbs{display:flex!important;gap:18px;width:max-content;margin:0;transform:translateX(0)}
-.home .screenshot-thumb{flex:0 0 clamp(420px,42vw,700px);width:clamp(420px,42vw,700px);aspect-ratio:16/9;border:0;border-radius:0;opacity:.58;box-shadow:0 15px 34px rgba(35,58,84,.18);transform:scale(.92);transition:opacity .22s ease,transform .22s ease,box-shadow .22s ease}
-.home .screenshot-thumb.active{opacity:1;border:0;box-shadow:0 20px 44px rgba(35,58,84,.28);transform:scale(1)}
+.home .screenshot-thumb{flex:0 0 clamp(420px,42vw,700px);width:clamp(420px,42vw,700px);aspect-ratio:16/9;border:1px solid rgba(240,248,252,.64);border-radius:0;opacity:.58;box-shadow:0 15px 34px rgba(0,0,0,.3);transform:scale(.92);transition:opacity .22s ease,transform .22s ease,box-shadow .22s ease}
+.home .screenshot-thumb.active{opacity:1;border:1px solid rgba(255,255,255,.86);box-shadow:0 20px 44px rgba(0,0,0,.42);transform:scale(1)}
 .home .screenshot-thumb:hover{opacity:.9;transform:scale(.96)}
 .home .screenshot-thumb.active:hover{transform:scale(1)}
 .carousel-controls{width:max-content;display:flex;align-items:center;justify-content:center;gap:18px;margin:0 auto;padding:0;border:0;background:transparent;box-shadow:none}
-.home .carousel-arrow{position:static;width:58px;height:52px;transform:none;border:0;border-radius:0;background:transparent;box-shadow:none;color:#142d4c;opacity:.58}
+.home .carousel-arrow{position:static;width:58px;height:52px;transform:none;border:0;border-radius:0;background:transparent;box-shadow:none;color:#fff;opacity:.62}
 .home .carousel-arrow svg{width:34px;height:34px;stroke-width:3.15}
-.home .carousel-arrow:hover{transform:scale(1.1);border:0;background:transparent;box-shadow:none;color:#07182f;opacity:1}
+.home .carousel-arrow:hover{transform:scale(1.1);border:0;background:transparent;box-shadow:none;color:#fff;opacity:1}
 .home .carousel-arrow:active{transform:scale(.92);background:transparent;opacity:.82}
-.home .carousel-arrow:focus-visible{outline:2px solid rgba(10,41,73,.62);outline-offset:1px}
+.home .carousel-arrow:focus-visible{outline:2px solid rgba(255,255,255,.8);outline-offset:1px}
 .carousel-dots{display:flex;align-items:center;gap:9px;padding:0 8px}
-.carousel-dots span{width:7px;height:7px;border-radius:50%;background:rgba(20,45,76,.25);transition:background .18s ease,transform .18s ease}
-.carousel-dots span.active{width:9px;height:9px;background:rgba(12,37,68,.82);transform:none}
+.carousel-dots span{width:7px;height:7px;border-radius:50%;background:rgba(255,255,255,.34);transition:background .18s ease,transform .18s ease}
+.carousel-dots span.active{width:9px;height:9px;background:rgba(255,255,255,.92);transform:none}
 .home-details{width:min(100%,920px);margin:54px auto 0;padding:48px;border-radius:24px;background:#fff;color:var(--text);box-shadow:0 28px 70px rgba(0,10,42,.22)}
 .home-details>h2:first-child{margin-top:0}
 .home footer{display:none}
