@@ -147,7 +147,10 @@
   }
 
   thumbnails.forEach((button, index) => {
-    button.addEventListener('click', () => selectScreenshot(button));
+    button.addEventListener('click', () => {
+      selectScreenshot(button);
+      openLightbox(button);
+    });
     button.addEventListener('keydown', event => {
       if (event.key !== 'ArrowLeft' && event.key !== 'ArrowRight') return;
       event.preventDefault();
