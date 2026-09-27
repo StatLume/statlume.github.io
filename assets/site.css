@@ -75,9 +75,9 @@ footer{margin:48px 0 0;padding:22px 0 0;border-top:1px solid var(--border);color
 @media(prefers-reduced-motion:reduce){.carousel-arrow,.carousel-arrow svg{transition:none}}
 
 /* Home hero */
-body.home{--space-shift:0px;position:relative;isolation:isolate;min-height:100vh;overflow-x:hidden;background:#edf4fa;color:#10233f}
-body.home::before{content:"";position:fixed;z-index:0;inset:-8vh -3vw;pointer-events:none;background:url('/assets/hero/light-glass.jpg') center/cover no-repeat;transform:translate3d(0,var(--space-shift),0) scale(1.08);will-change:transform}
-body.home::after{content:"";position:fixed;z-index:0;inset:0;pointer-events:none;background:linear-gradient(90deg,rgba(255,255,255,.62) 0%,rgba(244,249,253,.28) 42%,rgba(234,243,251,.08) 76%,rgba(232,241,249,.16) 100%)}
+body.home{position:relative;isolation:isolate;width:100vw;height:100vh;min-height:0;overflow:hidden;background:#edf4fa;color:#10233f}
+body.home::before{content:"";position:fixed;z-index:0;inset:0;pointer-events:none;background:radial-gradient(ellipse 70% 58% at 82% 74%,rgba(142,190,228,.46) 0%,rgba(207,228,244,.34) 42%,transparent 72%),radial-gradient(ellipse 52% 46% at 68% 22%,rgba(255,255,255,.94) 0%,rgba(219,235,247,.56) 56%,transparent 78%),conic-gradient(from 218deg at 86% 72%,transparent 0deg,rgba(255,255,255,.72) 30deg,rgba(161,202,234,.42) 62deg,rgba(244,249,253,.7) 94deg,transparent 136deg),linear-gradient(135deg,#fff 0%,#f4f8fc 42%,#dfeef8 100%)}
+body.home::after{content:"";position:fixed;z-index:0;inset:0;pointer-events:none;background:linear-gradient(90deg,rgba(255,255,255,.44),transparent 48%,rgba(215,232,246,.1))}
 .home .page{position:relative;z-index:1;width:min(100% - 32px,1920px);padding:20px 0 34px}
 .home header{margin:0;padding:0 0 28px;border:0;color:#10233f}
 .home .brand,.home nav a{color:#10233f}
@@ -113,23 +113,23 @@ body.home::after{content:"";position:fixed;z-index:0;inset:0;pointer-events:none
 .home footer{display:none}
 @media(max-width:1180px){.home .page{width:min(100% - 40px,1920px)}.hero{grid-template-columns:1fr;gap:28px;padding-top:42px}.hero-copy{max-width:800px}.home .screenshots{width:100%}.home .screenshot-thumb{flex-basis:min(72vw,680px);width:min(72vw,680px)}}
 @media(max-width:680px){body.home{background-attachment:scroll}.home .page{width:min(100% - 24px,1920px)}.home header{padding-bottom:16px}.hero{min-height:0;padding:34px 0 48px}.home .hero h1{font-size:40px}.home .hero .lead{font-size:17px;margin-top:16px}.home .store-links{flex-direction:row;gap:14px;margin-top:26px}.home .store-card img{height:54px}.home .store-card-disabled{align-items:flex-start}.home .screenshot-thumb{flex-basis:86vw;width:86vw;border-radius:0}.carousel-viewport{padding:16px 2px 48px;margin-bottom:-26px}.carousel-controls{gap:12px}.home .carousel-arrow{width:48px;height:44px}.home .carousel-arrow svg{width:29px;height:29px}.carousel-dots{padding:0 5px}}
-@media(prefers-reduced-motion:reduce){body.home::before{transform:scale(1.08);will-change:auto}}
+@media(prefers-reduced-motion:reduce){body.home::before{will-change:auto}}
 
 /* Proportional home layout: scale the complete composition as one canvas. */
 body.home{--layout-scale:1}
-.home .page{position:relative;top:auto;left:auto;width:1600px;height:920px;margin:0;padding:20px 16px 34px;transform:none;zoom:var(--layout-scale)}
+.home .page{position:absolute;z-index:1;top:0;left:50%;width:1600px;height:900px;margin:0 0 0 -800px;padding:20px 32px;transform:scale(var(--layout-scale));transform-origin:top center;zoom:1}
 .home header{min-height:54px;flex-direction:row;align-items:center;justify-content:space-between;gap:24px;margin:0;padding:0 0 24px;transform:none}
 .home .brand img{width:34px;height:34px}
 .home .brand{min-height:34px;font-size:17px}
 .home nav{display:grid;width:auto;grid-template-columns:50px 56px 48px 58px;justify-content:end;gap:0 17px;font-size:12px}
 .home nav a{min-height:34px;justify-content:center}
-.home .hero{width:100%;height:820px;min-height:820px;grid-template-columns:580px 956px;gap:32px;padding:24px 0 34px}
-.home .hero-copy{max-width:none;padding-left:8px}
+.home .hero{width:100%;height:806px;min-height:806px;grid-template-columns:580px 924px;gap:32px;padding:24px 0 24px}
+.home .hero-copy{max-width:none;padding-left:0}
 .home .hero h1{max-width:650px;font-size:64px}
 .home .hero .lead{max-width:610px;margin-top:20px;font-size:21px}
 .home .store-links{flex-flow:row nowrap;gap:18px;margin-top:34px}
 .home .store-card img{height:66px}
-.home .screenshots{width:956px}
+.home .screenshots{width:924px}
 .home .screenshot-thumb{flex-basis:620px;width:620px}
 .home .carousel-arrow{width:58px;height:52px}
 .home .carousel-arrow svg{width:34px;height:34px}

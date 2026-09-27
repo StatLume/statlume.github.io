@@ -8,8 +8,7 @@
   <link rel="icon" href="/assets/statlume-logo.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://get.microsoft.com">
   <link rel="preconnect" href="https://developer.apple.com">
-  <link rel="preload" href="/assets/hero/light-glass.jpg" as="image" fetchpriority="high">
-  <link rel="stylesheet" href="/assets/site.css?v=20260927-19">
+  <link rel="stylesheet" href="/assets/site.css?v=20260927-20">
 </head>
 <body class="home">
 <div class="page">
@@ -146,26 +145,12 @@
     if (event.key === 'Escape' && lightbox.classList.contains('open')) closeLightbox();
   });
 
-  if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-    let parallaxFrame = 0;
-    const updateParallax = () => {
-      const shift = Math.max(-80, window.scrollY * -.12);
-      document.body.style.setProperty('--space-shift', `${shift}px`);
-      parallaxFrame = 0;
-    };
-    window.addEventListener('scroll', () => {
-      if (!parallaxFrame) parallaxFrame = window.requestAnimationFrame(updateParallax);
-    }, {passive: true});
-    updateParallax();
-  }
-
   const designWidth = 1600;
-  const designHeight = 920;
+  const designHeight = 900;
   let resizeFrame = 0;
   const updateLayoutScale = () => {
-    const scale = window.innerWidth / designWidth;
+    const scale = Math.min(window.innerWidth / designWidth, window.innerHeight / designHeight);
     document.body.style.setProperty('--layout-scale', scale.toFixed(4));
-    document.body.style.minHeight = `${Math.ceil(designHeight * scale)}px`;
     resizeFrame = 0;
   };
   window.addEventListener('resize', () => {
