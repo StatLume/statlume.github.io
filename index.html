@@ -6,9 +6,11 @@
   <title>StatLume</title>
   <meta name="description" content="Realtime YouTube Studio stats on your Windows desktop.">
   <link rel="icon" href="/assets/statlume-logo.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="/assets/site.css?v=20260927-6">
+  <link rel="preconnect" href="https://get.microsoft.com">
+  <link rel="preconnect" href="https://developer.apple.com">
+  <link rel="stylesheet" href="/assets/site.css?v=20260927-7">
 </head>
-<body>
+<body class="home">
 <div class="page">
   <header>
     <a class="brand" href="/"><img src="/assets/statlume-logo.svg" alt="StatLume logo"><span>StatLume</span></a>
@@ -20,8 +22,10 @@
     </nav>
   </header>
   <main>
+    <section class="hero">
+      <div class="hero-copy">
     <h1>Realtime stats on your Windows desktop.</h1>
-    <p class="lead">StatLume is a compact Windows desktop widget for near-real-time <strong>YouTube Studio</strong> statistics.</p>
+    <p class="lead">Near-real-time <strong>YouTube Studio</strong> statistics at a glance.</p>
 
     <div class="store-links" aria-label="Download StatLume">
       <a class="store-card store-card-active" href="https://apps.microsoft.com/" target="_blank" rel="noopener noreferrer">
@@ -32,18 +36,13 @@
         <span class="store-status">Coming soon</span>
       </div>
     </div>
+      </div>
 
     <section class="screenshots" aria-label="StatLume screenshots">
       <div class="screenshot-carousel" aria-label="StatLume screenshot gallery">
-        <div class="carousel-stage">
-          <button class="carousel-arrow carousel-prev" type="button" aria-label="Previous screenshot"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="m15 18-6-6 6-6"/></svg></button>
-          <button class="carousel-main" type="button" data-full="/assets/screenshots/release/01.png" data-alt="StatLume screenshot 1" aria-label="Open selected screenshot">
-            <img src="/assets/screenshots/release/01.png" alt="StatLume screenshot 1">
-          </button>
-          <button class="carousel-arrow carousel-next" type="button" aria-label="Next screenshot"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="m9 6 6 6-6 6"/></svg></button>
-        </div>
+        <div class="carousel-viewport">
         <div class="carousel-thumbs" role="list" aria-label="Choose a screenshot">
-          <button class="screenshot-thumb active" type="button" role="listitem" data-full="/assets/screenshots/release/01.png" data-alt="StatLume screenshot 1" aria-label="Show screenshot 1" aria-current="true"><img src="/assets/screenshots/release-thumbs/01.jpg" alt="" loading="lazy" width="384" height="216"></button>
+          <button class="screenshot-thumb active" type="button" role="listitem" data-full="/assets/screenshots/release/01.png" data-alt="StatLume screenshot 1" aria-label="Show screenshot 1" aria-current="true"><img src="/assets/screenshots/release-thumbs/01.jpg" alt="" loading="eager" fetchpriority="high" width="384" height="216"></button>
           <button class="screenshot-thumb" type="button" role="listitem" data-full="/assets/screenshots/release/02.png" data-alt="StatLume screenshot 2" aria-label="Show screenshot 2"><img src="/assets/screenshots/release-thumbs/02.jpg" alt="" loading="lazy" width="384" height="216"></button>
           <button class="screenshot-thumb" type="button" role="listitem" data-full="/assets/screenshots/release/03.png" data-alt="StatLume screenshot 3" aria-label="Show screenshot 3"><img src="/assets/screenshots/release-thumbs/03.jpg" alt="" loading="lazy" width="384" height="216"></button>
           <button class="screenshot-thumb" type="button" role="listitem" data-full="/assets/screenshots/release/04.png" data-alt="StatLume screenshot 4" aria-label="Show screenshot 4"><img src="/assets/screenshots/release-thumbs/04.jpg" alt="" loading="lazy" width="384" height="216"></button>
@@ -56,9 +55,17 @@
           <button class="screenshot-thumb" type="button" role="listitem" data-full="/assets/screenshots/release/10.png" data-alt="StatLume screenshot 10" aria-label="Show screenshot 10"><img src="/assets/screenshots/release-thumbs/10.jpg" alt="" loading="lazy" width="384" height="216"></button>
           <button class="screenshot-thumb" type="button" role="listitem" data-full="/assets/screenshots/release/11.png" data-alt="StatLume screenshot 11" aria-label="Show screenshot 11"><img src="/assets/screenshots/release-thumbs/11.jpg" alt="" loading="lazy" width="384" height="216"></button>
         </div>
+        </div>
+        <div class="carousel-controls">
+          <button class="carousel-arrow carousel-prev" type="button" aria-label="Previous screenshot"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="m15 18-6-6 6-6"/></svg></button>
+          <div class="carousel-dots" aria-hidden="true"><span class="active"></span><span></span><span></span></div>
+          <button class="carousel-arrow carousel-next" type="button" aria-label="Next screenshot"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="m9 6 6 6-6 6"/></svg></button>
+        </div>
       </div>
     </section>
+    </section>
 
+    <div class="home-details">
     <h2>What StatLume does</h2>
     <div class="card">
       <ul>
@@ -82,6 +89,7 @@
     <h2>Important notice</h2>
     <p>StatLume is an independent application and is not affiliated with, endorsed by, sponsored by, or officially connected with Google LLC or YouTube.</p>
     <p>The application relies on interfaces used by <strong>YouTube Studio</strong>. These interfaces may change, become unavailable, or behave differently at any time.</p>
+    </div>
   </main>
   <footer>StatLume is an independent application and is not affiliated with, endorsed by, sponsored by, or officially connected with Google LLC or YouTube.</footer>
 </div>
@@ -95,9 +103,8 @@
   const lightbox = document.getElementById('screenshot-lightbox');
   const image = lightbox.querySelector('img');
   const close = lightbox.querySelector('.lightbox-close');
-  const mainButton = document.querySelector('.carousel-main');
-  const mainImage = mainButton.querySelector('img');
   const thumbnails = [...document.querySelectorAll('.screenshot-thumb')];
+  const dots = [...document.querySelectorAll('.carousel-dots span')];
   const previous = document.querySelector('.carousel-prev');
   const next = document.querySelector('.carousel-next');
   let previousFocus = null;
@@ -121,16 +128,15 @@
   }
 
   function selectScreenshot(button) {
-    mainImage.src = button.dataset.full;
-    mainImage.alt = button.dataset.alt || '';
-    mainButton.dataset.full = button.dataset.full;
-    mainButton.dataset.alt = button.dataset.alt || '';
     thumbnails.forEach(thumbnail => {
       const selected = thumbnail === button;
       thumbnail.classList.toggle('active', selected);
       if (selected) thumbnail.setAttribute('aria-current', 'true');
       else thumbnail.removeAttribute('aria-current');
     });
+    const index = thumbnails.indexOf(button);
+    const page = Math.min(dots.length - 1, Math.floor(index / Math.ceil(thumbnails.length / dots.length)));
+    dots.forEach((dot, dotIndex) => dot.classList.toggle('active', dotIndex === page));
   }
 
   function moveSelection(direction) {
@@ -156,7 +162,6 @@
   });
   previous.addEventListener('click', () => moveSelection(-1));
   next.addEventListener('click', () => moveSelection(1));
-  mainButton.addEventListener('click', () => openLightbox(mainButton));
   close.addEventListener('click', closeLightbox);
   lightbox.addEventListener('click', event => {
     if (event.target === lightbox) closeLightbox();
