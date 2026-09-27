@@ -75,14 +75,15 @@ footer{margin:48px 0 0;padding:22px 0 0;border-top:1px solid var(--border);color
 @media(prefers-reduced-motion:reduce){.carousel-arrow,.carousel-arrow svg{transition:none}}
 
 /* Home hero */
-body.home{min-height:100vh;background:#020817 url('/assets/hero/lunar-space.jpg') center/cover fixed no-repeat;color:#fff}
-body.home::before{content:"";position:fixed;inset:0;pointer-events:none;background:linear-gradient(90deg,rgba(1,7,20,.82) 0%,rgba(2,11,30,.5) 42%,rgba(2,9,25,.22) 72%,rgba(1,6,18,.38) 100%)}
+body.home{--space-shift:0px;position:relative;isolation:isolate;min-height:100vh;overflow-x:hidden;background:#000;color:#fff}
+body.home::before{content:"";position:fixed;z-index:0;inset:-8vh -3vw;pointer-events:none;background:url('/assets/hero/solar-system.jpg') center/cover no-repeat;transform:translate3d(0,var(--space-shift),0) scale(1.08);will-change:transform}
+body.home::after{content:"";position:fixed;z-index:0;inset:0;pointer-events:none;background:linear-gradient(90deg,rgba(0,0,0,.84) 0%,rgba(0,2,8,.58) 42%,rgba(0,1,5,.2) 72%,rgba(0,0,0,.32) 100%)}
 .home .page{position:relative;z-index:1;width:min(100% - 32px,1920px);padding:20px 0 34px}
 .home header{margin:0;padding:0 0 28px;border:0;color:#fff}
 .home .brand,.home nav a{color:#fff}
 .home nav a:hover{color:#bfe7ff}
 .home nav a[aria-current="page"]{color:#fff;border-bottom-color:rgba(255,255,255,.7)}
-.hero{min-height:calc(100vh - 90px);display:grid;grid-template-columns:minmax(390px,.72fr) minmax(650px,1.28fr);align-items:center;gap:32px;padding:24px 0 34px}
+.hero{min-height:calc(112vh - 90px);display:grid;grid-template-columns:minmax(390px,.72fr) minmax(650px,1.28fr);align-items:center;gap:32px;padding:24px 0 34px}
 .hero-copy{align-self:center;padding-left:8px}
 .home .hero h1{max-width:660px;margin:0;color:#fff;font-size:clamp(46px,4.1vw,70px);line-height:1.08;letter-spacing:-.045em;text-wrap:balance}
 .home .hero .lead{max-width:620px;margin-top:20px;color:rgba(232,243,255,.82);font-size:clamp(18px,1.35vw,23px);line-height:1.5}
@@ -112,3 +113,4 @@ body.home::before{content:"";position:fixed;inset:0;pointer-events:none;backgrou
 .home footer{display:none}
 @media(max-width:1180px){.home .page{width:min(100% - 40px,1920px)}.hero{grid-template-columns:1fr;gap:28px;padding-top:42px}.hero-copy{max-width:800px}.home .screenshots{width:100%}.home .screenshot-thumb{flex-basis:min(72vw,680px);width:min(72vw,680px)}}
 @media(max-width:680px){body.home{background-attachment:scroll}.home .page{width:min(100% - 24px,1920px)}.home header{padding-bottom:16px}.hero{min-height:0;padding:34px 0 48px}.home .hero h1{font-size:40px}.home .hero .lead{font-size:17px;margin-top:16px}.home .store-links{flex-direction:row;gap:14px;margin-top:26px}.home .store-card img{height:54px}.home .store-card-disabled{align-items:flex-start}.home .screenshot-thumb{flex-basis:86vw;width:86vw;border-radius:0}.carousel-viewport{padding:16px 2px 48px;margin-bottom:-26px}.carousel-controls{gap:12px}.home .carousel-arrow{width:48px;height:44px}.home .carousel-arrow svg{width:29px;height:29px}.carousel-dots{padding:0 5px}}
+@media(prefers-reduced-motion:reduce){body.home::before{transform:scale(1.08);will-change:auto}}
