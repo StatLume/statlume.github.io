@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://get.microsoft.com">
   <link rel="preconnect" href="https://developer.apple.com">
   <link rel="preload" href="/assets/hero/light-glass.jpg" as="image" fetchpriority="high">
-  <link rel="stylesheet" href="/assets/site.css?v=20260927-17">
+  <link rel="stylesheet" href="/assets/site.css?v=20260927-18">
 </head>
 <body class="home">
 <div class="page">
@@ -164,9 +164,7 @@
   let resizeFrame = 0;
   const updateLayoutScale = () => {
     const scale = window.innerWidth / designWidth;
-    const headerScale = scale > 1 ? 1 / scale : 1;
     document.body.style.setProperty('--layout-scale', scale.toFixed(4));
-    document.body.style.setProperty('--header-scale', headerScale.toFixed(4));
     document.body.style.minHeight = `${Math.ceil(designHeight * scale)}px`;
     resizeFrame = 0;
   };
