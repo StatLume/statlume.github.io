@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" class="home-page">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -8,7 +8,7 @@
   <link rel="icon" href="/assets/statlume-logo.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://get.microsoft.com">
   <link rel="preconnect" href="https://developer.apple.com">
-  <link rel="stylesheet" href="/assets/site.css?v=20260927-20">
+  <link rel="stylesheet" href="/assets/site.css?v=20260927-21">
 </head>
 <body class="home">
 <div class="page">
@@ -79,6 +79,7 @@
   const image = lightbox.querySelector('img');
   const close = lightbox.querySelector('.lightbox-close');
   const thumbnails = [...document.querySelectorAll('.screenshot-thumb')];
+  const carouselViewport = document.querySelector('.carousel-viewport');
   const dots = [...document.querySelectorAll('.carousel-dots span')];
   const previous = document.querySelector('.carousel-prev');
   const next = document.querySelector('.carousel-next');
@@ -118,7 +119,12 @@
     const current = Math.max(0, thumbnails.findIndex(thumbnail => thumbnail.classList.contains('active')));
     const target = thumbnails[(current + direction + thumbnails.length) % thumbnails.length];
     selectScreenshot(target);
-    target.scrollIntoView({behavior: 'smooth', block: 'nearest', inline: 'center'});
+    centerScreenshot(target);
+  }
+
+  function centerScreenshot(target) {
+    const left = target.offsetLeft - (carouselViewport.clientWidth - target.offsetWidth) / 2;
+    carouselViewport.scrollTo({left, behavior: 'smooth'});
   }
 
   thumbnails.forEach((button, index) => {
@@ -132,7 +138,8 @@
       const direction = event.key === 'ArrowRight' ? 1 : -1;
       const next = thumbnails[(index + direction + thumbnails.length) % thumbnails.length];
       selectScreenshot(next);
-      next.focus();
+      next.focus({preventScroll: true});
+      centerScreenshot(next);
     });
   });
   previous.addEventListener('click', () => moveSelection(-1));

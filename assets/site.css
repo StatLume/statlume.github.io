@@ -1,6 +1,7 @@
 :root{color-scheme:light;--bg:#fff;--panel:#fff;--soft:#f7f9fb;--text:#202124;--muted:#6b7280;--blue:#1689e8;--blue-soft:#eaf5ff;--border:#e4e7eb;--border-strong:#d7dce2;--danger:#b42318;--success:#157347}
 *{box-sizing:border-box}
 html{scroll-behavior:smooth;scrollbar-gutter:stable;overflow-y:scroll}
+html.home-page{width:100%;height:100%;overflow:hidden;scrollbar-gutter:auto}
 body{margin:0;font:15px/1.65 system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;background:var(--bg);color:var(--text)}
 body.lightbox-open{overflow:hidden}
 a{color:var(--blue)}
