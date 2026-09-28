@@ -90,7 +90,7 @@
 
   async function recordAppleInterest() {
     if (localStorage.getItem('statlume-apple-interest') === 'recorded') {
-      appleInterestStatus.textContent = 'Interest already recorded';
+      await showAppleInterestCount();
       return;
     }
     appleInterest.disabled = true;
@@ -104,6 +104,19 @@
     } catch {
       appleInterestStatus.textContent = 'Please try again';
       appleInterest.disabled = false;
+    }
+  }
+
+  async function showAppleInterestCount() {
+    appleInterest.disabled = true;
+    appleInterestStatus.textContent = 'Loading interest…';
+    try {
+      const response = await fetch(interestEndpoint);
+      const result = await response.json();
+      if (!response.ok) throw new Error(result.error || 'Unable to load interest.');
+      appleInterestStatus.textContent = `Thank you · ${result.count} interested`;
+    } catch {
+      appleInterestStatus.textContent = 'Thank you · Interest recorded';
     }
   }
 
@@ -167,6 +180,9 @@
   previous.addEventListener('click', () => moveSelection(-1));
   next.addEventListener('click', () => moveSelection(1));
   appleInterest.addEventListener('click', recordAppleInterest);
+  if (localStorage.getItem('statlume-apple-interest') === 'recorded') {
+    showAppleInterestCount();
+  }
   close.addEventListener('click', closeLightbox);
   lightbox.addEventListener('click', event => {
     if (event.target === lightbox) closeLightbox();
