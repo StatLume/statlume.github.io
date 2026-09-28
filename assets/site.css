@@ -185,3 +185,46 @@ body.home{--layout-scale:1}
   .home .screenshots{width:calc(100% + 28px);margin-left:-14px}
   .carousel-viewport{padding-right:14px;padding-left:14px}
 }
+
+/* Tablet layout: full-size responsive composition instead of canvas scaling. */
+@media(min-width:761px) and (max-width:1180px){
+  html.home-page{height:auto;min-height:100%;overflow-x:hidden;overflow-y:auto;scrollbar-gutter:auto}
+  body.home{width:100%;height:auto;min-height:100svh;overflow-x:hidden;overflow-y:auto;background-position:center;background-attachment:fixed}
+  body.home::before{background:linear-gradient(90deg,rgba(3,12,18,.62),rgba(5,15,21,.3) 58%,rgba(3,10,15,.28))}
+  .home .page{position:relative;top:auto;left:auto;width:100%;height:auto;min-height:100svh;margin:0;padding:22px clamp(28px,5vw,56px) 42px;transform:none;transform-origin:initial}
+  .home header{min-height:48px;display:flex;flex-direction:row;align-items:center;justify-content:space-between;gap:24px;margin:0;padding:0}
+  .home .brand{gap:10px;min-height:34px;font-size:18px}
+  .home .brand img{width:34px;height:34px}
+  .home nav{display:flex;width:auto;gap:clamp(12px,2.3vw,28px);font-size:13px}
+  .home nav a{min-height:34px;padding:0 3px}
+  .home .hero{display:flex;width:100%;height:auto;min-height:0;flex-direction:column;align-items:stretch;gap:42px;padding:clamp(88px,11vh,126px) 0 40px}
+  .home .hero-copy{width:100%;max-width:760px;padding:0}
+  .home .hero h1{max-width:720px;font-size:clamp(48px,7vw,64px);line-height:1.06;letter-spacing:-.024em}
+  .home .hero .lead{max-width:680px;margin-top:18px;font-size:clamp(19px,2.6vw,23px)}
+  .home .store-links{display:flex;flex-flow:row nowrap;gap:16px;margin-top:30px}
+  .home .store-card{width:auto}
+  .home .store-card img{width:auto;height:62px}
+  .home .screenshots{width:calc(100% + clamp(56px,10vw,112px));margin-left:clamp(-56px,-5vw,-28px);overflow:hidden}
+  .home .screenshot-carousel{width:100%}
+  .carousel-viewport{width:100%;margin:0;padding:20px clamp(28px,5vw,56px) 46px;overflow-x:auto;overflow-y:hidden;scrollbar-width:none;scroll-snap-type:x mandatory}
+  .carousel-viewport::-webkit-scrollbar{display:none}
+  .home .carousel-thumbs{gap:18px;width:max-content;transform:none}
+  .home .screenshot-thumb{flex:0 0 min(78vw,780px);width:min(78vw,780px);border-color:rgba(240,248,252,.52);opacity:.7;transform:none;scroll-snap-align:center}
+  .home .screenshot-thumb.active,.home .screenshot-thumb:hover,.home .screenshot-thumb.active:hover{opacity:1;transform:none}
+  .carousel-controls{gap:17px}
+}
+
+@media(min-width:900px) and (max-width:1180px) and (orientation:landscape){
+  html.home-page,body.home{height:100%;overflow:hidden}
+  .home .page{height:100svh;padding:18px 30px 24px}
+  .home .hero{height:calc(100svh - 48px);display:grid;grid-template-columns:minmax(350px,.82fr) minmax(500px,1.18fr);align-items:center;gap:26px;padding:12px 0 24px}
+  .home .hero h1{font-size:clamp(39px,4.7vw,52px)}
+  .home .hero .lead{font-size:clamp(17px,1.9vw,21px)}
+  .home .store-links{gap:13px;margin-top:24px}
+  .home .store-card img{height:clamp(50px,5.7vw,60px)}
+  .home .screenshots{width:100%;margin:0;overflow:hidden}
+  .carousel-viewport{padding:20px 3px 38px}
+  .home .screenshot-thumb{flex-basis:min(58vw,650px);width:min(58vw,650px)}
+  .home .carousel-arrow{width:50px;height:44px}
+  .home .carousel-arrow svg{width:29px;height:29px}
+}

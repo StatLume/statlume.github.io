@@ -193,10 +193,10 @@
 
   const designWidth = 1600;
   const designHeight = 900;
-  const mobileBreakpoint = 760;
+  const adaptiveBreakpoint = 1180;
   let resizeFrame = 0;
   const updateLayoutScale = () => {
-    if (window.innerWidth <= mobileBreakpoint) {
+    if (window.innerWidth <= adaptiveBreakpoint) {
       document.body.style.setProperty('--layout-scale', '1');
       resizeFrame = 0;
       return;
