@@ -139,3 +139,49 @@ body.home{--layout-scale:1}
 .home .screenshot-thumb{flex-basis:620px;width:620px}
 .home .carousel-arrow{width:58px;height:52px}
 .home .carousel-arrow svg{width:34px;height:34px}
+
+/* Mobile home is a purpose-built vertical layout, not a scaled desktop canvas. */
+@media(max-width:760px){
+  html.home-page{height:auto;min-height:100%;overflow-x:hidden;overflow-y:auto;scrollbar-gutter:auto}
+  body.home{width:100%;height:auto;min-height:100svh;overflow-x:hidden;overflow-y:auto;background-position:48% center;background-attachment:fixed}
+  body.home::before{background:linear-gradient(180deg,rgba(3,12,18,.68) 0%,rgba(5,15,21,.48) 52%,rgba(2,8,12,.72) 100%)}
+  .home .page{position:relative;top:auto;left:auto;width:100%;height:auto;min-height:100svh;margin:0;padding:16px 18px 34px;transform:none;transform-origin:initial}
+  .home header{min-height:42px;display:flex;flex-direction:row;align-items:center;justify-content:space-between;gap:12px;margin:0;padding:0}
+  .home .brand{gap:8px;min-height:30px;font-size:16px}
+  .home .brand img{width:30px;height:30px}
+  .home .brand span{margin-bottom:3px}
+  .home nav{display:flex;width:auto;gap:5px;font-size:11px}
+  .home nav a{min-height:30px;padding:0 5px;white-space:nowrap}
+  .home nav a:first-child{display:none}
+  .home .hero{display:flex;width:100%;height:auto;min-height:0;flex-direction:column;align-items:stretch;gap:34px;padding:clamp(76px,14vh,126px) 0 30px}
+  .home .hero-copy{width:100%;padding:0}
+  .home .hero h1{max-width:560px;font-size:clamp(36px,10.6vw,48px);line-height:1.06;letter-spacing:-.025em;text-wrap:balance}
+  .home .hero .lead{max-width:540px;margin-top:16px;font-size:17px;line-height:1.42}
+  .home .store-links{width:100%;display:grid;grid-template-columns:minmax(0,1.08fr) minmax(0,.92fr);align-items:start;gap:12px;margin-top:26px}
+  .home .store-card{min-width:0;width:100%}
+  .home .store-card img{width:100%;height:auto;max-height:none;border-radius:7px}
+  .home .store-status{font-size:9px;line-height:1.25;white-space:normal;text-align:center}
+  .home .screenshots{width:calc(100% + 36px);margin-left:-18px;overflow:hidden}
+  .home .screenshot-carousel{width:100%}
+  .carousel-viewport{width:100%;margin:0;padding:12px 18px 34px;overflow-x:auto;overflow-y:hidden;scrollbar-width:none;scroll-snap-type:x mandatory}
+  .carousel-viewport::-webkit-scrollbar{display:none}
+  .home .carousel-thumbs{gap:12px;width:max-content;transform:none}
+  .home .screenshot-thumb{flex:0 0 calc(100vw - 56px);width:calc(100vw - 56px);border-color:rgba(240,248,252,.46);opacity:.72;transform:none;scroll-snap-align:center;box-shadow:0 14px 30px rgba(0,0,0,.36)}
+  .home .screenshot-thumb.active,.home .screenshot-thumb:hover,.home .screenshot-thumb.active:hover{opacity:1;transform:none}
+  .carousel-controls{gap:14px}
+  .home .carousel-arrow{width:52px;height:46px}
+  .home .carousel-arrow svg{width:30px;height:30px}
+  .lightbox{padding:12px}
+  .lightbox img{max-width:calc(100vw - 24px);max-height:84vh;border-radius:4px}
+}
+
+@media(max-width:390px){
+  .home .page{padding-right:14px;padding-left:14px}
+  .home nav{gap:2px}
+  .home nav a{padding:0 4px}
+  .home .hero{padding-top:64px}
+  .home .hero h1{font-size:35px}
+  .home .hero .lead{font-size:16px}
+  .home .screenshots{width:calc(100% + 28px);margin-left:-14px}
+  .carousel-viewport{padding-right:14px;padding-left:14px}
+}
