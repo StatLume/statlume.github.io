@@ -19,7 +19,7 @@ body.home.landing{width:100%;height:auto;min-height:100vh;overflow-x:hidden;over
 .landing-card p,.landing-card li{font-size:13px;line-height:1.65}
 .landing-card ul{margin:0;padding-left:18px}
 .landing-card .content-actions{margin-top:22px}
-.landing .landing-footer{display:grid;position:relative;z-index:2;width:min(100% - 48px,1120px);margin:30px auto 0;padding:34px 0 38px;border-top:1px solid rgba(255,255,255,.14);color:#aebbc3}
+.landing footer.landing-footer{display:grid!important;position:relative;z-index:2;width:min(100% - 48px,1120px);margin:48px auto 0;padding:34px 0 38px;border-top:1px solid rgba(255,255,255,.14);color:#aebbc3}
 .landing .landing-footer .brand,.landing .landing-footer a{color:#dbe6eb}
 .landing .landing-footer .footer-brand p,.landing .landing-footer .footer-links a{color:#aebbc3}
 .landing .landing-footer .footer-disclaimer{border-top-color:rgba(255,255,255,.14);color:#7f909a}
