@@ -483,7 +483,11 @@ body.content{background:radial-gradient(circle at 12% 5%,rgba(22,137,232,.055),t
 body.content{position:relative;isolation:isolate;min-height:100vh;overflow-x:hidden;background:#071218 url('/assets/hero/sunset-landscape.png') center top/cover fixed no-repeat;color:#f6f9fc}
 body.content::before{content:"";position:fixed;z-index:0;inset:0;pointer-events:none;background:linear-gradient(180deg,rgba(3,12,18,.66) 0%,rgba(5,15,21,.82) 42%,rgba(3,10,15,.96) 100%)}
 .content .page{position:relative;z-index:1;width:1120px;padding:20px 0 38px}
-.content header{min-height:54px;margin:0;padding:0 0 24px;border:0;color:#f6f9fc}
+.content header{width:min(calc(100vw - 64px),1536px);min-height:54px;margin:0 0 0 calc((1120px - min(calc(100vw - 64px),1536px))/2);padding:0 0 24px;border:0;color:#f6f9fc}
+.content .brand{min-height:34px;font-size:17px}
+.content .brand img{width:34px;height:34px}
+.content nav{display:grid;width:auto;grid-template-columns:50px 56px 48px 58px;justify-content:end;gap:0 17px;font-size:12px}
+.content nav a{min-height:34px;justify-content:center}
 .content .brand,.content nav a{color:#f6f9fc;text-shadow:0 1px 12px rgba(0,0,0,.32)}
 .content nav a:hover{color:#fff}
 .content nav a[aria-current="page"]{color:#fff;border-bottom-color:rgba(255,255,255,.72)}
@@ -527,6 +531,11 @@ body.content::before{content:"";position:fixed;z-index:0;inset:0;pointer-events:
 @media(min-width:681px) and (max-width:1180px){
   body.content{background-position:center top}
   .content .page{width:min(100% - 56px,920px);padding-top:22px}
+  .content header{width:100%;min-height:48px;display:flex;flex-direction:row;align-items:center;justify-content:space-between;gap:24px;margin:0;padding:0}
+  .content .brand{gap:10px;min-height:34px;font-size:18px}
+  .content .brand img{width:34px;height:34px}
+  .content nav{display:flex;width:auto;gap:clamp(12px,2.3vw,28px);font-size:13px}
+  .content nav a{min-height:34px;padding:0 3px}
   .content-main{padding-top:54px}
   .content-hero{grid-template-columns:1fr;gap:38px;padding:24px 0 52px}
   .content-hero-copy{max-width:720px}
@@ -541,7 +550,7 @@ body.content::before{content:"";position:fixed;z-index:0;inset:0;pointer-events:
   body.content{background-attachment:scroll;background-position:center top}
   body.content::before{background:linear-gradient(180deg,rgba(3,12,18,.7),rgba(4,13,18,.92) 34%,rgba(3,10,15,.98))}
   .content .page{width:100%;padding:16px 18px 30px}
-  .content header{min-height:42px;flex-direction:row;align-items:center;justify-content:space-between;gap:12px;padding:0}
+  .content header{width:100%;min-height:42px;flex-direction:row;align-items:center;justify-content:space-between;gap:12px;margin:0;padding:0}
   .content .brand{gap:8px;min-height:30px;font-size:16px}
   .content .brand img{width:30px;height:30px}
   .content nav{width:auto;gap:5px;font-size:11px}
