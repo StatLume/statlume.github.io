@@ -405,6 +405,21 @@ body.content{background:radial-gradient(circle at 12% 5%,rgba(22,137,232,.055),t
 .content-store-badge:focus-visible{outline:2px solid #1689e8;outline-offset:3px}
 .content-visual{margin:0;overflow:hidden;border:1px solid rgba(255,255,255,.7);background:#0d111a;box-shadow:0 22px 55px rgba(21,37,48,.17)}
 .content-visual img{display:block;width:100%;height:auto}
+.content-gallery{overflow:visible;background:transparent;box-shadow:none;border:0}
+.content-gallery-viewport{overflow:hidden;margin:0 -34px;padding:24px 34px 34px}
+.content-gallery-track{display:flex;width:max-content;gap:14px}
+.content-gallery-slide{flex:0 0 500px;width:500px;margin:0;padding:0;overflow:hidden;border:1px solid rgba(255,255,255,.34);border-radius:0;background:#0d111a;box-shadow:0 14px 34px rgba(0,0,0,.3);line-height:0;opacity:.46;transform:scale(.92);transition:opacity .2s ease,transform .2s ease,border-color .2s ease}
+.content-gallery-slide.active{border-color:rgba(255,255,255,.82);opacity:1;transform:scale(1)}
+.content-gallery-slide:hover{background:#0d111a;opacity:.84}
+.content-gallery-slide.active:hover{opacity:1}
+.content-gallery-slide img{display:block;width:100%;height:auto}
+.content-gallery-controls{display:flex;align-items:center;justify-content:center;gap:13px;margin-top:-8px}
+.content-gallery-controls>button{display:grid;width:42px;height:38px;place-items:center;padding:0;border:0;background:transparent;color:#fff;opacity:.58}
+.content-gallery-controls>button:hover{background:transparent;opacity:1;transform:scale(1.08)}
+.content-gallery-controls svg{width:25px;height:25px;fill:none;stroke:currentColor;stroke-width:2.6;stroke-linecap:round;stroke-linejoin:round}
+.content-gallery-controls>span{display:flex;align-items:center;gap:7px}
+.content-gallery-controls i{display:block;width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,.3)}
+.content-gallery-controls i.active{width:8px;height:8px;background:rgba(255,255,255,.9)}
 .content-section{display:grid;grid-template-columns:minmax(200px,.62fr) minmax(0,1.38fr);gap:clamp(54px,8vw,110px);padding:64px 0;border-top:1px solid var(--border)}
 .content-section-heading h2{margin:0;font-size:30px;line-height:1.2;letter-spacing:-.032em}
 .content-section-heading p{margin:14px 0 0;color:#7b838c;font-size:13px;line-height:1.65}
@@ -461,4 +476,95 @@ body.content{background:radial-gradient(circle at 12% 5%,rgba(22,137,232,.055),t
   .download-option:nth-child(odd),.download-option:nth-child(even){padding:24px 0;border-left:0}
   .period-strip strong{font-size:20px}
   .period-strip div{padding:16px 10px}
+}
+
+/* Product landings — the home page visual language, extended vertically. */
+.content-page{min-height:100%;background:#071218;scroll-padding-top:28px}
+body.content{position:relative;isolation:isolate;min-height:100vh;overflow-x:hidden;background:#071218 url('/assets/hero/sunset-landscape.png') center top/cover fixed no-repeat;color:#f6f9fc}
+body.content::before{content:"";position:fixed;z-index:0;inset:0;pointer-events:none;background:linear-gradient(180deg,rgba(3,12,18,.66) 0%,rgba(5,15,21,.82) 42%,rgba(3,10,15,.96) 100%)}
+.content .page{position:relative;z-index:1;width:1120px;padding:20px 0 38px}
+.content header{min-height:54px;margin:0;padding:0 0 24px;border:0;color:#f6f9fc}
+.content .brand,.content nav a{color:#f6f9fc;text-shadow:0 1px 12px rgba(0,0,0,.32)}
+.content nav a:hover{color:#fff}
+.content nav a[aria-current="page"]{color:#fff;border-bottom-color:rgba(255,255,255,.72)}
+.content-main{padding-top:48px}
+.content-hero{grid-template-columns:480px 580px;gap:60px;align-items:center;padding:26px 0 58px}
+.content-hero-copy h1{max-width:520px;color:#fff;font-size:52px;line-height:1.06;letter-spacing:-.035em;text-shadow:0 3px 24px rgba(0,0,0,.3)}
+.content-hero-copy .lead{max-width:500px;margin-top:18px;color:#dce7ed;font-size:17px;line-height:1.55;text-shadow:0 2px 16px rgba(0,0,0,.3)}
+.content .eyebrow{margin-bottom:13px;color:#65baff}
+.content-actions{margin-top:24px}
+.content-button{border:1px solid rgba(255,255,255,.18);background:rgba(255,255,255,.94);color:#101820}
+.content-button:hover{border-color:#fff;background:#fff;color:#101820}
+.content-button-secondary{border-color:rgba(255,255,255,.28);background:rgba(7,18,24,.32);color:#edf6fa}
+.content-button-secondary:hover{border-color:rgba(255,255,255,.58);background:rgba(255,255,255,.1);color:#fff}
+.content-visual{border:1px solid rgba(255,255,255,.58);background:#0d111a;box-shadow:0 20px 48px rgba(0,0,0,.38)}
+.content-visual.content-gallery{overflow:visible;border:0;background:transparent;box-shadow:none}
+.content-section{grid-template-columns:280px 1fr;gap:64px;padding:42px 0;border-top-color:rgba(255,255,255,.16)}
+.content-section-heading h2{color:#f6f9fc;font-size:27px}
+.content-section-heading p{margin-top:10px;color:#aebcc4}
+.content-prose{max-width:690px}
+.content-prose h3,.feature-line h3,.download-option h3{color:#f3f8fb}
+.content-prose p,.content-prose li,.feature-line p,.download-option p{color:#bac6cd}
+.content-prose strong{color:#fff}
+.content-prose a{color:#79c4ff}
+.feature-lines,.period-strip,.faq-list,.download-options{border-color:rgba(255,255,255,.16)}
+.feature-line,.faq-list details,.download-option{border-color:rgba(255,255,255,.16)}
+.period-strip{margin-top:18px;border-color:rgba(255,255,255,.16)}
+.period-strip div{padding:16px 14px}
+.period-strip div+div,.download-option:nth-child(even){border-color:rgba(255,255,255,.16)}
+.period-strip strong{color:#fff;font-size:22px}
+.period-strip span{color:#aebbc3}
+.faq-list summary{padding:16px 0;color:#eef5f8}
+.faq-list summary span{color:#8dbbd8}
+.faq-list details p{margin-bottom:17px;color:#b9c5cc}
+.download-option{padding-top:22px;padding-bottom:22px}
+.content .site-footer{gap:34px 64px;margin-top:54px;padding-top:30px;border-top-color:rgba(255,255,255,.16)}
+.content .site-footer .footer-brand p,.content .footer-links a{color:#aebbc3}
+.content .footer-links a:hover{color:#fff}
+.content .footer-links span,.content .footer-disclaimer{color:#85959f}
+.content .footer-disclaimer{border-top-color:rgba(255,255,255,.16)}
+
+@media(min-width:681px) and (max-width:1180px){
+  body.content{background-position:center top}
+  .content .page{width:min(100% - 56px,920px);padding-top:22px}
+  .content-main{padding-top:54px}
+  .content-hero{grid-template-columns:1fr;gap:38px;padding:24px 0 52px}
+  .content-hero-copy{max-width:720px}
+  .content-hero-copy h1{max-width:680px;font-size:clamp(46px,6vw,58px)}
+  .content-hero-copy .lead{max-width:650px;font-size:18px}
+  .content-visual{width:min(100%,820px);max-width:none}
+  .content-gallery-slide{flex-basis:min(76vw,690px);width:min(76vw,690px);transform:none}
+  .content-section{grid-template-columns:220px minmax(0,1fr);gap:48px;padding:40px 0}
+}
+
+@media(max-width:680px){
+  body.content{background-attachment:scroll;background-position:center top}
+  body.content::before{background:linear-gradient(180deg,rgba(3,12,18,.7),rgba(4,13,18,.92) 34%,rgba(3,10,15,.98))}
+  .content .page{width:100%;padding:16px 18px 30px}
+  .content header{min-height:42px;flex-direction:row;align-items:center;justify-content:space-between;gap:12px;padding:0}
+  .content .brand{gap:8px;min-height:30px;font-size:16px}
+  .content .brand img{width:30px;height:30px}
+  .content nav{width:auto;gap:5px;font-size:11px}
+  .content nav a{min-height:30px;padding:0 5px;white-space:nowrap}
+  .content nav a:first-child{display:none}
+  .content-main{padding-top:58px}
+  .content-hero{gap:28px;padding:0 0 42px}
+  .content-hero-copy h1{font-size:clamp(38px,10vw,46px);line-height:1.05}
+  .content-hero-copy .lead{margin-top:16px;font-size:16px;line-height:1.5}
+  .content-actions{margin-top:22px}
+  .content-store-badge img{height:46px}
+  .content-gallery{width:calc(100% + 36px);margin-left:-18px}
+  .content-gallery-viewport{margin:0;padding:14px 18px 28px;overflow-x:auto;scrollbar-width:none;scroll-snap-type:x mandatory}
+  .content-gallery-viewport::-webkit-scrollbar{display:none}
+  .content-gallery-track{gap:10px}
+  .content-gallery-slide{flex:0 0 calc(100vw - 54px);width:calc(100vw - 54px);transform:none;scroll-snap-align:center}
+  .content-gallery-controls{margin-top:0}
+  .content-section{padding:34px 0}
+  .content-section-heading{margin-bottom:22px}
+  .content-section-heading h2{font-size:25px}
+  .content-prose p,.content-prose li{font-size:14px;line-height:1.68}
+  .period-strip div{padding:14px 8px}
+  .period-strip strong{font-size:19px}
+  .period-strip span{font-size:9px}
+  .content .site-footer{margin-top:42px}
 }
