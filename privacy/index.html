@@ -1,80 +1,64 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" class="legal-page">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>StatLume Privacy Policy</title>
   <meta name="description" content="Privacy Policy for StatLume.">
   <link rel="icon" href="/assets/statlume-logo.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="/assets/site.css">
+  <link rel="stylesheet" href="/assets/site.css?v=20260928-legal-1">
 </head>
-<body>
+<body class="legal">
 <div class="page">
   <header>
     <a class="brand" href="/"><img src="/assets/statlume-logo.svg" alt="StatLume logo"><span>StatLume</span></a>
-    <nav>
-      <a href="/">Home</a>
-      <a href="/privacy/" aria-current="page">Privacy</a>
-      <a href="/terms/">Terms</a>
-      <a href="/support/">Support</a>
-    </nav>
+    <nav><a href="/">Home</a><a href="/privacy/" aria-current="page">Privacy</a><a href="/terms/">Terms</a><a href="/support/">Support</a></nav>
   </header>
-  <main>
-    <h1>Privacy Policy</h1>
-    <p class="lead">Last updated: September 24, 2026</p>
 
-    <h2>1. Data collection</h2>
-    <p>During normal application use, StatLume does not operate a developer-controlled backend for <strong>YouTube Studio</strong> analytics or authentication data and does not send the user's <strong>YouTube Studio</strong> statistics, Google credentials, YouTube credentials, browser session data, or authentication cookies to the developer.</p>
-    <p>The developer does not sell, rent, or use this information for advertising, profiling, analytics, or marketing.</p>
-    <p>A separate support form is available on the StatLume website. Information voluntarily submitted through that form is processed as described below.</p>
+  <main class="legal-main">
+    <section class="legal-hero" aria-labelledby="privacy-title">
+      <div><p class="eyebrow">Legal</p><h1 id="privacy-title">Privacy Policy</h1></div>
+      <p class="legal-date"><span>Last updated</span>September 24, 2026</p>
+    </section>
 
-    <h2>2. YouTube Studio sign-in</h2>
-    <p>Users sign in to <strong>YouTube Studio</strong> through an embedded Chromium browser window. Authentication is performed by Google and YouTube within that browser session.</p>
-    <p>StatLume does not receive or store the user's Google or YouTube password.</p>
+    <div class="legal-layout">
+      <aside class="legal-nav" aria-label="Privacy Policy sections">
+        <p>On this page</p>
+        <ol>
+          <li><a href="#collection">Data collection</a></li>
+          <li><a href="#sign-in">YouTube Studio sign-in</a></li>
+          <li><a href="#browser-session">Local browser session</a></li>
+          <li><a href="#local-data">Local application data</a></li>
+          <li><a href="#data-use">How local data is used</a></li>
+          <li><a href="#third-parties">Third-party services</a></li>
+          <li><a href="#disconnecting">Disconnecting YouTube Studio</a></li>
+          <li><a href="#sharing">Data sharing</a></li>
+          <li><a href="#support-data">Support form data</a></li>
+          <li><a href="#security">Security</a></li>
+          <li><a href="#children">Children's privacy</a></li>
+          <li><a href="#changes">Policy changes</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ol>
+      </aside>
 
-    <h2>3. Local browser session</h2>
-    <p>When the user signs in to <strong>YouTube Studio</strong>, the embedded Chromium browser maintains its authentication session locally on the user's Windows device. This browser session may include cookies and related browser data required by YouTube to keep the user signed in.</p>
-    <p>StatLume does not copy YouTube authentication cookies or authorization credentials into its own application settings, does not send them to the developer, and does not use them to perform separate authenticated HTTP requests outside the embedded browser session.</p>
-
-    <h2>4. Local application data</h2>
-    <p>StatLume may store a limited local cache required for the user interface and normal application operation, such as:</p>
-    <ul><li>channel name or channel identifier;</li><li>subscriber count;</li><li>channel avatar or locally cached avatar data;</li><li>video titles or identifiers;</li><li>the most recent statistics snapshot or other short-lived cached realtime data;</li><li>application preferences and display settings.</li></ul>
-    <p>This information is stored locally on the user's device and is not transmitted to the developer through normal application use.</p>
-
-    <h2>5. How local data is used</h2>
-    <p>The local browser session is used to allow <strong>YouTube Studio</strong> to remain authenticated inside the embedded browser. Statistics displayed by StatLume are obtained from responses produced by the authenticated <strong>YouTube Studio</strong> page and are processed locally on the user's device for display in the widget.</p>
-    <p>Local cached data is used only to support the user interface, preserve settings, and provide continuity when recent information is temporarily unavailable.</p>
-    <p>StatLume may read the Windows network-reachability state locally to avoid unnecessary requests while the device is offline and to resume loading <strong>YouTube Studio</strong> after connectivity returns. If a Studio page fails to load, StatLume may make rate-limited retry requests directly to Google or YouTube using increasing delays. Network-reachability state is not stored by StatLume and is not sent to the developer.</p>
-
-    <h2>6. Third-party services</h2>
-    <p>StatLume interacts with Google and YouTube services when the user signs in and while the authenticated <strong>YouTube Studio</strong> page retrieves information. Use of Google and YouTube services is also subject to their respective terms and privacy policies.</p>
-    <p>The StatLume support form uses Cloudflare Workers to receive support submissions and GitHub to store support tickets in a private repository accessible only to authorized maintainers.</p>
-
-    <h2>7. Disconnecting YouTube Studio</h2>
-    <p>StatLume provides a way to disconnect the local <strong>YouTube Studio</strong> session. Disconnecting clears locally cached channel statistics and schedules the embedded-browser profile, including its cookies and session data, for deletion after the browser releases the files.</p>
-    <p>If Windows or the browser temporarily prevents deletion, StatLume retains a local deletion marker and retries when the application next starts. For the MSIX installation, StatLume stores application data in package-local storage that Windows normally removes when the package is uninstalled. Portable installations keep data in the user's local application-data directory and do not receive this Windows package cleanup. Operating-system backups, data from older installations, or other residual data outside StatLume's control may remain. Users can also remove local application data through Windows application-management options.</p>
-
-    <h2>8. Data sharing</h2>
-    <p>StatLume does not sell or share the user's personal data with advertisers, data brokers, or marketing companies.</p>
-    <p>Support submissions are transmitted only for the purpose of handling the user's support request and may be processed by Cloudflare and GitHub as service providers involved in that workflow.</p>
-
-    <h2>9. Support form data</h2>
-    <p>If a user submits the <a href="/support/">StatLume support form</a>, StatLume may process information the user chooses to provide, including support category, ticket title, StatLume version, Windows version, problem description, steps to reproduce, optional reply email address, and other information voluntarily entered into the form.</p>
-    <p>The support form sends this information to a Cloudflare Worker, which creates a support ticket in a private GitHub repository controlled by StatLume. Support tickets are not publicly visible.</p>
-    <div class="notice">Do not submit passwords, authentication cookies, session tokens, API keys, or other account credentials through the support form.</div>
-
-    <h2>10. Security</h2>
-    <p>StatLume is designed so that YouTube authentication and session information remains on the user's local device. Support requests are sent over HTTPS and stored in a private GitHub repository with access limited to authorized maintainers.</p>
-
-    <h2>11. Children's privacy</h2>
-    <p>StatLume is not designed to knowingly collect personal information from children.</p>
-
-    <h2>12. Changes to this Privacy Policy</h2>
-    <p>This Privacy Policy may be updated if StatLume's functionality, support workflow, or data handling changes.</p>
-
-    <h2>13. Contact</h2>
-    <p>For privacy questions or support, use the <a href="/support/">StatLume Support page</a>.</p>
+      <article class="legal-content">
+        <section id="collection"><h2><span>01</span>Data collection</h2><p>During normal application use, StatLume does not operate a developer-controlled backend for <strong>YouTube Studio</strong> analytics or authentication data and does not send the user's <strong>YouTube Studio</strong> statistics, Google credentials, YouTube credentials, browser session data, or authentication cookies to the developer.</p><p>The developer does not sell, rent, or use this information for advertising, profiling, analytics, or marketing.</p><p>A separate support form is available on the StatLume website. Information voluntarily submitted through that form is processed as described below.</p></section>
+        <section id="sign-in"><h2><span>02</span>YouTube Studio sign-in</h2><p>Users sign in to <strong>YouTube Studio</strong> through an embedded Chromium browser window. Authentication is performed by Google and YouTube within that browser session.</p><p>StatLume does not receive or store the user's Google or YouTube password.</p></section>
+        <section id="browser-session"><h2><span>03</span>Local browser session</h2><p>When the user signs in to <strong>YouTube Studio</strong>, the embedded Chromium browser maintains its authentication session locally on the user's Windows device. This browser session may include cookies and related browser data required by YouTube to keep the user signed in.</p><p>StatLume does not copy YouTube authentication cookies or authorization credentials into its own application settings, does not send them to the developer, and does not use them to perform separate authenticated HTTP requests outside the embedded browser session.</p></section>
+        <section id="local-data"><h2><span>04</span>Local application data</h2><p>StatLume may store a limited local cache required for the user interface and normal application operation, such as:</p><ul><li>channel name or channel identifier;</li><li>subscriber count;</li><li>channel avatar or locally cached avatar data;</li><li>video titles or identifiers;</li><li>the most recent statistics snapshot or other short-lived cached realtime data;</li><li>application preferences and display settings.</li></ul><p>This information is stored locally on the user's device and is not transmitted to the developer through normal application use.</p></section>
+        <section id="data-use"><h2><span>05</span>How local data is used</h2><p>The local browser session is used to allow <strong>YouTube Studio</strong> to remain authenticated inside the embedded browser. Statistics displayed by StatLume are obtained from responses produced by the authenticated <strong>YouTube Studio</strong> page and are processed locally on the user's device for display in the widget.</p><p>Local cached data is used only to support the user interface, preserve settings, and provide continuity when recent information is temporarily unavailable.</p><p>StatLume may read the Windows network-reachability state locally to avoid unnecessary requests while the device is offline and to resume loading <strong>YouTube Studio</strong> after connectivity returns. If a Studio page fails to load, StatLume may make rate-limited retry requests directly to Google or YouTube using increasing delays. Network-reachability state is not stored by StatLume and is not sent to the developer.</p></section>
+        <section id="third-parties"><h2><span>06</span>Third-party services</h2><p>StatLume interacts with Google and YouTube services when the user signs in and while the authenticated <strong>YouTube Studio</strong> page retrieves information. Use of Google and YouTube services is also subject to their respective terms and privacy policies.</p><p>The StatLume support form uses Cloudflare Workers to receive support submissions and GitHub to store support tickets in a private repository accessible only to authorized maintainers.</p></section>
+        <section id="disconnecting"><h2><span>07</span>Disconnecting YouTube Studio</h2><p>StatLume provides a way to disconnect the local <strong>YouTube Studio</strong> session. Disconnecting clears locally cached channel statistics and schedules the embedded-browser profile, including its cookies and session data, for deletion after the browser releases the files.</p><p>If Windows or the browser temporarily prevents deletion, StatLume retains a local deletion marker and retries when the application next starts. For the MSIX installation, StatLume stores application data in package-local storage that Windows normally removes when the package is uninstalled. Portable installations keep data in the user's local application-data directory and do not receive this Windows package cleanup. Operating-system backups, data from older installations, or other residual data outside StatLume's control may remain. Users can also remove local application data through Windows application-management options.</p></section>
+        <section id="sharing"><h2><span>08</span>Data sharing</h2><p>StatLume does not sell or share the user's personal data with advertisers, data brokers, or marketing companies.</p><p>Support submissions are transmitted only for the purpose of handling the user's support request and may be processed by Cloudflare and GitHub as service providers involved in that workflow.</p></section>
+        <section id="support-data"><h2><span>09</span>Support form data</h2><p>If a user submits the <a href="/support/">StatLume support form</a>, StatLume may process information the user chooses to provide, including support category, ticket title, StatLume version, Windows version, problem description, steps to reproduce, optional reply email address, and other information voluntarily entered into the form.</p><p>The support form sends this information to a Cloudflare Worker, which creates a support ticket in a private GitHub repository controlled by StatLume. Support tickets are not publicly visible.</p><div class="legal-note">Do not submit passwords, authentication cookies, session tokens, API keys, or other account credentials through the support form.</div></section>
+        <section id="security"><h2><span>10</span>Security</h2><p>StatLume is designed so that YouTube authentication and session information remains on the user's local device. Support requests are sent over HTTPS and stored in a private GitHub repository with access limited to authorized maintainers.</p></section>
+        <section id="children"><h2><span>11</span>Children's privacy</h2><p>StatLume is not designed to knowingly collect personal information from children.</p></section>
+        <section id="changes"><h2><span>12</span>Changes to this Privacy Policy</h2><p>This Privacy Policy may be updated if StatLume's functionality, support workflow, or data handling changes.</p></section>
+        <section id="contact"><h2><span>13</span>Contact</h2><p>For privacy questions or support, use the <a href="/support/">StatLume Support page</a>.</p></section>
+      </article>
+    </div>
   </main>
+
   <footer>StatLume is an independent application and is not affiliated with, endorsed by, sponsored by, or officially connected with Google LLC or YouTube.</footer>
 </div>
 </body>
