@@ -1,51 +1,60 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" class="support-page">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>StatLume Support</title>
   <meta name="description" content="Contact StatLume support and report a problem.">
   <link rel="icon" href="/assets/statlume-logo.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="/assets/site.css">
+  <link rel="stylesheet" href="/assets/site.css?v=20260928-support-1">
 </head>
-<body>
+<body class="support">
 <div class="page">
   <header>
     <a class="brand" href="/"><img src="/assets/statlume-logo.svg" alt="StatLume logo"><span>StatLume</span></a>
-    <nav>
-      <a href="/">Home</a>
-      <a href="/privacy/">Privacy</a>
-      <a href="/terms/">Terms</a>
-      <a href="/support/" aria-current="page">Support</a>
-    </nav>
+    <nav><a href="/">Home</a><a href="/privacy/">Privacy</a><a href="/terms/">Terms</a><a href="/support/" aria-current="page">Support</a></nav>
   </header>
 
-  <main>
-    <h1>Support</h1>
-    <p class="lead">Send a support request directly from the StatLume website.</p>
-    <div class="notice">Do not include passwords, authentication cookies, session tokens, API keys, or other account credentials.</div>
-
-    <section class="card">
-      <form id="support-form" novalidate>
-        <div class="grid">
-          <div><label for="category">Category</label><select id="category" name="category" required><option value="Bug">Bug</option><option value="Login">Login / YouTube Studio</option><option value="Statistics">Statistics / realtime data</option><option value="Installation">Installation / update</option><option value="Other">Other</option></select></div>
-          <div><label for="title">Problem title</label><input id="title" name="title" maxlength="120" required placeholder="Short summary of the problem"></div>
-          <div><label for="version">StatLume version</label><input id="version" name="version" maxlength="40" placeholder="Example: 1.0.0"></div>
-          <div><label for="windows">Windows version</label><input id="windows" name="windows" maxlength="80" placeholder="Example: Windows 11 24H2"></div>
-          <div class="span-2"><label for="description">Description</label><textarea id="description" name="description" maxlength="6000" required placeholder="What happened? What did you expect to happen?"></textarea></div>
-          <div class="span-2"><label for="steps">Steps to reproduce</label><textarea id="steps" name="steps" maxlength="4000" placeholder="1. ...&#10;2. ...&#10;3. ..."></textarea></div>
-          <div class="span-2"><label for="email">Email for reply (optional)</label><input id="email" name="email" type="email" maxlength="200" autocomplete="email" placeholder="you@example.com"></div>
+  <main class="support-main">
+    <section class="support-intro" aria-labelledby="support-title">
+      <div class="support-copy">
+        <p class="eyebrow">StatLume support</p>
+        <h1 id="support-title">How can we help?</h1>
+        <p class="lead">Tell us what went wrong and we’ll take a look. A clear description and a few steps to reproduce the issue are usually all we need.</p>
+        <div class="support-meta">
+          <div><span class="support-meta-label">Response</span><span>Usually within 2 business days</span></div>
+          <div><span class="support-meta-label">Before sending</span><span>Restart StatLume and try once more</span></div>
         </div>
-        <div class="hp" aria-hidden="true"><label for="website">Website</label><input id="website" name="website" tabindex="-1" autocomplete="off"></div>
-        <button id="submit-button" type="submit">Send support request</button>
-        <div id="status" class="status" role="status" aria-live="polite"></div>
-      </form>
+      </div>
+
+      <div class="support-form-wrap">
+        <div class="form-heading"><h2>Send a request</h2><p>Required fields are marked with an asterisk.</p></div>
+        <form id="support-form" novalidate>
+          <div class="grid">
+            <div><label for="category">Category <span aria-hidden="true">*</span></label><select id="category" name="category" required><option value="Bug">Bug</option><option value="Login">Login / YouTube Studio</option><option value="Statistics">Statistics / realtime data</option><option value="Installation">Installation / update</option><option value="Other">Other</option></select></div>
+            <div><label for="title">Problem title <span aria-hidden="true">*</span></label><input id="title" name="title" maxlength="120" required placeholder="A short summary"></div>
+            <div><label for="version">StatLume version</label><input id="version" name="version" maxlength="40" placeholder="Example: 1.0.0"></div>
+            <div><label for="windows">Windows version</label><input id="windows" name="windows" maxlength="80" placeholder="Example: Windows 11 24H2"></div>
+            <div class="span-2"><label for="description">Description <span aria-hidden="true">*</span></label><textarea id="description" name="description" maxlength="6000" required placeholder="What happened? What did you expect instead?"></textarea></div>
+            <div class="span-2"><label for="steps">Steps to reproduce</label><textarea id="steps" name="steps" maxlength="4000" placeholder="1. ...&#10;2. ...&#10;3. ..."></textarea></div>
+            <div class="span-2"><label for="email">Email for reply</label><input id="email" name="email" type="email" maxlength="200" autocomplete="email" placeholder="you@example.com"></div>
+          </div>
+          <div class="hp" aria-hidden="true"><label for="website">Website</label><input id="website" name="website" tabindex="-1" autocomplete="off"></div>
+          <p class="privacy-note">Please don’t include passwords, cookies, session tokens or API keys.</p>
+          <button id="submit-button" type="submit">Send request <span aria-hidden="true">→</span></button>
+          <div id="status" class="status" role="status" aria-live="polite"></div>
+        </form>
+      </div>
     </section>
 
-    <h2>Common issues</h2>
-    <div class="issue"><strong>StatLume shows “Offline”</strong><span class="muted">Open <strong>YouTube Studio</strong> through StatLume and make sure you are still signed in.</span></div>
-    <div class="issue"><strong>Realtime statistics stop updating</strong><span class="muted">Restart StatLume and reconnect your <strong>YouTube Studio</strong> session. Changes to <strong>YouTube Studio</strong> may temporarily affect StatLume.</span></div>
-    <div class="issue"><strong>Changing YouTube accounts</strong><span class="muted">Use Disconnect in StatLume, then connect again with the desired account.</span></div>
+    <section class="common-issues" aria-labelledby="issues-title">
+      <div class="issues-heading"><p class="eyebrow">Quick answers</p><h2 id="issues-title">Common issues</h2></div>
+      <div class="issue-list">
+        <details class="issue"><summary>StatLume shows “Offline” <span aria-hidden="true">+</span></summary><p>Open <strong>YouTube Studio</strong> through StatLume and make sure you are still signed in.</p></details>
+        <details class="issue"><summary>Realtime statistics stop updating <span aria-hidden="true">+</span></summary><p>Restart StatLume and reconnect your <strong>YouTube Studio</strong> session. Changes to YouTube Studio may temporarily affect StatLume.</p></details>
+        <details class="issue"><summary>Changing YouTube accounts <span aria-hidden="true">+</span></summary><p>Use Disconnect in StatLume, then connect again with the account you want to use.</p></details>
+      </div>
+    </section>
   </main>
 
   <footer>StatLume is an independent application and is not affiliated with, endorsed by, sponsored by, or officially connected with Google LLC or YouTube.</footer>
@@ -53,7 +62,7 @@
 <script>
 const SUPPORT_ENDPOINT="https://statlume-github-io.pavelsimonua.workers.dev";
 const form=document.getElementById("support-form"),button=document.getElementById("submit-button"),status=document.getElementById("status");
-form.addEventListener("submit",async(event)=>{event.preventDefault();status.className="status";status.textContent="";if(!form.reportValidity())return;button.disabled=true;button.textContent="Sending...";const data=Object.fromEntries(new FormData(form).entries());try{const response=await fetch(SUPPORT_ENDPOINT,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(data)});const result=await response.json().catch(()=>({}));if(!response.ok)throw new Error(result.error||"Unable to submit the request.");status.className="status ok";status.textContent=result.issueNumber?`Thanks! Support ticket #${result.issueNumber} was created.`:"Thanks! Your support request was submitted.";form.reset()}catch(error){status.className="status error";status.textContent=error.message||"Unable to submit the request. Please try again later."}finally{button.disabled=false;button.textContent="Send support request"}});
+form.addEventListener("submit",async(event)=>{event.preventDefault();status.className="status";status.textContent="";if(!form.reportValidity())return;button.disabled=true;button.textContent="Sending…";const data=Object.fromEntries(new FormData(form).entries());try{const response=await fetch(SUPPORT_ENDPOINT,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(data)});const result=await response.json().catch(()=>({}));if(!response.ok)throw new Error(result.error||"Unable to submit the request.");status.className="status ok";status.textContent=result.issueNumber?`Thanks! Support ticket #${result.issueNumber} was created.`:"Thanks! Your support request was submitted.";form.reset()}catch(error){status.className="status error";status.textContent=error.message||"Unable to submit the request. Please try again later."}finally{button.disabled=false;button.innerHTML='Send request <span aria-hidden="true">→</span>'}});
 </script>
 </body>
 </html>
