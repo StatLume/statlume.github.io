@@ -32,6 +32,40 @@
     requestAnimationFrame(() => select(current, 'auto'));
   }
 
+  const appleInterest = document.querySelector('[data-apple-interest]');
+  const appleStatus = document.querySelector('[data-apple-status]');
+  const interestEndpoint = 'https://statlume-github-io.pavelsimonua.workers.dev/interest/apple';
+  if (appleInterest && appleStatus) {
+    const showCount = async () => {
+      appleInterest.disabled = true;
+      appleStatus.textContent = 'Loading interest…';
+      try {
+        const response = await fetch(interestEndpoint);
+        const result = await response.json();
+        if (!response.ok) throw new Error();
+        appleStatus.textContent = `Coming soon · ${result.count} interested`;
+      } catch {
+        appleStatus.textContent = 'Coming soon · Interest recorded';
+      }
+    };
+    appleInterest.addEventListener('click', async () => {
+      if (localStorage.getItem('statlume-apple-interest') === 'recorded') return showCount();
+      appleInterest.disabled = true;
+      appleStatus.textContent = 'Recording…';
+      try {
+        const response = await fetch(interestEndpoint, {method: 'POST'});
+        const result = await response.json();
+        if (!response.ok) throw new Error();
+        localStorage.setItem('statlume-apple-interest', 'recorded');
+        appleStatus.textContent = `Coming soon · ${result.count} interested`;
+      } catch {
+        appleStatus.textContent = 'Please try again';
+        appleInterest.disabled = false;
+      }
+    });
+    if (localStorage.getItem('statlume-apple-interest') === 'recorded') showCount();
+  }
+
   const designWidth = 1600;
   const designHeight = 900;
   const adaptiveBreakpoint = 1180;
