@@ -381,7 +381,7 @@ body.legal{max-width:100%;overflow-x:hidden;background:radial-gradient(circle at
 .footer-links span{margin-bottom:3px;color:#999fa7;font-size:10px;font-weight:750;letter-spacing:.1em;text-transform:uppercase}
 .footer-links a{color:#4f5761;font-size:12px;text-decoration:none}
 .footer-links a:hover{color:#1689e8}
-.footer-disclaimer{grid-column:1/-1;width:100%;max-width:none!important;justify-self:stretch;margin:0;padding:18px 0 0;border-top:1px solid var(--border);color:#8a929b;font-size:11px;line-height:1.55;text-align:center}
+.footer-disclaimer{display:block;grid-column:1/-1;width:100%;max-width:none!important;justify-self:stretch;margin:0;padding:18px 0 0;border-top:1px solid var(--border);color:#8a929b;font-size:11px;line-height:1.55;text-align:center}
 @media(max-width:680px){.site-footer{grid-template-columns:1fr;gap:30px;margin-top:64px}.footer-links{gap:30px}.footer-disclaimer{grid-column:auto}}
 
 /* Product and SEO content pages */
