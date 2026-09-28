@@ -408,7 +408,7 @@ body.content{background:radial-gradient(circle at 12% 5%,rgba(22,137,232,.055),t
 .content-gallery{overflow:visible;background:transparent;box-shadow:none;border:0}
 .content-gallery-viewport{overflow:hidden;margin:0 -34px;padding:24px 34px 34px}
 .content-gallery-track{display:flex;width:max-content;gap:14px}
-.content-gallery-slide{flex:0 0 500px;width:500px;margin:0;padding:0;overflow:hidden;border:1px solid rgba(255,255,255,.34);border-radius:0;background:#0d111a;box-shadow:0 14px 34px rgba(0,0,0,.3);line-height:0;opacity:.46;transform:scale(.92);transition:opacity .2s ease,transform .2s ease,border-color .2s ease}
+.content-gallery-slide{flex:0 0 620px;width:620px;margin:0;padding:0;overflow:hidden;border:1px solid rgba(255,255,255,.34);border-radius:0;background:#0d111a;box-shadow:0 14px 34px rgba(0,0,0,.3);line-height:0;opacity:.46;transform:scale(.92);transition:opacity .2s ease,transform .2s ease,border-color .2s ease}
 .content-gallery-slide.active{border-color:rgba(255,255,255,.82);opacity:1;transform:scale(1)}
 .content-gallery-slide:hover{background:#0d111a;opacity:.84}
 .content-gallery-slide.active:hover{opacity:1}
@@ -482,8 +482,8 @@ body.content{background:radial-gradient(circle at 12% 5%,rgba(22,137,232,.055),t
 .content-page{min-height:100%;background:#071218;scroll-padding-top:28px}
 body.content{position:relative;isolation:isolate;min-height:100vh;overflow-x:hidden;background:#071218 url('/assets/hero/sunset-landscape.png') center top/cover fixed no-repeat;color:#f6f9fc}
 body.content::before{content:"";position:fixed;z-index:0;inset:0;pointer-events:none;background:linear-gradient(180deg,rgba(3,12,18,.66) 0%,rgba(5,15,21,.82) 42%,rgba(3,10,15,.96) 100%)}
-.content .page{position:relative;z-index:1;width:1120px;padding:20px 0 38px}
-.content header{width:min(calc(100vw - 64px),1536px);min-height:54px;margin:0 0 0 calc((1120px - min(calc(100vw - 64px),1536px))/2);padding:0 0 24px;border:0;color:#f6f9fc}
+.content .page{position:relative;z-index:1;width:min(calc(100% - 64px),1536px);padding:20px 0 38px}
+.content header{width:100%;min-height:54px;margin:0;padding:0 0 24px;border:0;color:#f6f9fc}
 .content .brand{min-height:34px;font-size:17px}
 .content .brand img{width:34px;height:34px}
 .content nav{display:grid;width:auto;grid-template-columns:50px 56px 48px 58px;justify-content:end;gap:0 17px;font-size:12px}
@@ -491,19 +491,21 @@ body.content::before{content:"";position:fixed;z-index:0;inset:0;pointer-events:
 .content .brand,.content nav a{color:#f6f9fc;text-shadow:0 1px 12px rgba(0,0,0,.32)}
 .content nav a:hover{color:#fff}
 .content nav a[aria-current="page"]{color:#fff;border-bottom-color:rgba(255,255,255,.72)}
-.content-main{padding-top:48px}
-.content-hero{grid-template-columns:480px 580px;gap:60px;align-items:center;padding:26px 0 58px}
-.content-hero-copy h1{max-width:520px;color:#fff;font-size:52px;line-height:1.06;letter-spacing:-.035em;text-shadow:0 3px 24px rgba(0,0,0,.3)}
-.content-hero-copy .lead{max-width:500px;margin-top:18px;color:#dce7ed;font-size:17px;line-height:1.55;text-shadow:0 2px 16px rgba(0,0,0,.3)}
+.content-main{padding-top:0}
+.content-hero{min-height:calc(100vh - 98px);grid-template-columns:minmax(390px,580px) minmax(0,924px);gap:32px;align-items:center;padding:24px 0 38px}
+.content-hero-copy{align-self:center}
+.content-hero-copy h1{max-width:650px;color:#fff;font-size:54.4px;line-height:1.08;letter-spacing:-.015em;font-kerning:normal;text-shadow:0 3px 24px rgba(0,0,0,.34)}
+.content-hero-copy .lead{max-width:610px;margin-top:20px;color:#dce7ed;font-size:21px;line-height:1.5;text-shadow:0 2px 16px rgba(0,0,0,.42)}
 .content .eyebrow{margin-bottom:13px;color:#65baff}
-.content-actions{margin-top:24px}
+.content-actions{gap:18px;margin-top:34px}
 .content-button{border:1px solid rgba(255,255,255,.18);background:rgba(255,255,255,.94);color:#101820}
 .content-button:hover{border-color:#fff;background:#fff;color:#101820}
 .content-button-secondary{border-color:rgba(255,255,255,.28);background:rgba(7,18,24,.32);color:#edf6fa}
 .content-button-secondary:hover{border-color:rgba(255,255,255,.58);background:rgba(255,255,255,.1);color:#fff}
+.content-store-badge img{height:66px}
 .content-visual{border:1px solid rgba(255,255,255,.58);background:#0d111a;box-shadow:0 20px 48px rgba(0,0,0,.38)}
 .content-visual.content-gallery{overflow:visible;border:0;background:transparent;box-shadow:none}
-.content-section{grid-template-columns:280px 1fr;gap:64px;padding:42px 0;border-top-color:rgba(255,255,255,.16)}
+.content-section{width:min(100%,1120px);grid-template-columns:280px 1fr;gap:64px;margin:0 auto;padding:42px 0;border-top-color:rgba(255,255,255,.16)}
 .content-section-heading h2{color:#f6f9fc;font-size:27px}
 .content-section-heading p{margin-top:10px;color:#aebcc4}
 .content-prose{max-width:690px}
@@ -522,7 +524,7 @@ body.content::before{content:"";position:fixed;z-index:0;inset:0;pointer-events:
 .faq-list summary span{color:#8dbbd8}
 .faq-list details p{margin-bottom:17px;color:#b9c5cc}
 .download-option{padding-top:22px;padding-bottom:22px}
-.content .site-footer{gap:34px 64px;margin-top:54px;padding-top:30px;border-top-color:rgba(255,255,255,.16)}
+.content .site-footer{width:min(100%,1120px);gap:34px 64px;margin:54px auto 0;padding-top:30px;border-top-color:rgba(255,255,255,.16)}
 .content .site-footer .footer-brand p,.content .footer-links a{color:#aebbc3}
 .content .footer-links a:hover{color:#fff}
 .content .footer-links span,.content .footer-disclaimer{color:#85959f}
@@ -536,11 +538,12 @@ body.content::before{content:"";position:fixed;z-index:0;inset:0;pointer-events:
   .content .brand img{width:34px;height:34px}
   .content nav{display:flex;width:auto;gap:clamp(12px,2.3vw,28px);font-size:13px}
   .content nav a{min-height:34px;padding:0 3px}
-  .content-main{padding-top:54px}
-  .content-hero{grid-template-columns:1fr;gap:38px;padding:24px 0 52px}
+  .content-main{padding-top:0}
+  .content-hero{min-height:0;grid-template-columns:1fr;gap:42px;padding:clamp(88px,11vh,126px) 0 40px}
   .content-hero-copy{max-width:720px}
   .content-hero-copy h1{max-width:680px;font-size:clamp(46px,6vw,58px)}
   .content-hero-copy .lead{max-width:650px;font-size:18px}
+  .content-store-badge img{height:62px}
   .content-visual{width:min(100%,820px);max-width:none}
   .content-gallery-slide{flex-basis:min(76vw,690px);width:min(76vw,690px);transform:none}
   .content-section{grid-template-columns:220px minmax(0,1fr);gap:48px;padding:40px 0}
@@ -556,12 +559,12 @@ body.content::before{content:"";position:fixed;z-index:0;inset:0;pointer-events:
   .content nav{width:auto;gap:5px;font-size:11px}
   .content nav a{min-height:30px;padding:0 5px;white-space:nowrap}
   .content nav a:first-child{display:none}
-  .content-main{padding-top:58px}
-  .content-hero{gap:28px;padding:0 0 42px}
+  .content-main{padding-top:0}
+  .content-hero{min-height:0;gap:34px;padding:clamp(76px,14vh,126px) 0 36px}
   .content-hero-copy h1{font-size:clamp(38px,10vw,46px);line-height:1.05}
   .content-hero-copy .lead{margin-top:16px;font-size:16px;line-height:1.5}
   .content-actions{margin-top:22px}
-  .content-store-badge img{height:46px}
+  .content-store-badge img{height:54px}
   .content-gallery{width:calc(100% + 36px);margin-left:-18px}
   .content-gallery-viewport{margin:0;padding:14px 18px 28px;overflow-x:auto;scrollbar-width:none;scroll-snap-type:x mandatory}
   .content-gallery-viewport::-webkit-scrollbar{display:none}
