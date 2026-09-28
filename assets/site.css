@@ -398,6 +398,11 @@ body.content{background:radial-gradient(circle at 12% 5%,rgba(22,137,232,.055),t
 .content-button:hover{background:#1689e8;transform:translateY(-1px)}
 .content-button-secondary{border:1px solid #dfe3e8;background:#fff;color:#353c44}
 .content-button-secondary:hover{background:#f3f8fc;color:#1689e8}
+.content-download-actions{align-items:center}
+.content-store-badge{display:inline-flex;border-radius:8px;line-height:0;transition:opacity .15s ease,transform .15s ease}
+.content-store-badge img{display:block;width:auto;height:50px}
+.content-store-badge:hover{opacity:.9;transform:translateY(-1px)}
+.content-store-badge:focus-visible{outline:2px solid #1689e8;outline-offset:3px}
 .content-visual{margin:0;overflow:hidden;border:1px solid rgba(255,255,255,.7);background:#0d111a;box-shadow:0 22px 55px rgba(21,37,48,.17)}
 .content-visual img{display:block;width:100%;height:auto}
 .content-section{display:grid;grid-template-columns:minmax(200px,.62fr) minmax(0,1.38fr);gap:clamp(54px,8vw,110px);padding:64px 0;border-top:1px solid var(--border)}
