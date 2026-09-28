@@ -33,7 +33,7 @@
       </a>
       <button class="store-card store-card-disabled" id="apple-interest" type="button" aria-describedby="apple-interest-status">
         <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="Download on the App Store">
-        <span class="store-status" id="apple-interest-status">Coming soon · I’m interested</span>
+        <span class="store-status" id="apple-interest-status">Coming soon</span>
       </button>
     </div>
       </div>
@@ -100,7 +100,7 @@
       const result = await response.json();
       if (!response.ok) throw new Error(result.error || 'Unable to record interest.');
       localStorage.setItem('statlume-apple-interest', 'recorded');
-      appleInterestStatus.textContent = `Thank you · ${result.count} interested`;
+      appleInterestStatus.textContent = `Coming soon · ${result.count} interested`;
     } catch {
       appleInterestStatus.textContent = 'Please try again';
       appleInterest.disabled = false;
@@ -114,9 +114,9 @@
       const response = await fetch(interestEndpoint);
       const result = await response.json();
       if (!response.ok) throw new Error(result.error || 'Unable to load interest.');
-      appleInterestStatus.textContent = `Thank you · ${result.count} interested`;
+      appleInterestStatus.textContent = `Coming soon · ${result.count} interested`;
     } catch {
-      appleInterestStatus.textContent = 'Thank you · Interest recorded';
+      appleInterestStatus.textContent = 'Coming soon · Interest recorded';
     }
   }
 
