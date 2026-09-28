@@ -31,10 +31,10 @@
       <a class="store-card store-card-active" href="https://apps.microsoft.com/" target="_blank" rel="noopener noreferrer">
         <img src="https://get.microsoft.com/images/en-us%20dark.svg" alt="Download from the Microsoft Store">
       </a>
-      <div class="store-card store-card-disabled" aria-disabled="true">
+      <button class="store-card store-card-disabled" id="apple-interest" type="button" aria-describedby="apple-interest-status">
         <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="Download on the App Store">
-        <span class="store-status">Coming soon</span>
-      </div>
+        <span class="store-status" id="apple-interest-status">Coming soon · I’m interested</span>
+      </button>
     </div>
       </div>
 
@@ -83,7 +83,29 @@
   const dots = [...document.querySelectorAll('.carousel-dots span')];
   const previous = document.querySelector('.carousel-prev');
   const next = document.querySelector('.carousel-next');
+  const appleInterest = document.getElementById('apple-interest');
+  const appleInterestStatus = document.getElementById('apple-interest-status');
+  const interestEndpoint = 'https://statlume-github-io.pavelsimonua.workers.dev/interest/apple';
   let previousFocus = null;
+
+  async function recordAppleInterest() {
+    if (localStorage.getItem('statlume-apple-interest') === 'recorded') {
+      appleInterestStatus.textContent = 'Interest already recorded';
+      return;
+    }
+    appleInterest.disabled = true;
+    appleInterestStatus.textContent = 'Recording…';
+    try {
+      const response = await fetch(interestEndpoint, {method: 'POST'});
+      const result = await response.json();
+      if (!response.ok) throw new Error(result.error || 'Unable to record interest.');
+      localStorage.setItem('statlume-apple-interest', 'recorded');
+      appleInterestStatus.textContent = `Thank you · ${result.count} interested`;
+    } catch {
+      appleInterestStatus.textContent = 'Please try again';
+      appleInterest.disabled = false;
+    }
+  }
 
   function openLightbox(button) {
     previousFocus = button;
@@ -144,6 +166,7 @@
   });
   previous.addEventListener('click', () => moveSelection(-1));
   next.addEventListener('click', () => moveSelection(1));
+  appleInterest.addEventListener('click', recordAppleInterest);
   close.addEventListener('click', closeLightbox);
   lightbox.addEventListener('click', event => {
     if (event.target === lightbox) closeLightbox();

@@ -4,7 +4,7 @@ const GITHUB_REPO = "StatLume/statlume-support";
 function corsHeaders(origin) {
   return {
     "Access-Control-Allow-Origin": origin === ALLOWED_ORIGIN ? ALLOWED_ORIGIN : ALLOWED_ORIGIN,
-    "Access-Control-Allow-Methods": "POST, OPTIONS",
+    "Access-Control-Allow-Methods": "GET, POST, OPTIONS",
     "Access-Control-Allow-Headers": "Content-Type",
     "Vary": "Origin",
     "Content-Type": "application/json; charset=utf-8"
@@ -25,9 +25,31 @@ function clean(value, max) {
 export default {
   async fetch(request, env) {
     const origin = request.headers.get("Origin") || "";
+    const url = new URL(request.url);
 
     if (request.method === "OPTIONS") {
       return new Response(null, { status: 204, headers: corsHeaders(origin) });
+    }
+
+    if (url.pathname === "/interest/apple") {
+      if (origin && origin !== ALLOWED_ORIGIN) {
+        return json({ error: "Origin not allowed." }, 403, origin);
+      }
+      if (!env.INTEREST_COUNTER) {
+        return json({ error: "Interest counter is not configured." }, 503, origin);
+      }
+
+      const key = "apple-store-interest";
+      const current = Number.parseInt(await env.INTEREST_COUNTER.get(key) || "0", 10) || 0;
+      if (request.method === "GET") {
+        return json({ count: current }, 200, origin);
+      }
+      if (request.method === "POST") {
+        const count = current + 1;
+        await env.INTEREST_COUNTER.put(key, String(count));
+        return json({ ok: true, count }, 201, origin);
+      }
+      return json({ error: "Method not allowed." }, 405, origin);
     }
 
     if (request.method !== "POST") {

@@ -3,3 +3,7 @@ main = "src/index.js"
 compatibility_date = "2026-09-16"
 workers_dev = true
 keep_vars = true
+
+[[kv_namespaces]]
+binding = "INTEREST_COUNTER"
+id = "9a112ad37f2b4115bc2249dca5d11123"
