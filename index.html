@@ -25,7 +25,7 @@
   <meta name="twitter:image" content="https://statlume.github.io/assets/screenshots/release/01.png">
   <link rel="preconnect" href="https://get.microsoft.com">
   <link rel="preconnect" href="https://developer.apple.com">
-  <link rel="stylesheet" href="/assets/site.css?v=20260929-5">
+  <link rel="stylesheet" href="/assets/site.css?v=20260929-6">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -286,9 +286,16 @@
     document.body.style.setProperty('--header-counter-scale', headerCounterScale.toFixed(4));
     resizeFrame = 0;
   };
-  window.addEventListener('resize', () => {
+  let settleTimer = 0;
+  const scheduleLayoutScale = () => {
     if (!resizeFrame) resizeFrame = window.requestAnimationFrame(updateLayoutScale);
-  }, {passive: true});
+    window.clearTimeout(settleTimer);
+    settleTimer = window.setTimeout(updateLayoutScale, 180);
+  };
+  window.addEventListener('resize', scheduleLayoutScale, {passive: true});
+  window.visualViewport?.addEventListener('resize', scheduleLayoutScale, {passive: true});
+  document.addEventListener('fullscreenchange', scheduleLayoutScale);
+  window.addEventListener('pageshow', scheduleLayoutScale, {passive: true});
   updateLayoutScale();
 })();
 </script>

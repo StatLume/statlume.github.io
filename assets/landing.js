@@ -148,8 +148,15 @@
     });
     resizeFrame = 0;
   };
-  window.addEventListener('resize', () => {
+  let settleTimer = 0;
+  const scheduleScaleUpdate = () => {
     if (!resizeFrame) resizeFrame = requestAnimationFrame(updateScale);
-  }, {passive: true});
+    window.clearTimeout(settleTimer);
+    settleTimer = window.setTimeout(updateScale, 180);
+  };
+  window.addEventListener('resize', scheduleScaleUpdate, {passive: true});
+  window.visualViewport?.addEventListener('resize', scheduleScaleUpdate, {passive: true});
+  document.addEventListener('fullscreenchange', scheduleScaleUpdate);
+  window.addEventListener('pageshow', scheduleScaleUpdate, {passive: true});
   updateScale();
 })();
