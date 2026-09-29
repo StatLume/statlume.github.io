@@ -25,7 +25,7 @@
   <meta name="twitter:image" content="https://statlume.github.io/assets/screenshots/release/01.png">
   <link rel="preconnect" href="https://get.microsoft.com">
   <link rel="preconnect" href="https://developer.apple.com">
-  <link rel="stylesheet" href="/assets/site.css?v=20260929-7">
+  <link rel="stylesheet" href="/assets/site.css?v=20260929-8">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -278,8 +278,10 @@
       resizeFrame = 0;
       return;
     }
-    const scale = Math.min(window.innerWidth / designWidth, window.innerHeight / designHeight);
-    const widthScale = window.innerWidth / designWidth;
+    const viewportWidth = window.visualViewport?.width || window.innerWidth;
+    const viewportHeight = window.visualViewport?.height || window.innerHeight;
+    const scale = Math.min(viewportWidth / designWidth, viewportHeight / designHeight);
+    const widthScale = viewportWidth / designWidth;
     const headerScale = scale < 1 ? Math.min(widthScale, 0.55 + (scale * 0.45)) : scale;
     const headerCounterScale = headerScale / scale;
     document.body.style.setProperty('--layout-scale', scale.toFixed(4));

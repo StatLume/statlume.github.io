@@ -127,14 +127,16 @@
       resizeFrame = 0;
       return;
     }
-    const scale = Math.min(window.innerWidth / designWidth, window.innerHeight / designHeight);
-    const widthScale = window.innerWidth / designWidth;
+    const viewportWidth = window.visualViewport?.width || window.innerWidth;
+    const viewportHeight = window.visualViewport?.height || window.innerHeight;
+    const scale = Math.min(viewportWidth / designWidth, viewportHeight / designHeight);
+    const widthScale = viewportWidth / designWidth;
     const headerScale = scale < 1 ? Math.min(widthScale, 0.55 + (scale * 0.45)) : scale;
     const headerCounterScale = headerScale / scale;
     document.body.style.setProperty('--layout-scale', scale.toFixed(4));
     document.body.style.setProperty('--header-counter-scale', headerCounterScale.toFixed(4));
     document.body.style.setProperty('--landing-content-width', `${((designWidth - 64) * scale).toFixed(2)}px`);
-    document.body.style.setProperty('--landing-stage-height', `${(designHeight * scale).toFixed(2)}px`);
+    document.body.style.setProperty('--landing-stage-height', `${Math.max(viewportHeight, designHeight * scale).toFixed(2)}px`);
     Object.entries(scaledCopyProperties).forEach(([property, value]) => {
       document.body.style.setProperty(property, `${(value * scale).toFixed(2)}px`);
     });
@@ -144,7 +146,7 @@
       const controlsRect = carouselControls.getBoundingClientRect();
       const controlsBottom = controlsRect.bottom - pageRect.top;
       const requiredHeight = controlsBottom + (160 * scale);
-      document.body.style.setProperty('--landing-stage-height', `${Math.max(designHeight * scale, requiredHeight).toFixed(2)}px`);
+      document.body.style.setProperty('--landing-stage-height', `${Math.max(viewportHeight, designHeight * scale, requiredHeight).toFixed(2)}px`);
     });
     resizeFrame = 0;
   };
