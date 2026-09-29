@@ -1,7 +1,9 @@
 html.home-page.landing-page{height:auto!important;min-height:100%;overflow-x:hidden!important;overflow-y:scroll!important;background:#071218}
 body.home.landing{position:relative!important;width:100%;height:auto!important;min-height:100vh;overflow-x:clip!important;overflow-y:visible!important;background-attachment:fixed}
-.landing-stage{position:relative;z-index:1;width:100%;height:var(--landing-stage-height,100vh);min-height:0}
-.landing .hero{height:806px;min-height:806px}
+.landing-stage{position:relative;z-index:3;width:100%;height:var(--landing-stage-height,100vh);min-height:0;pointer-events:none}
+.landing-stage header{position:relative;z-index:5;pointer-events:auto}
+.landing-stage .hero{position:relative;z-index:1;pointer-events:auto}
+.landing .hero{height:806px;min-height:806px;transform:translateY(var(--landing-hero-lift,0))}
 .landing .hero-copy{position:relative}
 .landing .hero-copy>.eyebrow{position:absolute;top:-34px;left:0;margin:0}
 .landing .screenshots{overflow:hidden}
@@ -29,7 +31,7 @@ body.home.landing{position:relative!important;width:100%;height:auto!important;m
 
 @media(max-width:760px){
   .landing-stage{height:auto;min-height:100svh}
-  .landing .hero{height:auto;min-height:0}
+  .landing .hero{height:auto;min-height:0;transform:none}
   .landing .hero-copy>.eyebrow{top:-28px}
   .landing-copy{width:100%;margin:-18px auto 0;padding:0 18px 30px}
   .landing-copy-intro{display:block;margin-bottom:36px}

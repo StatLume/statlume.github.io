@@ -97,6 +97,8 @@
 
   const designWidth = 1600;
   const designHeight = 900;
+  const contentLift = 170;
+  const sectionGap = 80;
   const mobileBreakpoint = 760;
   const landingPage = document.querySelector('.landing-stage > .page');
   const carouselControls = document.querySelector('.carousel-controls');
@@ -114,8 +116,7 @@
     '--landing-card-title-gap': 10,
     '--landing-h3-size': 18,
     '--landing-card-body-size': 13,
-    '--landing-section-gap': 72,
-    '--landing-content-lift': 70
+    '--landing-section-gap': 72
   };
   let resizeFrame = 0;
   const updateScale = () => {
@@ -123,16 +124,30 @@
       document.body.style.setProperty('--layout-scale', '1');
       document.body.style.removeProperty('--landing-content-width');
       document.body.style.removeProperty('--landing-stage-height');
+      document.body.style.removeProperty('--landing-hero-lift');
+      document.body.style.removeProperty('--landing-content-lift');
       Object.keys(scaledCopyProperties).forEach(property => document.body.style.removeProperty(property));
       resizeFrame = 0;
       return;
     }
     const viewportWidth = document.documentElement.clientWidth;
     const viewportHeight = document.documentElement.clientHeight;
-    const scale = Math.min(viewportWidth / designWidth, viewportHeight / designHeight);
+    const widthScale = viewportWidth / designWidth;
+    const sizeTolerance = 24;
+    const isExpandedWindow = document.fullscreenElement
+      || (window.outerWidth >= window.screen.availWidth - sizeTolerance
+        && window.outerHeight >= window.screen.availHeight - sizeTolerance);
+    const isCompactScreen = window.screen.availWidth < designWidth
+      || window.screen.availHeight < designHeight;
+    const useCompactDesktop = !isExpandedWindow || isCompactScreen;
+    const customWindowFactor = useCompactDesktop ? 0.9 : 1;
+    const scale = Math.min(widthScale * customWindowFactor, 1.2);
     document.body.style.setProperty('--layout-scale', scale.toFixed(4));
+    document.body.style.setProperty('--landing-hero-lift', useCompactDesktop ? '-140px' : '-40px');
+    const scaledContentLift = contentLift * scale;
+    document.body.style.setProperty('--landing-content-lift', `${scaledContentLift.toFixed(2)}px`);
     document.body.style.setProperty('--landing-content-width', `${((designWidth - 64) * scale).toFixed(2)}px`);
-    document.body.style.setProperty('--landing-stage-height', `${Math.max(viewportHeight, designHeight * scale).toFixed(2)}px`);
+    document.body.style.setProperty('--landing-stage-height', `${(designHeight * scale).toFixed(2)}px`);
     Object.entries(scaledCopyProperties).forEach(([property, value]) => {
       document.body.style.setProperty(property, `${(value * scale).toFixed(2)}px`);
     });
@@ -141,8 +156,8 @@
       const pageRect = landingPage.getBoundingClientRect();
       const controlsRect = carouselControls.getBoundingClientRect();
       const controlsBottom = controlsRect.bottom - pageRect.top;
-      const requiredHeight = controlsBottom + (160 * scale);
-      document.body.style.setProperty('--landing-stage-height', `${Math.max(viewportHeight, designHeight * scale, requiredHeight).toFixed(2)}px`);
+      const requiredHeight = controlsBottom + scaledContentLift + (sectionGap * scale);
+      document.body.style.setProperty('--landing-stage-height', `${requiredHeight.toFixed(2)}px`);
     });
     resizeFrame = 0;
   };

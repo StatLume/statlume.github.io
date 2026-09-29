@@ -60,24 +60,38 @@ test('all product landings load one matching asset release', async () => {
 
 test('desktop hero remains a single proportional 1600 by 900 composition', async () => {
   const css = await read('assets/site.css');
+  const landingCss = await read('assets/landing.css');
   const script = await read('assets/landing.js');
 
   assert.match(css, /\.home \.page\{[^}]*width:1600px;[^}]*height:900px;[^}]*transform:scale\(var\(--layout-scale\)\)/);
   assert.match(script, /const designWidth = 1600;/);
   assert.match(script, /const designHeight = 900;/);
-  assert.match(script, /Math\.min\(viewportWidth \/ designWidth, viewportHeight \/ designHeight\)/);
+  assert.match(script, /const widthScale = viewportWidth \/ designWidth;/);
+  assert.match(script, /const isCompactScreen = window\.screen\.availWidth < designWidth/);
+  assert.match(script, /const useCompactDesktop = !isExpandedWindow \|\| isCompactScreen;/);
+  assert.match(script, /const customWindowFactor = useCompactDesktop \? 0\.9 : 1;/);
+  assert.match(script, /const scale = Math\.min\(widthScale \* customWindowFactor, 1\.2\);/);
+  assert.match(script, /'--landing-hero-lift', useCompactDesktop \? '-140px' : '-40px'/);
+  assert.match(script, /const contentLift = 170;/);
+  assert.match(script, /const sectionGap = 80;/);
+  assert.match(script, /const scaledContentLift = contentLift \* scale;/);
+  assert.match(landingCss, /\.landing \.hero\{[^}]*transform:translateY\(var\(--landing-hero-lift,0\)\)/);
+  assert.doesNotMatch(script, /Math\.min\(viewportWidth \/ designWidth, viewportHeight \/ designHeight\)/);
   assert.doesNotMatch(script, /desktopDensity/, 'do not globally shrink otherwise-correct desktop layouts');
 });
 
-test('hero occupies at least one viewport and content never uses a desktop overlap', async () => {
+test('space below the hero scales with the composition instead of the viewport', async () => {
   const css = await read('assets/landing.css');
   const script = await read('assets/landing.js');
 
   assert.match(css, /\.landing-stage\{[^}]*height:var\(--landing-stage-height,100vh\);[^}]*min-height:0/);
   assert.match(css, /\.landing-copy\{[^}]*margin:calc\(-1 \* var\(--landing-content-lift,70px\)\) auto 0/);
-  assert.match(script, /'--landing-content-lift': 70/);
-  assert.match(script, /Math\.max\(viewportHeight, designHeight \* scale, requiredHeight\)/);
+  assert.match(script, /const requiredHeight = controlsBottom \+ scaledContentLift \+ \(sectionGap \* scale\);/);
+  assert.doesNotMatch(script, /Math\.max\(viewportHeight, designHeight \* scale, requiredHeight\)/);
   assert.match(script, /controlsRect\.bottom - pageRect\.top/);
+  assert.match(css, /\.landing-stage\{[^}]*z-index:3[^}]*pointer-events:none/);
+  assert.match(css, /\.landing-stage header\{[^}]*z-index:5[^}]*pointer-events:auto\}/);
+  assert.match(css, /\.landing-stage \.hero\{[^}]*z-index:1[^}]*pointer-events:auto\}/);
 });
 
 test('laptops keep the proportional desktop canvas and mobile stays adaptive', async () => {
