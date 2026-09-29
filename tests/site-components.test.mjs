@@ -74,7 +74,8 @@ test('hero occupies at least one viewport and content never uses a desktop overl
   const script = await read('assets/landing.js');
 
   assert.match(css, /\.landing-stage\{[^}]*height:var\(--landing-stage-height,100vh\);[^}]*min-height:0/);
-  assert.match(css, /\.landing-copy\{[^}]*margin:0 auto/);
+  assert.match(css, /\.landing-copy\{[^}]*margin:calc\(-1 \* var\(--landing-content-lift,70px\)\) auto 0/);
+  assert.match(script, /'--landing-content-lift': 70/);
   assert.match(script, /Math\.max\(viewportHeight, designHeight \* scale, requiredHeight\)/);
   assert.match(script, /controlsRect\.bottom - pageRect\.top/);
 });

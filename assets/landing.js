@@ -114,7 +114,8 @@
     '--landing-card-title-gap': 10,
     '--landing-h3-size': 18,
     '--landing-card-body-size': 13,
-    '--landing-section-gap': 72
+    '--landing-section-gap': 72,
+    '--landing-content-lift': 70
   };
   let resizeFrame = 0;
   const updateScale = () => {

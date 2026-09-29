@@ -5,7 +5,7 @@ body.home.landing{position:relative!important;width:100%;height:auto!important;m
 .landing .hero-copy{position:relative}
 .landing .hero-copy>.eyebrow{position:absolute;top:-34px;left:0;margin:0}
 .landing .screenshots{overflow:hidden}
-.landing-copy{position:relative;z-index:2;width:min(calc(100% - 64px),var(--landing-content-width,1536px));margin:0 auto;padding:0 0 48px;color:#eef5f8}
+.landing-copy{position:relative;z-index:2;width:min(calc(100% - 64px),var(--landing-content-width,1536px));margin:calc(-1 * var(--landing-content-lift,70px)) auto 0;padding:0 0 48px;color:#eef5f8}
 .landing-copy-intro{display:grid;grid-template-columns:minmax(var(--landing-side-column,250px),.7fr) minmax(0,1.3fr);gap:var(--landing-copy-gap,72px);align-items:start;margin-bottom:var(--landing-intro-margin,54px)}
 .landing-copy .eyebrow{margin:0 0 13px;color:#65baff}
 .landing-copy h2{max-width:var(--landing-heading-width,430px);margin:0;color:#fff;font-size:var(--landing-h2-size,36px);line-height:1.12;letter-spacing:-.035em}
