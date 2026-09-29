@@ -21,6 +21,7 @@ test('every product landing keeps the shared component structure', async () => {
     assert.match(html, /<header>.*class="brand".*<nav>/s, `${path} must keep the shared header`);
     assert.match(html, /<section class="hero">.*class="hero-copy"/s, `${path} must keep the hero`);
     assert.doesNotMatch(html, /<div class="hero-copy"><p class="eyebrow">/, `${path} must not repeat the page name above its hero title`);
+    assert.doesNotMatch(html, /<p class="eyebrow">/, `${path} must not use redundant blue section labels`);
     assert.match(html, /data-landing-carousel data-primary="[^"]+"/, `${path} must configure its carousel`);
     assert.match(html, /class="[^"]*carousel-prev[^"]*".*class="[^"]*carousel-next[^"]*"/s, `${path} must keep both carousel arrows`);
     assert.match(html, /<main class="landing-copy">/, `${path} must keep content below the hero`);
