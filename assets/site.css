@@ -147,6 +147,7 @@ body.home::after{content:"";position:fixed;z-index:0;inset:0;pointer-events:none
 
 /* Proportional home layout: scale the complete composition as one canvas. */
 body.home{--layout-scale:1}
+@media(min-width:761px){html.home-page:not(.landing-page){height:auto;min-height:100%;overflow-x:hidden;overflow-y:auto}body.home:not(.landing){height:var(--home-stage-height,100vh);min-height:100vh;overflow-x:hidden;overflow-y:var(--home-overflow,visible)}.home:not(.landing) .hero{height:var(--home-hero-height,806px);min-height:var(--home-hero-height,806px)}}
 .home .page{position:absolute;z-index:1;top:0;left:50%;width:1600px;height:900px;margin:0 0 0 -800px;padding:20px 32px;transform:scale(var(--layout-scale));transform-origin:top center;zoom:1}
 .home header{min-height:54px;flex-direction:row;align-items:center;justify-content:space-between;gap:24px;margin:0;padding:0 0 24px;transform:none}
 .home header .brand,.home header nav{transform:none}

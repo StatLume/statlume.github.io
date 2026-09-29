@@ -20,6 +20,7 @@ test('every product landing keeps the shared component structure', async () => {
     assert.equal(occurrences(html, /<h1(?:\s|>)/g), 1, `${path} must have one H1`);
     assert.match(html, /<header>.*class="brand".*<nav>/s, `${path} must keep the shared header`);
     assert.match(html, /<section class="hero">.*class="hero-copy"/s, `${path} must keep the hero`);
+    assert.doesNotMatch(html, /<div class="hero-copy"><p class="eyebrow">/, `${path} must not repeat the page name above its hero title`);
     assert.match(html, /data-landing-carousel data-primary="[^"]+"/, `${path} must configure its carousel`);
     assert.match(html, /class="[^"]*carousel-prev[^"]*".*class="[^"]*carousel-next[^"]*"/s, `${path} must keep both carousel arrows`);
     assert.match(html, /<main class="landing-copy">/, `${path} must keep content below the hero`);
@@ -115,6 +116,22 @@ test('header scales with the same geometry as the rest of the desktop canvas', a
   assert.match(css, /\.home header\{[^}]*transform:none/);
   assert.match(css, /\.home header \.brand,\.home header nav\{transform:none\}/);
   assert.doesNotMatch(script, /header-counter-scale/);
+});
+
+test('home page uses the same readable desktop scale as product landings', async () => {
+  const home = await read('index.html');
+  const css = await read('assets/site.css');
+
+  assert.match(home, /const widthScale = viewportWidth \/ designWidth;/);
+  assert.match(home, /const useCompactDesktop = !isExpandedWindow \|\| isCompactScreen;/);
+  assert.match(home, /const fitExpandedLaptop = isExpandedWindow && isCompactScreen;/);
+  assert.match(home, /const customWindowFactor = useCompactDesktop \? 0\.9 : 1;/);
+  assert.match(home, /const scale = Math\.min\(widthScale \* customWindowFactor, 1\.2\);/);
+  assert.match(home, /'--home-stage-height'/);
+  assert.match(home, /'--home-hero-height'/);
+  assert.match(home, /'--home-overflow', fitExpandedLaptop \? 'hidden' : 'visible'/);
+  assert.match(css, /body\.home:not\(\.landing\)\{[^}]*height:var\(--home-stage-height,100vh\)/);
+  assert.match(css, /\.home:not\(\.landing\) \.hero\{[^}]*height:var\(--home-hero-height,806px\)/);
 });
 
 test('support page uses the landing visual system without changing its form contract', async () => {
