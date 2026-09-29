@@ -7,29 +7,34 @@
   const dots = [...document.querySelectorAll('.carousel-dots span')];
   if (track && viewport && previous && next) {
     const requested = track.dataset.primary || '01';
-    track.innerHTML = names.map(name => `<button class="screenshot-thumb${name === requested ? ' active' : ''}" type="button" aria-label="Show screenshot ${name}"${name === requested ? ' aria-current="true"' : ''}><img src="/assets/screenshots/release-previews/${name}.webp" alt="" ${name === requested ? 'loading="eager" fetchpriority="high"' : 'loading="lazy"'} width="1536" height="864"></button>`).join('');
-    const slides = [...track.children];
     let current = Math.max(0, names.indexOf(requested));
 
-    const select = (index, behavior = 'smooth') => {
-      current = (index + slides.length) % slides.length;
-      slides.forEach((slide, slideIndex) => {
-        const active = slideIndex === current;
-        slide.classList.toggle('active', active);
-        if (active) slide.setAttribute('aria-current', 'true');
-        else slide.removeAttribute('aria-current');
-      });
-      const page = Math.min(dots.length - 1, Math.floor(current / Math.ceil(slides.length / dots.length)));
+    const select = index => {
+      current = (index + names.length) % names.length;
+      const visibleIndexes = [
+        (current - 1 + names.length) % names.length,
+        current,
+        (current + 1) % names.length
+      ];
+      track.innerHTML = visibleIndexes.map((nameIndex, position) => {
+        const name = names[nameIndex];
+        const active = position === 1;
+        return `<button class="screenshot-thumb${active ? ' active' : ''}" type="button" data-index="${nameIndex}" aria-label="Show screenshot ${name}"${active ? ' aria-current="true"' : ''}><img src="/assets/screenshots/release-previews/${name}.webp" alt="" ${active ? 'loading="eager" fetchpriority="high"' : 'loading="lazy"'} width="1536" height="864"></button>`;
+      }).join('');
+      const slides = [...track.children];
+      slides.forEach(slide => slide.addEventListener('click', () => select(Number(slide.dataset.index))));
+      const page = Math.min(dots.length - 1, Math.floor(current / Math.ceil(names.length / dots.length)));
       dots.forEach((dot, index) => dot.classList.toggle('active', index === page));
-      const target = slides[current];
-      const left = target.offsetLeft - (viewport.clientWidth - target.offsetWidth) / 2;
-      viewport.scrollTo({left, behavior});
+      requestAnimationFrame(() => {
+        const target = slides[1];
+        const left = target.offsetLeft - (viewport.clientWidth - target.offsetWidth) / 2;
+        viewport.scrollTo({left, behavior: 'auto'});
+      });
     };
 
-    slides.forEach((slide, index) => slide.addEventListener('click', () => select(index)));
     previous.addEventListener('click', () => select(current - 1));
     next.addEventListener('click', () => select(current + 1));
-    requestAnimationFrame(() => select(current, 'auto'));
+    select(current);
   }
 
   const appleInterest = document.querySelector('[data-apple-interest]');
