@@ -153,6 +153,15 @@
   const interestEndpoint = 'https://statlume-github-io.pavelsimonua.workers.dev/interest/apple';
   let previousFocus = null;
 
+  thumbnails.forEach(thumbnail => {
+    const thumbnailImage = thumbnail.querySelector('img');
+    if (!thumbnailImage || thumbnailImage.complete) return;
+    thumbnail.classList.add('is-loading');
+    const finishLoading = () => thumbnail.classList.remove('is-loading');
+    thumbnailImage.addEventListener('load', finishLoading, {once: true});
+    thumbnailImage.addEventListener('error', finishLoading, {once: true});
+  });
+
   async function recordAppleInterest() {
     if (localStorage.getItem('statlume-apple-interest') === 'recorded') {
       await showAppleInterestCount();

@@ -66,7 +66,12 @@ li+li{margin-top:6px}
 .screenshot-thumb{display:block;width:100%;aspect-ratio:16/9;margin:0;padding:0;border:2px solid transparent;border-radius:8px;overflow:hidden;background:#0d111a;box-shadow:0 4px 12px rgba(0,0,0,.06);cursor:pointer;line-height:0;opacity:.68;transition:opacity .15s ease,transform .15s ease,border-color .15s ease,box-shadow .15s ease}
 .screenshot-thumb:hover{background:#0d111a;opacity:1;transform:translateY(-1px)}
 .screenshot-thumb.active{opacity:1;border-color:var(--blue);box-shadow:0 0 0 2px var(--blue-soft),0 5px 14px rgba(0,0,0,.1)}
-.screenshot-thumb img{display:block;width:100%;height:100%;object-fit:cover}
+.screenshot-thumb img{display:block;width:100%;height:100%;object-fit:cover;transition:opacity .28s ease}
+.screenshot-thumb.is-loading{position:relative;background:#13242d}
+.screenshot-thumb.is-loading img{opacity:0}
+.screenshot-thumb.is-loading::after,.home .carousel-thumbs:empty::before{content:"";display:block;background:linear-gradient(105deg,rgba(255,255,255,.025) 24%,rgba(129,185,214,.17) 42%,rgba(255,255,255,.025) 60%),#13242d;background-size:220% 100%;animation:carousel-skeleton 1.35s ease-in-out infinite}
+.screenshot-thumb.is-loading::after{position:absolute;inset:0;pointer-events:none}
+@keyframes carousel-skeleton{0%{background-position:100% 0}100%{background-position:-120% 0}}
 .lightbox{position:fixed;inset:0;z-index:1000;display:flex;align-items:center;justify-content:center;padding:32px;background:rgba(5,8,14,.9);opacity:0;visibility:hidden;transition:opacity .15s ease,visibility .15s ease;cursor:zoom-out}
 .lightbox.open{opacity:1;visibility:visible}
 .lightbox img{display:block;max-width:min(96vw,1600px);max-height:90vh;width:auto;height:auto;border-radius:10px;box-shadow:0 24px 70px rgba(0,0,0,.45);cursor:default}
@@ -114,6 +119,7 @@ body.home::after{content:"";position:fixed;z-index:0;inset:0;pointer-events:none
 .home .screenshot-carousel{margin:0}
 .carousel-viewport{overflow:hidden;padding:28px 4px 66px;margin-bottom:-34px}
 .home .carousel-thumbs{display:flex!important;gap:18px;width:max-content;margin:0;transform:translateX(0)}
+.home .carousel-thumbs:empty::before{flex:0 0 620px;width:620px;aspect-ratio:16/9;border:1px solid rgba(240,248,252,.34)}
 .home .screenshot-thumb{flex:0 0 clamp(420px,42vw,700px);width:clamp(420px,42vw,700px);aspect-ratio:16/9;border:1px solid rgba(240,248,252,.64);border-radius:0;opacity:.58;box-shadow:0 15px 34px rgba(0,0,0,.3);transform:scale(.92);transition:opacity .22s ease,transform .22s ease,box-shadow .22s ease}
 .home .screenshot-thumb.active{opacity:1;border:1px solid rgba(255,255,255,.86);box-shadow:0 20px 44px rgba(0,0,0,.42);transform:scale(1)}
 .home .screenshot-thumb:hover{opacity:.9;transform:scale(.96)}
@@ -132,7 +138,7 @@ body.home::after{content:"";position:fixed;z-index:0;inset:0;pointer-events:none
 .home footer{display:none}
 @media(max-width:1180px){.home .page{width:min(100% - 40px,1920px)}.hero{grid-template-columns:1fr;gap:28px;padding-top:42px}.hero-copy{max-width:800px}.home .screenshots{width:100%}.home .screenshot-thumb{flex-basis:min(72vw,680px);width:min(72vw,680px)}}
 @media(max-width:680px){body.home{background-attachment:scroll}.home .page{width:min(100% - 24px,1920px)}.home header{padding-bottom:16px}.hero{min-height:0;padding:34px 0 48px}.home .hero h1{font-size:40px}.home .hero .lead{font-size:17px;margin-top:16px}.home .store-links{flex-direction:row;gap:14px;margin-top:26px}.home .store-card img{height:54px}.home .store-card-disabled{align-items:flex-start}.home .screenshot-thumb{flex-basis:86vw;width:86vw;border-radius:0}.carousel-viewport{padding:16px 2px 48px;margin-bottom:-26px}.carousel-controls{gap:12px}.home .carousel-arrow{width:48px;height:44px}.home .carousel-arrow svg{width:29px;height:29px}.carousel-dots{padding:0 5px}}
-@media(prefers-reduced-motion:reduce){body.home::before{will-change:auto}}
+@media(prefers-reduced-motion:reduce){body.home::before{will-change:auto}.screenshot-thumb.is-loading::after,.home .carousel-thumbs:empty::before{animation:none}}
 
 /* Proportional home layout: scale the complete composition as one canvas. */
 body.home{--layout-scale:1}

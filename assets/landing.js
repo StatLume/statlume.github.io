@@ -19,6 +19,14 @@
   const previous = document.querySelector('.carousel-prev');
   const next = document.querySelector('.carousel-next');
   const dots = [...document.querySelectorAll('.carousel-dots span')];
+  const prepareImage = slide => {
+    const image = slide.querySelector('img');
+    if (!image || image.complete) return;
+    slide.classList.add('is-loading');
+    const finish = () => slide.classList.remove('is-loading');
+    image.addEventListener('load', finish, {once: true});
+    image.addEventListener('error', finish, {once: true});
+  };
   if (track && viewport && previous && next) {
     const requested = track.dataset.primary || '01';
     let current = Math.max(0, names.indexOf(requested));
@@ -37,6 +45,7 @@
         return `<button class="screenshot-thumb${active ? ' active' : ''}" type="button" data-index="${nameIndex}" aria-label="Show ${description}"${active ? ' aria-current="true"' : ''}><img src="/assets/screenshots/release-previews/${name}.webp" alt="${description}" ${active ? 'loading="eager" fetchpriority="high"' : 'loading="lazy"'} width="1536" height="864"></button>`;
       }).join('');
       const slides = [...track.children];
+      slides.forEach(prepareImage);
       slides.forEach(slide => slide.addEventListener('click', () => select(Number(slide.dataset.index))));
       const page = Math.min(dots.length - 1, Math.floor(current / Math.ceil(names.length / dots.length)));
       dots.forEach((dot, index) => dot.classList.toggle('active', index === page));
