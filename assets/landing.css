@@ -27,6 +27,11 @@ body.home.landing{position:relative!important;width:100%;height:auto!important;m
 .landing .landing-footer .footer-brand p,.landing .landing-footer .footer-links a{color:#aebbc3}
 .landing .landing-footer .footer-disclaimer{border-top-color:rgba(255,255,255,.14);color:#7f909a}
 
+/* Keep the content below the scaled hero controls on short laptop viewports. */
+@media(min-width:1181px) and (max-height:850px){
+  .landing-copy{margin-top:0}
+}
+
 @media(min-width:761px) and (max-width:1180px){
   .landing-stage{height:auto;min-height:100svh}
   .landing .hero{height:auto;min-height:0}
