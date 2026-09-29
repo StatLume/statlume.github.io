@@ -69,6 +69,18 @@ test('desktop hero remains a single proportional 1600 by 900 composition', async
   assert.doesNotMatch(script, /desktopDensity/, 'do not globally shrink otherwise-correct desktop layouts');
 });
 
+test('only maximized laptop windows receive the compact desktop scale', async () => {
+  const landingScript = await read('assets/landing.js');
+  const home = await read('index.html');
+
+  for (const [name, source] of [['landing script', landingScript], ['home page', home]]) {
+    assert.match(source, /screenWidth <= 1920 && screenHeight <= 1200/, `${name} must limit compact scaling to laptop screens`);
+    assert.match(source, /outerWidth >= screenWidth \* 0\.94 && window\.outerHeight >= screenHeight \* 0\.9/, `${name} must require a maximized window`);
+    assert.match(source, /isLaptopScreen && isMaximized \? 0\.8 : 1/, `${name} must preserve normal layouts`);
+    assert.match(source, /viewportScale \* fullscreenLaptopScale/, `${name} must scale the full composition proportionally`);
+  }
+});
+
 test('hero occupies at least one viewport and content never uses a desktop overlap', async () => {
   const css = await read('assets/landing.css');
   const script = await read('assets/landing.js');
