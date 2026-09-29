@@ -89,17 +89,21 @@
   const designWidth = 1600;
   const designHeight = 900;
   const adaptiveBreakpoint = 1180;
+  const landingPage = document.querySelector('.landing-stage > .page');
   let resizeFrame = 0;
   const updateScale = () => {
     if (window.innerWidth <= adaptiveBreakpoint) {
       document.body.style.setProperty('--layout-scale', '1');
       document.body.style.removeProperty('--landing-content-width');
+      document.body.style.removeProperty('--landing-stage-height');
       resizeFrame = 0;
       return;
     }
     const scale = Math.min(window.innerWidth / designWidth, window.innerHeight / designHeight);
+    const layoutHeight = Math.max(designHeight, landingPage ? landingPage.scrollHeight : designHeight);
     document.body.style.setProperty('--layout-scale', scale.toFixed(4));
     document.body.style.setProperty('--landing-content-width', `${((designWidth - 64) * scale).toFixed(2)}px`);
+    document.body.style.setProperty('--landing-stage-height', `${(layoutHeight * scale).toFixed(2)}px`);
     resizeFrame = 0;
   };
   window.addEventListener('resize', () => {

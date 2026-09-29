@@ -1,6 +1,6 @@
 html.home-page.landing-page{height:auto!important;min-height:100%;overflow-x:hidden!important;overflow-y:scroll!important;background:#071218}
 body.home.landing{position:relative!important;width:100%;height:auto!important;min-height:100vh;overflow-x:clip!important;overflow-y:visible!important;background-attachment:fixed}
-.landing-stage{position:relative;z-index:1;width:100%;height:100vh;min-height:620px}
+.landing-stage{position:relative;z-index:1;width:100%;height:var(--landing-stage-height,100vh);min-height:0}
 .landing .hero{height:806px;min-height:806px}
 .landing .hero-copy{position:relative}
 .landing .hero-copy>.eyebrow{position:absolute;top:-34px;left:0;margin:0}
@@ -26,11 +26,6 @@ body.home.landing{position:relative!important;width:100%;height:auto!important;m
 .landing .landing-footer .brand,.landing .landing-footer a{color:#dbe6eb}
 .landing .landing-footer .footer-brand p,.landing .landing-footer .footer-links a{color:#aebbc3}
 .landing .landing-footer .footer-disclaimer{border-top-color:rgba(255,255,255,.14);color:#7f909a}
-
-/* Keep the content below the scaled hero controls on short laptop viewports. */
-@media(min-width:1181px) and (max-height:850px){
-  .landing-copy{margin-top:0}
-}
 
 @media(min-width:761px) and (max-width:1180px){
   .landing-stage{height:auto;min-height:100svh}
