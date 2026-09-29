@@ -99,6 +99,7 @@
   const designHeight = 900;
   const adaptiveBreakpoint = 1180;
   const landingPage = document.querySelector('.landing-stage > .page');
+  const carouselControls = document.querySelector('.carousel-controls');
   const scaledCopyProperties = {
     '--landing-side-column': 250,
     '--landing-copy-gap': 72,
@@ -130,13 +131,20 @@
     const widthScale = window.innerWidth / designWidth;
     const headerScale = scale < 1 ? Math.min(widthScale, 0.55 + (scale * 0.45)) : scale;
     const headerCounterScale = headerScale / scale;
-    const layoutHeight = Math.max(designHeight, landingPage ? landingPage.scrollHeight : designHeight);
     document.body.style.setProperty('--layout-scale', scale.toFixed(4));
     document.body.style.setProperty('--header-counter-scale', headerCounterScale.toFixed(4));
     document.body.style.setProperty('--landing-content-width', `${((designWidth - 64) * scale).toFixed(2)}px`);
-    document.body.style.setProperty('--landing-stage-height', `${(layoutHeight * scale).toFixed(2)}px`);
+    document.body.style.setProperty('--landing-stage-height', `${(designHeight * scale).toFixed(2)}px`);
     Object.entries(scaledCopyProperties).forEach(([property, value]) => {
       document.body.style.setProperty(property, `${(value * scale).toFixed(2)}px`);
+    });
+    requestAnimationFrame(() => {
+      if (!landingPage || !carouselControls) return;
+      const pageRect = landingPage.getBoundingClientRect();
+      const controlsRect = carouselControls.getBoundingClientRect();
+      const controlsBottom = controlsRect.bottom - pageRect.top;
+      const requiredHeight = controlsBottom + (160 * scale);
+      document.body.style.setProperty('--landing-stage-height', `${Math.max(designHeight * scale, requiredHeight).toFixed(2)}px`);
     });
     resizeFrame = 0;
   };
