@@ -1,5 +1,19 @@
 (() => {
   const names = ['01', '02', '03', '04', '05', '06', '07', '07-1', '08', '09', '10', '11'];
+  const descriptions = {
+    '01': 'StatLume realtime YouTube Studio analytics on a Windows desktop',
+    '02': 'StatLume desktop widget displayed beside YouTube Studio',
+    '03': 'StatLume channel statistics widget in a desktop workspace',
+    '04': 'StatLume realtime views chart for a YouTube channel',
+    '05': 'StatLume compact YouTube analytics view',
+    '06': 'StatLume fullscreen YouTube Studio statistics view',
+    '07': 'StatLume channel activity dashboard on Windows',
+    '07-1': 'StatLume desktop analytics layout for content creators',
+    '08': 'StatLume taskbar view showing channel statistics',
+    '09': 'StatLume YouTube Studio desktop widget on Windows',
+    '10': 'StatLume realtime channel totals and chart data',
+    '11': 'StatLume realtime YouTube stats widget with recent activity'
+  };
   const track = document.querySelector('[data-landing-carousel]');
   const viewport = document.querySelector('.carousel-viewport');
   const previous = document.querySelector('.carousel-prev');
@@ -19,7 +33,8 @@
       track.innerHTML = visibleIndexes.map((nameIndex, position) => {
         const name = names[nameIndex];
         const active = position === 1;
-        return `<button class="screenshot-thumb${active ? ' active' : ''}" type="button" data-index="${nameIndex}" aria-label="Show screenshot ${name}"${active ? ' aria-current="true"' : ''}><img src="/assets/screenshots/release-previews/${name}.webp" alt="" ${active ? 'loading="eager" fetchpriority="high"' : 'loading="lazy"'} width="1536" height="864"></button>`;
+        const description = descriptions[name];
+        return `<button class="screenshot-thumb${active ? ' active' : ''}" type="button" data-index="${nameIndex}" aria-label="Show ${description}"${active ? ' aria-current="true"' : ''}><img src="/assets/screenshots/release-previews/${name}.webp" alt="${description}" ${active ? 'loading="eager" fetchpriority="high"' : 'loading="lazy"'} width="1536" height="864"></button>`;
       }).join('');
       const slides = [...track.children];
       slides.forEach(slide => slide.addEventListener('click', () => select(Number(slide.dataset.index))));
