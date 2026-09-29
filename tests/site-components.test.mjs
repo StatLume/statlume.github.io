@@ -103,6 +103,18 @@ test('header scales with the same geometry as the rest of the desktop canvas', a
   assert.doesNotMatch(script, /header-counter-scale/);
 });
 
+test('support page uses the landing visual system without changing its form contract', async () => {
+  const html = await read('support/index.html');
+  const css = await read('assets/site.css');
+
+  assert.match(html, /name="theme-color" content="#071218"/);
+  assert.match(html, /id="support-form"/);
+  assert.match(html, /const SUPPORT_ENDPOINT=/);
+  assert.match(css, /body\.support\{[^}]*sunset-landscape\.png[^}]*color:#f6f9fc/);
+  assert.match(css, /\.support-form-wrap\{[^}]*backdrop-filter:blur\(18px\)/);
+  assert.match(css, /\.support \.site-footer\{[^}]*border-top-color:rgba\(255,255,255,.16\)/);
+});
+
 test('carousel skeleton reserves space and respects reduced motion', async () => {
   const css = await read('assets/site.css');
   const landingScript = await read('assets/landing.js');

@@ -7,11 +7,16 @@ html.home-page::-webkit-scrollbar,html.landing-page::-webkit-scrollbar{width:11p
 html.home-page::-webkit-scrollbar-track,html.landing-page::-webkit-scrollbar-track{background:#071218}
 html.home-page::-webkit-scrollbar-thumb,html.landing-page::-webkit-scrollbar-thumb{border:3px solid #071218;border-radius:999px;background:rgba(126,177,204,.62)}
 html.home-page::-webkit-scrollbar-thumb:hover,html.landing-page::-webkit-scrollbar-thumb:hover{background:rgba(151,202,228,.82)}
-html.support-page,html.legal-page{scrollbar-width:thin;scrollbar-color:#aeb8c2 #f4f6f8}
-html.support-page::-webkit-scrollbar,html.legal-page::-webkit-scrollbar{width:11px;height:11px}
-html.support-page::-webkit-scrollbar-track,html.legal-page::-webkit-scrollbar-track{background:#f4f6f8}
-html.support-page::-webkit-scrollbar-thumb,html.legal-page::-webkit-scrollbar-thumb{border:3px solid #f4f6f8;border-radius:999px;background:#aeb8c2}
-html.support-page::-webkit-scrollbar-thumb:hover,html.legal-page::-webkit-scrollbar-thumb:hover{background:#8f9ba6}
+html.support-page{scrollbar-width:thin;scrollbar-color:rgba(126,177,204,.62) #071218}
+html.support-page::-webkit-scrollbar{width:11px;height:11px}
+html.support-page::-webkit-scrollbar-track{background:#071218}
+html.support-page::-webkit-scrollbar-thumb{border:3px solid #071218;border-radius:999px;background:rgba(126,177,204,.62)}
+html.support-page::-webkit-scrollbar-thumb:hover{background:rgba(151,202,228,.82)}
+html.legal-page{scrollbar-width:thin;scrollbar-color:#aeb8c2 #f4f6f8}
+html.legal-page::-webkit-scrollbar{width:11px;height:11px}
+html.legal-page::-webkit-scrollbar-track{background:#f4f6f8}
+html.legal-page::-webkit-scrollbar-thumb{border:3px solid #f4f6f8;border-radius:999px;background:#aeb8c2}
+html.legal-page::-webkit-scrollbar-thumb:hover{background:#8f9ba6}
 body{margin:0;font:15px/1.65 system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;background:var(--bg);color:var(--text)}
 body.lightbox-open{overflow:hidden}
 a{color:var(--blue)}
@@ -206,77 +211,94 @@ body.home{--layout-scale:1}
   .carousel-viewport{padding-right:14px;padding-left:14px}
 }
 
-/* Support — quiet, editorial layout */
-.support-page{background:#fbfcfd}
-body.support{background:radial-gradient(circle at 12% 5%,rgba(22,137,232,.055),transparent 28rem),#fbfcfd}
-.support .page{width:min(100% - 48px,1180px);padding-top:24px}
-.support header{margin-bottom:0;border-bottom-color:rgba(215,220,226,.75)}
-.support-main{padding-top:70px}
-.support-intro{display:grid;grid-template-columns:minmax(280px,.78fr) minmax(560px,1.22fr);gap:clamp(64px,9vw,132px);align-items:start}
-.support-copy{position:sticky;top:40px;padding-top:14px}
-.eyebrow{margin:0 0 16px;color:var(--blue);font-size:12px;font-weight:750;letter-spacing:.11em;text-transform:uppercase}
-.support h1{max-width:480px;margin:0;font-size:clamp(46px,5.1vw,68px);line-height:1.02;letter-spacing:-.052em;text-wrap:balance}
-.support .support-copy .lead{max-width:470px;margin-top:24px;color:#5e6670;font-size:17px;line-height:1.7}
-.support-meta{display:grid;gap:18px;margin-top:46px;padding-top:24px;border-top:1px solid var(--border)}
-.support-meta>div{display:grid;gap:3px;color:#454c55;font-size:14px}
-.support-meta-label{color:#8a929d;font-size:12px;font-weight:650;letter-spacing:.035em;text-transform:uppercase}
-.support-form-wrap{padding:36px 40px 40px;background:#fff;border:1px solid #e7eaee;border-radius:4px;box-shadow:0 22px 60px rgba(25,37,49,.065)}
-.form-heading{display:flex;align-items:baseline;justify-content:space-between;gap:24px;padding-bottom:22px;border-bottom:1px solid var(--border)}
-.form-heading h2{margin:0;font-size:25px;letter-spacing:-.025em}
-.form-heading p{margin:0;color:#8a929d;font-size:12px;white-space:nowrap}
-.support-form-wrap .grid{column-gap:18px;row-gap:20px;padding-top:24px}
-.support-form-wrap label{margin:0 0 7px;color:#3d444d;font-size:13px;font-weight:650}
-.support-form-wrap label span{color:var(--blue)}
-.support-form-wrap input,.support-form-wrap select,.support-form-wrap textarea{border-color:#dfe3e8;border-radius:3px;padding:11px 12px;background:#fcfdfe;font-size:14px}
-.support-form-wrap input::placeholder,.support-form-wrap textarea::placeholder{color:#a3a9b1}
-.support-form-wrap textarea{min-height:116px}
-.support-form-wrap input:focus,.support-form-wrap select:focus,.support-form-wrap textarea:focus{background:#fff;border-color:#8fc7f4;box-shadow:0 0 0 3px rgba(22,137,232,.09)}
-.privacy-note{margin:18px 0 0;color:#858d97;font-size:12px;line-height:1.5}
-.support-form-wrap button{display:inline-flex;align-items:center;gap:22px;margin-top:20px;border-radius:3px;padding:12px 17px;background:#182027;font-size:14px;transition:background .15s ease,transform .15s ease}
+/* Support — landing visual system */
+.support-page{min-height:100%;background:#071218}
+body.support{position:relative;isolation:isolate;min-height:100vh;overflow-x:hidden;background:#071218 url('/assets/hero/sunset-landscape.png') center top/cover fixed no-repeat;color:#f6f9fc}
+body.support::before{content:"";position:fixed;z-index:0;inset:0;pointer-events:none;background:linear-gradient(180deg,rgba(3,12,18,.62) 0%,rgba(5,15,21,.88) 42%,rgba(3,10,15,.98) 100%)}
+.support .page{position:relative;z-index:1;width:min(calc(100% - 64px),1536px);padding:20px 0 38px}
+.support header{width:100%;min-height:54px;margin:0;padding:0 0 24px;border:0;color:#f6f9fc}
+.support .brand{min-height:34px;color:#f6f9fc;font-size:17px;text-shadow:0 1px 12px rgba(0,0,0,.32)}
+.support .brand img{width:34px;height:34px}
+.support nav{display:grid;width:auto;grid-template-columns:50px 56px 48px 58px;justify-content:end;gap:0 17px;font-size:12px}
+.support nav a{min-height:34px;justify-content:center;color:#f6f9fc;text-shadow:0 1px 12px rgba(0,0,0,.32)}
+.support nav a:hover,.support nav a[aria-current="page"]{color:#fff}
+.support nav a[aria-current="page"]{border-bottom-color:rgba(255,255,255,.72)}
+.support-main{padding-top:clamp(72px,9vh,116px)}
+.support-intro{display:grid;grid-template-columns:minmax(390px,580px) minmax(560px,760px);justify-content:space-between;gap:clamp(52px,7vw,112px);align-items:start}
+.support-copy{position:sticky;top:40px;padding-top:18px}
+.eyebrow{margin:0 0 16px;color:#65baff;font-size:12px;font-weight:750;letter-spacing:.11em;text-transform:uppercase}
+.support h1{max-width:600px;margin:0;color:#fff;font-size:clamp(50px,4.6vw,70px);line-height:1.04;letter-spacing:-.045em;text-wrap:balance;text-shadow:0 3px 24px rgba(0,0,0,.34)}
+.support .support-copy .lead{max-width:540px;margin-top:24px;color:#d2dee5;font-size:18px;line-height:1.62;text-shadow:0 2px 16px rgba(0,0,0,.36)}
+.support-meta{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;margin-top:42px;padding-top:22px;border-top:1px solid rgba(255,255,255,.18)}
+.support-meta>div{display:grid;gap:4px;color:#dbe6eb;font-size:13px;line-height:1.45}
+.support-meta-label{color:#7fc6f8;font-size:10px;font-weight:750;letter-spacing:.09em;text-transform:uppercase}
+.support-form-wrap{padding:34px 38px 38px;border:1px solid rgba(255,255,255,.2);border-radius:12px;background:rgba(8,21,29,.78);box-shadow:0 24px 68px rgba(0,0,0,.36);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px)}
+.form-heading{display:flex;align-items:baseline;justify-content:space-between;gap:24px;padding-bottom:21px;border-bottom:1px solid rgba(255,255,255,.15)}
+.form-heading h2{margin:0;color:#fff;font-size:25px;letter-spacing:-.025em}
+.form-heading p{margin:0;color:#92a6b2;font-size:12px;white-space:nowrap}
+.support-form-wrap .grid{column-gap:18px;row-gap:19px;padding-top:23px}
+.support-form-wrap label{margin:0 0 7px;color:#dfe9ee;font-size:12px;font-weight:650}
+.support-form-wrap label span{color:#65baff}
+.support-form-wrap input,.support-form-wrap select,.support-form-wrap textarea{border:1px solid rgba(255,255,255,.17);border-radius:5px;padding:11px 12px;background:rgba(255,255,255,.075);color:#f4f8fa;font-size:14px;color-scheme:dark}
+.support-form-wrap input::placeholder,.support-form-wrap textarea::placeholder{color:#80939f}
+.support-form-wrap textarea{min-height:112px}
+.support-form-wrap input:hover,.support-form-wrap select:hover,.support-form-wrap textarea:hover{border-color:rgba(255,255,255,.28)}
+.support-form-wrap input:focus,.support-form-wrap select:focus,.support-form-wrap textarea:focus{background:rgba(255,255,255,.1);border-color:#65baff;box-shadow:0 0 0 3px rgba(101,186,255,.13)}
+.privacy-note{margin:18px 0 0;color:#8fa2ad;font-size:11px;line-height:1.55}
+.support-form-wrap button{display:inline-flex;align-items:center;gap:24px;margin-top:20px;border:1px solid rgba(255,255,255,.82);border-radius:5px;padding:12px 18px;background:#f4f8fa;color:#101820;font-size:13px;transition:background .15s ease,transform .15s ease,border-color .15s ease}
 .support-form-wrap button span{font-size:18px;font-weight:400;line-height:1}
-.support-form-wrap button:hover{background:#1689e8;transform:translateY(-1px)}
-.common-issues{display:grid;grid-template-columns:.78fr 1.22fr;gap:clamp(64px,9vw,132px);margin-top:116px;padding-top:42px;border-top:1px solid var(--border)}
+.support-form-wrap button:hover{border-color:#fff;background:#fff;transform:translateY(-1px)}
+.support-form-wrap button:focus-visible{outline:2px solid #65baff;outline-offset:3px}
+.support-form-wrap .status.ok{color:#85d9a5}.support-form-wrap .status.error{color:#ffaaa3}
+.common-issues{display:grid;grid-template-columns:280px minmax(0,760px);justify-content:center;gap:64px;margin-top:116px;padding:48px 0 10px;border-top:1px solid rgba(255,255,255,.16)}
 .issues-heading .eyebrow{margin-bottom:10px}
-.issues-heading h2{margin:0;font-size:28px}
-.issue-list{border-top:1px solid #dfe3e8}
-.support .issue{margin:0;padding:0;border:0;border-bottom:1px solid #dfe3e8;border-radius:0;background:transparent}
-.support .issue summary{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:19px 0;list-style:none;color:#2f363d;font-weight:650;cursor:pointer}
+.issues-heading h2{margin:0;color:#fff;font-size:32px;letter-spacing:-.035em}
+.issue-list{border-top:1px solid rgba(255,255,255,.16)}
+.support .issue{margin:0;padding:0;border:0;border-bottom:1px solid rgba(255,255,255,.16);border-radius:0;background:transparent}
+.support .issue summary{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:20px 0;list-style:none;color:#edf5f8;font-weight:650;cursor:pointer}
 .support .issue summary::-webkit-details-marker{display:none}
-.support .issue summary span{color:#8a929d;font-size:22px;font-weight:300;transition:transform .18s ease}
+.support .issue summary span{color:#7fc6f8;font-size:22px;font-weight:300;transition:transform .18s ease}
 .support .issue[open] summary span{transform:rotate(45deg)}
-.support .issue p{margin:-4px 40px 20px 0;color:#6b7280;font-size:14px;line-height:1.65}
-.support footer{margin-top:92px}
-@media(max-width:980px){
-  .support .page{width:min(100% - 48px,820px)}
-  .support-main{padding-top:48px}
-  .support-intro,.common-issues{grid-template-columns:1fr;gap:38px}
-  .support-copy{position:static;padding-top:0}
-  .support-meta{grid-template-columns:1fr 1fr;margin-top:32px}
-  .support-form-wrap{padding:34px 36px 38px}
-  .common-issues{margin-top:76px}
+.support .issue p{margin:-3px 40px 21px 0;color:#afbec6;font-size:14px;line-height:1.7}
+.support .issue strong{display:inline;color:#f5fafc}
+.support .site-footer{width:min(100%,1120px);gap:34px 64px;margin:78px auto 0;padding-top:30px;border-top-color:rgba(255,255,255,.16)}
+.support .site-footer .brand,.support .footer-links a{color:#dbe6eb}
+.support .site-footer .footer-brand p{color:#aebbc3}
+.support .footer-links a:hover{color:#fff}
+.support .footer-links span,.support .footer-disclaimer{color:#85959f}
+.support .footer-disclaimer{border-top-color:rgba(255,255,255,.16)}
+@media(max-width:1080px){
+  .support .page{width:min(100% - 56px,920px)}
+  .support-main{padding-top:76px}
+  .support-intro{grid-template-columns:1fr;gap:48px}
+  .support-copy{position:static;max-width:720px;padding-top:0}
+  .support h1{max-width:680px}
+  .support-meta{max-width:600px}
+  .support-form-wrap{width:100%}
+  .common-issues{grid-template-columns:220px minmax(0,1fr);gap:48px;margin-top:84px}
 }
-@media(min-width:681px) and (max-width:980px){
-  .support header{margin-bottom:0}
-  .support-copy{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(230px,.75fr);column-gap:52px;align-items:end}
-  .support-copy .eyebrow,.support-copy h1{grid-column:1}
-  .support-copy .lead{grid-column:1;margin-bottom:0}
-  .support-meta{grid-column:2;grid-row:1/4;align-self:end;margin:0;padding:0 0 3px 28px;border-top:0;border-left:1px solid var(--border)}
-  .support-form-wrap{margin-top:6px}
-  .common-issues{grid-template-columns:220px minmax(0,1fr);gap:48px}
-}
-@media(max-width:560px){
-  .support .page{width:min(100% - 28px,720px);padding-top:16px}
-  .support header{gap:12px;margin:0;padding-bottom:16px}
-  .support-main{padding-top:38px}
-  .support h1{font-size:42px}
-  .support .support-copy .lead{margin-top:18px;font-size:16px}
-  .support-meta{grid-template-columns:1fr;gap:14px;margin-top:28px}
-  .support-form-wrap{padding:26px 20px 28px}
+@media(max-width:680px){
+  body.support{background-attachment:scroll;background-position:48% top}
+  body.support::before{background:linear-gradient(180deg,rgba(3,12,18,.68),rgba(4,13,18,.94) 32%,rgba(3,10,15,.99))}
+  .support .page{width:100%;padding:16px 18px 30px}
+  .support header{min-height:42px;flex-direction:row;align-items:center;justify-content:space-between;gap:12px;margin:0;padding:0}
+  .support .brand{gap:8px;min-height:30px;font-size:16px}
+  .support .brand img{width:30px;height:30px}
+  .support nav{display:flex;width:auto;gap:5px;font-size:11px}
+  .support nav a{min-height:30px;padding:0 5px;white-space:nowrap}
+  .support nav a:first-child{display:none}
+  .support-main{padding-top:74px}
+  .support h1{font-size:clamp(40px,11.5vw,52px);line-height:1.04}
+  .support .support-copy .lead{margin-top:18px;font-size:16px;line-height:1.52}
+  .support-meta{grid-template-columns:1fr;gap:14px;margin-top:30px}
+  .support-form-wrap{padding:25px 19px 27px;border-radius:9px}
   .form-heading{display:block;padding-bottom:18px}
   .form-heading p{margin-top:6px;white-space:normal}
-  .support-form-wrap .grid{row-gap:17px}
-  .common-issues{gap:26px;margin-top:64px;padding-top:32px}
-  .support footer{margin-top:64px}
+  .support-form-wrap .grid{grid-template-columns:1fr;row-gap:17px}
+  .support-form-wrap .span-2{grid-column:auto}
+  .common-issues{display:block;margin-top:68px;padding-top:34px}
+  .issue-list{margin-top:28px}
+  .support .site-footer{margin-top:58px}
 }
 
 /* Legal pages — editorial companion to Support */
