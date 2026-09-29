@@ -129,13 +129,7 @@
     }
     const viewportWidth = window.visualViewport?.width || window.innerWidth;
     const viewportHeight = window.visualViewport?.height || window.innerHeight;
-    const viewportScale = Math.min(viewportWidth / designWidth, viewportHeight / designHeight);
-    const screenWidth = window.screen?.availWidth || viewportWidth;
-    const screenHeight = window.screen?.availHeight || viewportHeight;
-    const isLaptopScreen = screenWidth <= 1920 && screenHeight <= 1200;
-    const isMaximized = window.outerWidth >= screenWidth * 0.94 && window.outerHeight >= screenHeight * 0.9;
-    const fullscreenLaptopScale = isLaptopScreen && isMaximized ? 0.8 : 1;
-    const scale = viewportScale * fullscreenLaptopScale;
+    const scale = Math.min(viewportWidth / designWidth, viewportHeight / designHeight);
     const widthScale = viewportWidth / designWidth;
     const headerScale = scale < 1 ? Math.min(widthScale, 0.55 + (scale * 0.45)) : scale;
     const headerCounterScale = headerScale / scale;
