@@ -97,7 +97,7 @@
 
   const designWidth = 1600;
   const designHeight = 900;
-  const adaptiveBreakpoint = 1180;
+  const mobileBreakpoint = 760;
   const landingPage = document.querySelector('.landing-stage > .page');
   const carouselControls = document.querySelector('.carousel-controls');
   const scaledCopyProperties = {
@@ -119,23 +119,18 @@
   };
   let resizeFrame = 0;
   const updateScale = () => {
-    if (window.innerWidth <= adaptiveBreakpoint) {
+    if (window.innerWidth <= mobileBreakpoint) {
       document.body.style.setProperty('--layout-scale', '1');
-      document.body.style.setProperty('--header-counter-scale', '1');
       document.body.style.removeProperty('--landing-content-width');
       document.body.style.removeProperty('--landing-stage-height');
       Object.keys(scaledCopyProperties).forEach(property => document.body.style.removeProperty(property));
       resizeFrame = 0;
       return;
     }
-    const viewportWidth = window.visualViewport?.width || window.innerWidth;
-    const viewportHeight = window.visualViewport?.height || window.innerHeight;
+    const viewportWidth = document.documentElement.clientWidth;
+    const viewportHeight = document.documentElement.clientHeight;
     const scale = Math.min(viewportWidth / designWidth, viewportHeight / designHeight);
-    const widthScale = viewportWidth / designWidth;
-    const headerScale = scale < 1 ? Math.min(widthScale, 0.55 + (scale * 0.45)) : scale;
-    const headerCounterScale = headerScale / scale;
     document.body.style.setProperty('--layout-scale', scale.toFixed(4));
-    document.body.style.setProperty('--header-counter-scale', headerCounterScale.toFixed(4));
     document.body.style.setProperty('--landing-content-width', `${((designWidth - 64) * scale).toFixed(2)}px`);
     document.body.style.setProperty('--landing-stage-height', `${Math.max(viewportHeight, designHeight * scale).toFixed(2)}px`);
     Object.entries(scaledCopyProperties).forEach(([property, value]) => {

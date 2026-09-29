@@ -25,7 +25,7 @@
   <meta name="twitter:image" content="https://statlume.github.io/assets/screenshots/release/01.png">
   <link rel="preconnect" href="https://get.microsoft.com">
   <link rel="preconnect" href="https://developer.apple.com">
-  <link rel="stylesheet" href="/assets/site.css?v=20260929-8">
+  <link rel="stylesheet" href="/assets/site.css?v=20260929-9">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -269,23 +269,18 @@
 
   const designWidth = 1600;
   const designHeight = 900;
-  const adaptiveBreakpoint = 1180;
+  const mobileBreakpoint = 760;
   let resizeFrame = 0;
   const updateLayoutScale = () => {
-    if (window.innerWidth <= adaptiveBreakpoint) {
+    if (window.innerWidth <= mobileBreakpoint) {
       document.body.style.setProperty('--layout-scale', '1');
-      document.body.style.setProperty('--header-counter-scale', '1');
       resizeFrame = 0;
       return;
     }
-    const viewportWidth = window.visualViewport?.width || window.innerWidth;
-    const viewportHeight = window.visualViewport?.height || window.innerHeight;
+    const viewportWidth = document.documentElement.clientWidth;
+    const viewportHeight = document.documentElement.clientHeight;
     const scale = Math.min(viewportWidth / designWidth, viewportHeight / designHeight);
-    const widthScale = viewportWidth / designWidth;
-    const headerScale = scale < 1 ? Math.min(widthScale, 0.55 + (scale * 0.45)) : scale;
-    const headerCounterScale = headerScale / scale;
     document.body.style.setProperty('--layout-scale', scale.toFixed(4));
-    document.body.style.setProperty('--header-counter-scale', headerCounterScale.toFixed(4));
     resizeFrame = 0;
   };
   let settleTimer = 0;

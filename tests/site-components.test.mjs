@@ -80,21 +80,27 @@ test('hero occupies at least one viewport and content never uses a desktop overl
   assert.match(script, /controlsRect\.bottom - pageRect\.top/);
 });
 
-test('tablet and mobile keep dedicated adaptive layouts', async () => {
+test('laptops keep the proportional desktop canvas and mobile stays adaptive', async () => {
   const landingCss = await read('assets/landing.css');
   const siteCss = await read('assets/site.css');
+  const script = await read('assets/landing.js');
 
-  assert.match(landingCss, /@media\(min-width:761px\) and \(max-width:1180px\)/);
+  assert.doesNotMatch(landingCss, /@media\(min-width:761px\) and \(max-width:1180px\)/);
+  assert.doesNotMatch(siteCss, /@media\(min-width:761px\) and \(max-width:1180px\)/);
   assert.match(landingCss, /@media\(max-width:760px\)/);
   assert.match(siteCss, /@media\(max-width:760px\)[\s\S]*?\.home \.page\{[^}]*position:relative/);
+  assert.match(script, /const mobileBreakpoint = 760;/);
+  assert.match(script, /document\.documentElement\.clientWidth/);
+  assert.match(script, /document\.documentElement\.clientHeight/);
 });
 
-test('header stays aligned while brand and navigation scale from their own edges', async () => {
+test('header scales with the same geometry as the rest of the desktop canvas', async () => {
   const css = await read('assets/site.css');
+  const script = await read('assets/landing.js');
 
   assert.match(css, /\.home header\{[^}]*transform:none/);
-  assert.match(css, /\.home header \.brand\{[^}]*transform:scale\(var\(--header-counter-scale,1\)\);[^}]*transform-origin:left center/);
-  assert.match(css, /\.home header nav\{[^}]*transform:scale\(var\(--header-counter-scale,1\)\);[^}]*transform-origin:right center/);
+  assert.match(css, /\.home header \.brand,\.home header nav\{transform:none\}/);
+  assert.doesNotMatch(script, /header-counter-scale/);
 });
 
 test('carousel skeleton reserves space and respects reduced motion', async () => {

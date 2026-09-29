@@ -27,15 +27,6 @@ body.home.landing{position:relative!important;width:100%;height:auto!important;m
 .landing .landing-footer .footer-brand p,.landing .landing-footer .footer-links a{color:#aebbc3}
 .landing .landing-footer .footer-disclaimer{border-top-color:rgba(255,255,255,.14);color:#7f909a}
 
-@media(min-width:761px) and (max-width:1180px){
-  .landing-stage{height:auto;min-height:100svh}
-  .landing .hero{height:auto;min-height:0}
-  .landing .hero-copy>.eyebrow{top:-32px}
-  .landing-copy{width:min(100% - 56px,920px);margin:-34px auto 0;padding-top:0}
-  .landing-copy-intro{grid-template-columns:220px minmax(0,1fr);gap:48px}
-  .landing-card-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
-}
-
 @media(max-width:760px){
   .landing-stage{height:auto;min-height:100svh}
   .landing .hero{height:auto;min-height:0}
