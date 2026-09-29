@@ -2,8 +2,10 @@ html.landing-page{height:auto;min-height:100%;overflow-x:hidden;background:#0712
 body.home.landing{width:100%;height:auto;min-height:100vh;overflow-x:hidden;overflow-y:auto;background-attachment:fixed}
 .landing-stage{position:relative;z-index:1;width:100%;height:100vh;min-height:620px}
 .landing .hero{height:806px;min-height:806px}
+.landing .hero-copy{position:relative}
+.landing .hero-copy>.eyebrow{position:absolute;top:-34px;left:0;margin:0}
 .landing .screenshots{overflow:hidden}
-.landing-copy{position:relative;z-index:2;width:min(100% - 48px,1120px);margin:0 auto;padding:76px 0 48px;color:#eef5f8}
+.landing-copy{position:relative;z-index:2;width:min(100% - 64px,1536px);margin:0 auto;padding:76px 0 48px;color:#eef5f8}
 .landing-copy-intro{display:grid;grid-template-columns:minmax(250px,.7fr) minmax(0,1.3fr);gap:72px;align-items:start;margin-bottom:54px}
 .landing-copy .eyebrow{margin:0 0 13px;color:#65baff}
 .landing-copy h2{max-width:430px;margin:0;color:#fff;font-size:36px;line-height:1.12;letter-spacing:-.035em}
@@ -19,6 +21,7 @@ body.home.landing{width:100%;height:auto;min-height:100vh;overflow-x:hidden;over
 .landing-card p,.landing-card li{font-size:13px;line-height:1.65}
 .landing-card ul{margin:0;padding-left:18px}
 .landing-card .content-actions{margin-top:22px}
+.landing-card-grid+.landing-copy-intro{margin-top:72px}
 .landing footer.landing-footer{display:grid!important;position:relative;z-index:2;width:min(100% - 48px,1120px);margin:48px auto 0;padding:34px 0 38px;border-top:1px solid rgba(255,255,255,.14);color:#aebbc3}
 .landing .landing-footer .brand,.landing .landing-footer a{color:#dbe6eb}
 .landing .landing-footer .footer-brand p,.landing .landing-footer .footer-links a{color:#aebbc3}
@@ -27,6 +30,7 @@ body.home.landing{width:100%;height:auto;min-height:100vh;overflow-x:hidden;over
 @media(min-width:761px) and (max-width:1180px){
   .landing-stage{height:auto;min-height:100svh}
   .landing .hero{height:auto;min-height:0}
+  .landing .hero-copy>.eyebrow{top:-32px}
   .landing-copy{padding-top:64px}
   .landing-copy-intro{grid-template-columns:220px minmax(0,1fr);gap:48px}
   .landing-card-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
@@ -35,6 +39,7 @@ body.home.landing{width:100%;height:auto;min-height:100vh;overflow-x:hidden;over
 @media(max-width:760px){
   .landing-stage{height:auto;min-height:100svh}
   .landing .hero{height:auto;min-height:0}
+  .landing .hero-copy>.eyebrow{top:-28px}
   .landing-copy{width:100%;padding:56px 18px 30px}
   .landing-copy-intro{display:block;margin-bottom:36px}
   .landing-copy h2{font-size:30px}
