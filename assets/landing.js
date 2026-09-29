@@ -90,12 +90,29 @@
   const designHeight = 900;
   const adaptiveBreakpoint = 1180;
   const landingPage = document.querySelector('.landing-stage > .page');
+  const scaledCopyProperties = {
+    '--landing-side-column': 250,
+    '--landing-copy-gap': 72,
+    '--landing-intro-margin': 54,
+    '--landing-heading-width': 430,
+    '--landing-h2-size': 36,
+    '--landing-body-size': 15,
+    '--landing-card-gap': 16,
+    '--landing-card-height': 190,
+    '--landing-card-padding': 26,
+    '--landing-card-radius': 12,
+    '--landing-card-title-gap': 10,
+    '--landing-h3-size': 18,
+    '--landing-card-body-size': 13,
+    '--landing-section-gap': 72
+  };
   let resizeFrame = 0;
   const updateScale = () => {
     if (window.innerWidth <= adaptiveBreakpoint) {
       document.body.style.setProperty('--layout-scale', '1');
       document.body.style.removeProperty('--landing-content-width');
       document.body.style.removeProperty('--landing-stage-height');
+      Object.keys(scaledCopyProperties).forEach(property => document.body.style.removeProperty(property));
       resizeFrame = 0;
       return;
     }
@@ -104,6 +121,9 @@
     document.body.style.setProperty('--layout-scale', scale.toFixed(4));
     document.body.style.setProperty('--landing-content-width', `${((designWidth - 64) * scale).toFixed(2)}px`);
     document.body.style.setProperty('--landing-stage-height', `${(layoutHeight * scale).toFixed(2)}px`);
+    Object.entries(scaledCopyProperties).forEach(([property, value]) => {
+      document.body.style.setProperty(property, `${(value * scale).toFixed(2)}px`);
+    });
     resizeFrame = 0;
   };
   window.addEventListener('resize', () => {
