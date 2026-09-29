@@ -38,3 +38,64 @@ body.home.landing{position:relative!important;width:100%;height:auto!important;m
   .landing-card{min-height:0;padding:22px}
   .landing .landing-footer{width:calc(100% - 36px);margin-top:22px;padding-bottom:28px}
 }
+
+/* Support uses the product-landing canvas with the request form in place of the carousel. */
+.support.landing{background:#0b161b url('/assets/hero/sunset-landscape.png') center center/cover fixed no-repeat}
+.support.landing::before{background:linear-gradient(90deg,rgba(3,12,18,.58) 0%,rgba(5,15,21,.26) 46%,rgba(3,10,15,.14) 100%)}
+.support.landing .page{position:absolute;z-index:1;top:0;left:50%;width:1600px;height:900px;margin:0 0 0 -800px;padding:20px 32px;transform:scale(var(--layout-scale));transform-origin:top center}
+.support.landing header{min-height:54px;flex-direction:row;align-items:center;justify-content:space-between;gap:24px;margin:0;padding:0 0 24px}
+.support.landing .support-hero{width:100%;height:806px;min-height:806px;grid-template-columns:580px 924px;gap:32px;padding:24px 0;transform:translateY(var(--landing-hero-lift,0))}
+.support.landing .support-copy{align-self:center;max-width:none;padding:0;transform:none}
+.support.landing .support-form-wrap{width:430px;height:520px;max-height:calc(100% - 72px);justify-self:center;align-self:center;transform:none;padding:24px 26px}
+.support.landing .form-heading{display:block;padding-bottom:14px}
+.support.landing .form-heading h2{font-size:24px;line-height:1.1;white-space:nowrap}
+.support.landing .form-heading p{margin:6px 0 0;font-size:10px;line-height:1.4;white-space:normal}
+.support.landing .support-form-wrap form{position:relative}
+.support.landing .form-page{position:relative;min-width:0;height:410px;margin:0;padding:0;border:0}
+.support.landing .form-step-title{display:block;width:100%;padding:14px 0 0;color:#dce7ed;font-size:14px;font-weight:600;line-height:1.2}
+.support.landing .support-form-wrap .grid{grid-template-columns:repeat(2,minmax(0,1fr));column-gap:14px;row-gap:14px;padding-top:12px}
+.support.landing .support-form-wrap .grid>div{min-width:0}
+.support.landing .field-category,.support.landing .field-title,.support.landing .field-version,.support.landing .field-windows{grid-column:span 1}
+.support.landing .field-description,.support.landing .field-steps,.support.landing .field-email{grid-column:1/-1;grid-row:auto}
+.support.landing .support-form-wrap label{margin-bottom:6px;font-size:11px;line-height:1.2}
+.support.landing .support-form-wrap input,.support.landing .support-form-wrap textarea{height:42px;padding:10px 11px;font-size:13px;line-height:1.35}
+.support.landing .support-form-wrap .custom-select-button{height:42px;padding:10px 11px;font-size:13px}
+.support.landing .custom-select-chevron{width:8px;height:8px;border-width:0 2px 2px 0}
+.support.landing .custom-select-options{top:calc(100% + 4px);padding:4px}
+.support.landing .custom-select-options button{padding:9px 10px;font-size:12px}
+.support.landing .field-description textarea{height:134px;min-height:134px;resize:none}
+.support.landing .field-steps textarea{height:168px;min-height:168px;resize:none}
+.support.landing .privacy-note{display:block;width:auto;margin:11px 0 0;font-size:10px;line-height:1.4}
+.support.landing .form-page-footer{position:absolute;right:0;bottom:0;left:0;display:flex;min-height:38px;align-items:center;justify-content:space-between;gap:12px;margin:0;color:#8fa2ad;font-size:11px}
+.support.landing .support-form-wrap .form-page-footer button{margin:0;padding:10px 14px;gap:14px;font-size:12px}
+.support.landing .support-form-wrap .form-page-footer button span{font-size:16px}
+.support.landing .support-form-wrap .form-back{border-color:rgba(255,255,255,.22);background:transparent;color:#d9e5ea}
+.support.landing .support-form-wrap .status{position:absolute;right:0;bottom:-20px;min-height:16px;margin:0;font-size:11px}
+.support.landing .field-error{display:block;min-height:13px;margin-top:4px;color:#ffaaa3;font-size:9px;line-height:1.2}
+.support.landing .has-error input,.support.landing .has-error textarea,.support.landing .has-error .custom-select-button{border-color:#ef7f78;box-shadow:0 0 0 2px rgba(239,127,120,.12)}
+.support.landing .support-issues{z-index:2}
+
+@media(max-width:760px){
+  .support.landing{background-position:48% center;background-attachment:fixed}
+  .support.landing::before{background:linear-gradient(180deg,rgba(3,12,18,.68) 0%,rgba(5,15,21,.48) 52%,rgba(2,8,12,.72) 100%)}
+  .support.landing .page{position:relative;top:auto;left:auto;width:100%;height:auto;min-height:100svh;margin:0;padding:16px 18px 34px;transform:none}
+  .support.landing header{min-height:42px;padding:0}
+  .support.landing .support-hero{display:flex;width:100%;height:auto;min-height:0;flex-direction:column;gap:34px;padding:76px 0 30px;transform:none}
+  .support.landing .support-copy{transform:none}
+  .support.landing .support-form-wrap{width:100%;height:auto;align-self:stretch;transform:none;padding:25px 19px 27px}
+  .support.landing .form-heading{display:block;padding-bottom:15px}
+  .support.landing .form-heading h2{font-size:25px}
+  .support.landing .form-heading p{margin-top:6px;font-size:12px}
+  .support.landing .form-page{height:auto}
+  .support.landing .support-form-wrap .grid{grid-template-columns:1fr;row-gap:17px;padding-top:16px}
+  .support.landing .field-category,.support.landing .field-title,.support.landing .field-version,.support.landing .field-windows,.support.landing .field-email,.support.landing .field-description,.support.landing .field-steps{grid-column:auto;grid-row:auto}
+  .support.landing .support-form-wrap label{margin-bottom:7px;font-size:12px}
+  .support.landing .support-form-wrap input,.support.landing .support-form-wrap textarea{height:auto;padding:11px 12px;font-size:14px}
+  .support.landing .support-form-wrap .custom-select-button{height:43px;padding:11px 12px;font-size:14px}
+  .support.landing .support-form-wrap textarea{height:auto;min-height:82px;resize:vertical}
+  .support.landing .privacy-note{display:block;max-width:none;margin-top:13px;font-size:11px}
+  .support.landing .form-page-footer{position:static;margin-top:14px;font-size:11px}
+  .support.landing .support-form-wrap .form-page-footer button{padding:10px 16px;gap:18px;font-size:13px}
+  .support.landing .support-form-wrap .form-page-footer button span{font-size:18px}
+  .support.landing .support-form-wrap .status{position:static;min-height:18px;margin-top:8px;font-size:12px}
+}

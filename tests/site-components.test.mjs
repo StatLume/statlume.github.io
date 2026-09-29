@@ -88,9 +88,10 @@ test('space below the hero scales with the composition instead of the viewport',
 
   assert.match(css, /\.landing-stage\{[^}]*height:var\(--landing-stage-height,100vh\);[^}]*min-height:0/);
   assert.match(css, /\.landing-copy\{[^}]*margin:calc\(-1 \* var\(--landing-content-lift,70px\)\) auto 0/);
-  assert.match(script, /const requiredHeight = controlsBottom \+ scaledContentLift \+ \(sectionGap \* scale\);/);
+  assert.match(script, /const stageAnchor = carouselControls \|\| document\.querySelector\('\.support-form-wrap'\);/);
+  assert.match(script, /const requiredHeight = anchorBottom \+ scaledContentLift \+ \(sectionGap \* scale\);/);
   assert.doesNotMatch(script, /Math\.max\(viewportHeight, designHeight \* scale, requiredHeight\)/);
-  assert.match(script, /controlsRect\.bottom - pageRect\.top/);
+  assert.match(script, /anchorRect\.bottom - pageRect\.top/);
   assert.match(css, /\.landing-stage\{[^}]*z-index:3[^}]*pointer-events:none/);
   assert.match(css, /\.landing-stage header\{[^}]*z-index:5[^}]*pointer-events:auto\}/);
   assert.match(css, /\.landing-stage \.hero\{[^}]*z-index:1[^}]*pointer-events:auto\}/);
@@ -142,8 +143,22 @@ test('support page uses the landing visual system without changing its form cont
   assert.match(html, /name="theme-color" content="#071218"/);
   assert.match(html, /id="support-form"/);
   assert.match(html, /const SUPPORT_ENDPOINT=/);
+  assert.doesNotMatch(html, /class="eyebrow"/);
+  assert.match(html, /class="hero support-hero"/);
+  assert.equal(occurrences(html, /data-form-page="[12]"/g), 2);
+  assert.match(html, /class="form-next"/);
+  assert.match(html, /class="form-back"/);
+  assert.match(html, /class="landing-card-grid"/);
+  assert.equal(occurrences(html, /<article class="landing-card">/g), 6);
   assert.match(css, /body\.support\{[^}]*sunset-landscape\.png[^}]*color:#f6f9fc/);
   assert.match(css, /\.support-form-wrap\{[^}]*backdrop-filter:blur\(18px\)/);
+  assert.match(css, /\.support-form-wrap\{[^}]*border-radius:0[^}]*background:rgba\(4,14,20,.9\)/);
+  assert.match(css, /\.support h1\{[^}]*font-size:54\.4px/);
+  assert.match(await read('assets/landing.css'), /\.support\.landing \.support-form-wrap\{[^}]*width:430px[^}]*height:520px[^}]*max-height:calc\(100% - 72px\)[^}]*justify-self:center[^}]*transform:none/);
+  assert.doesNotMatch(html, /reportValidity\(/);
+  assert.match(html, /className="field-error"/);
+  assert.match(await read('assets/landing.css'), /\.support\.landing \.support-copy\{[^}]*transform:none/);
+  assert.match(await read('assets/landing.css'), /\.support\.landing::before\{background:linear-gradient\(90deg,rgba\(3,12,18,.58\)/);
   assert.match(css, /\.support \.site-footer\{[^}]*border-top-color:rgba\(255,255,255,.16\)/);
 });
 

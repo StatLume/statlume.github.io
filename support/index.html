@@ -1,88 +1,71 @@
 <!doctype html>
-<html lang="en" class="support-page">
+<html lang="en" class="home-page landing-page support-page">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
   <title>StatLume Support — Help, Troubleshooting &amp; FAQ</title>
   <meta name="description" content="Get help with StatLume, troubleshoot YouTube Studio connections and realtime data, or send a support request to the StatLume team.">
-  <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1">
-  <meta name="theme-color" content="#071218">
-  <link rel="canonical" href="https://statlume.github.io/support/">
-  <link rel="icon" href="/assets/statlume-logo.png" type="image/png">
-  <link rel="apple-touch-icon" href="/assets/statlume-logo.png">
-  <meta property="og:type" content="website">
-  <meta property="og:site_name" content="StatLume">
-  <meta property="og:title" content="StatLume Support — Help, Troubleshooting &amp; FAQ">
-  <meta property="og:description" content="Find quick answers or send a support request for StatLume.">
-  <meta property="og:url" content="https://statlume.github.io/support/">
-  <meta property="og:image" content="https://statlume.github.io/assets/screenshots/release/01.png">
-  <meta name="twitter:card" content="summary_large_image">
-  <link rel="stylesheet" href="/assets/site.css?v=20260929-10">
+  <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1"><meta name="theme-color" content="#071218">
+  <link rel="canonical" href="https://statlume.github.io/support/"><link rel="icon" href="/assets/statlume-logo.png" type="image/png"><link rel="apple-touch-icon" href="/assets/statlume-logo.png">
+  <meta property="og:type" content="website"><meta property="og:site_name" content="StatLume"><meta property="og:title" content="StatLume Support — Help, Troubleshooting &amp; FAQ"><meta property="og:description" content="Find quick answers or send a support request for StatLume."><meta property="og:url" content="https://statlume.github.io/support/"><meta property="og:image" content="https://statlume.github.io/assets/screenshots/release/01.png"><meta name="twitter:card" content="summary_large_image">
+  <link rel="stylesheet" href="/assets/site.css?v=20260929-35"><link rel="stylesheet" href="/assets/landing.css?v=20260929-35"><script src="/assets/landing.js?v=20260929-35" defer></script>
 </head>
-<body class="support">
-<div class="page">
-  <header>
-    <a class="brand" href="/"><img src="/assets/statlume-logo.png" alt="StatLume logo"><span>StatLume</span></a>
-    <nav><a href="/">Home</a><a href="/features/">Features</a><a href="/download/">Download</a><a href="/support/" aria-current="page">Support</a></nav>
-  </header>
-
-  <main class="support-main">
-    <section class="support-intro" aria-labelledby="support-title">
-      <div class="support-copy">
-        <p class="eyebrow">StatLume support</p>
-        <h1 id="support-title">StatLume support and troubleshooting.</h1>
-        <p class="lead">Tell us what went wrong and we’ll take a look. A clear description and a few steps to reproduce the issue are usually all we need.</p>
-        <div class="support-meta">
-          <div><span class="support-meta-label">Response</span><span>Usually within 2 business days</span></div>
-          <div><span class="support-meta-label">Before sending</span><span>Restart StatLume and try once more</span></div>
-        </div>
-      </div>
-
-      <div class="support-form-wrap">
-        <div class="form-heading"><h2>Send a request</h2><p>Required fields are marked with an asterisk.</p></div>
-        <form id="support-form" novalidate>
-          <div class="grid">
-            <div><label for="category">Category <span aria-hidden="true">*</span></label><select id="category" name="category" required><option value="Bug">Bug</option><option value="Login">Login / YouTube Studio</option><option value="Statistics">Statistics / realtime data</option><option value="Installation">Installation / update</option><option value="Other">Other</option></select></div>
-            <div><label for="title">Problem title <span aria-hidden="true">*</span></label><input id="title" name="title" maxlength="120" required placeholder="A short summary"></div>
-            <div><label for="version">StatLume version</label><input id="version" name="version" maxlength="40" placeholder="Example: 1.0.0"></div>
-            <div><label for="windows">Windows version</label><input id="windows" name="windows" maxlength="80" placeholder="Example: Windows 11 24H2"></div>
-            <div class="span-2"><label for="description">Description <span aria-hidden="true">*</span></label><textarea id="description" name="description" maxlength="6000" required placeholder="What happened? What did you expect instead?"></textarea></div>
-            <div class="span-2"><label for="steps">Steps to reproduce</label><textarea id="steps" name="steps" maxlength="4000" placeholder="1. ...&#10;2. ...&#10;3. ..."></textarea></div>
-            <div class="span-2"><label for="email">Email for reply</label><input id="email" name="email" type="email" maxlength="200" autocomplete="email" placeholder="you@example.com"></div>
-          </div>
-          <div class="hp" aria-hidden="true"><label for="website">Website</label><input id="website" name="website" tabindex="-1" autocomplete="off"></div>
-          <p class="privacy-note">Please don’t include passwords, cookies, session tokens or API keys.</p>
-          <button id="submit-button" type="submit">Send request <span aria-hidden="true">→</span></button>
-          <div id="status" class="status" role="status" aria-live="polite"></div>
-        </form>
-      </div>
+<body class="home landing support">
+<section class="landing-stage"><div class="page">
+  <header><a class="brand" href="/"><img src="/assets/statlume-logo.png" alt="StatLume logo"><span>StatLume</span></a><nav><a href="/">Home</a><a href="/features/">Features</a><a href="/download/">Download</a><a href="/support/" aria-current="page">Support</a></nav></header>
+  <main><section class="hero support-hero" aria-labelledby="support-title">
+    <div class="hero-copy support-copy"><h1 id="support-title">StatLume support and troubleshooting.</h1><p class="lead">Tell us what went wrong and we’ll take a look. A clear description and a few steps to reproduce the issue are usually all we need.</p><div class="support-meta"><div><span class="support-meta-label">Response</span><span>Usually within 2 business days</span></div><div><span class="support-meta-label">Before sending</span><span>Restart StatLume and try once more</span></div></div></div>
+    <section class="support-form-wrap" aria-labelledby="request-title">
+      <div class="form-heading"><h2 id="request-title">Send a request</h2><p>Required fields are marked with an asterisk.</p></div>
+      <form id="support-form" novalidate><div class="form-pages"><fieldset class="form-page is-active" data-form-page="1"><legend class="form-step-title">Problem details</legend><div class="grid">
+        <div class="field-category"><label for="category-button">Category <span aria-hidden="true">*</span></label><div class="custom-select" data-custom-select><select id="category" name="category" required tabindex="-1" aria-hidden="true"><option value="Bug">Bug</option><option value="Login">Login / YouTube Studio</option><option value="Statistics">Statistics / realtime data</option><option value="Installation">Installation / update</option><option value="Other">Other</option></select><button class="custom-select-button" id="category-button" type="button" aria-haspopup="listbox" aria-expanded="false"><span>Bug</span><span class="custom-select-chevron" aria-hidden="true"></span></button><div class="custom-select-options" role="listbox" aria-labelledby="category-button" hidden><button type="button" role="option" aria-selected="true" data-value="Bug">Bug</button><button type="button" role="option" aria-selected="false" data-value="Login">Login / YouTube Studio</button><button type="button" role="option" aria-selected="false" data-value="Statistics">Statistics / realtime data</button><button type="button" role="option" aria-selected="false" data-value="Installation">Installation / update</button><button type="button" role="option" aria-selected="false" data-value="Other">Other</button></div></div></div>
+        <div class="field-title"><label for="title">Problem title <span aria-hidden="true">*</span></label><input id="title" name="title" maxlength="120" required placeholder="A short summary"></div>
+        <div class="field-version"><label for="version">StatLume version</label><input id="version" name="version" maxlength="40" placeholder="Example: 1.0.0"></div>
+        <div class="field-windows"><label for="windows">Windows version</label><input id="windows" name="windows" maxlength="80" placeholder="Example: Windows 11 24H2"></div>
+        <div class="field-description"><label for="description">Description <span aria-hidden="true">*</span></label><textarea id="description" name="description" maxlength="6000" required placeholder="What happened? What did you expect instead?"></textarea></div>
+      </div><div class="form-page-footer"><span>Step 1 of 2</span><button class="form-next" type="button">Continue</button></div></fieldset><fieldset class="form-page" data-form-page="2" hidden><legend class="form-step-title">Reproduction and contact</legend><div class="grid">
+        <div class="field-steps"><label for="steps">Steps to reproduce</label><textarea id="steps" name="steps" maxlength="4000" placeholder="1. ...&#10;2. ...&#10;3. ..."></textarea></div>
+        <div class="field-email"><label for="email">Email for reply</label><input id="email" name="email" type="email" maxlength="200" autocomplete="email" placeholder="you@example.com"></div>
+      </div><p class="privacy-note">Please don’t include passwords, cookies, session tokens or API keys.</p><div class="form-page-footer"><button class="form-back" type="button">Back</button><button id="submit-button" type="submit">Send request</button></div></fieldset></div><div class="hp" aria-hidden="true"><label for="website">Website</label><input id="website" name="website" tabindex="-1" autocomplete="off"></div><div id="status" class="status" role="status" aria-live="polite"></div></form>
     </section>
+  </section></main>
+</div></section>
 
-    <section class="common-issues" aria-labelledby="issues-title">
-      <div class="issues-heading"><p class="eyebrow">Quick answers</p><h2 id="issues-title">Common issues</h2></div>
-      <div class="issue-list">
-        <details class="issue"><summary>What does “OFF” mean? <span aria-hidden="true">+</span></summary><p>StatLume keeps showing your last valid snapshot when YouTube Studio is temporarily unavailable. It retries automatically with increasing delays and returns to <strong>LIVE</strong> as soon as fresh data is available. If OFF remains, open YouTube Studio through StatLume and check that you are still signed in.</p></details>
-        <details class="issue"><summary>Which realtime periods can I view? <span aria-hidden="true">+</span></summary><p>You can switch between the latest minute, 60 minutes, and 48 hours in <strong>Settings → View period</strong>. The chart, total, and video breakdown update for the selected period when that data is available from YouTube Studio.</p></details>
-        <details class="issue"><summary>How do I change the widget view? <span aria-hidden="true">+</span></summary><p>Right-click the widget to choose <strong>Compact view</strong>, <strong>Normal view</strong>, or <strong>Fullscreen</strong>. Double-clicking the normal widget opens Fullscreen; double-clicking the compact widget returns to Normal view.</p></details>
-        <details class="issue"><summary>How do I switch YouTube accounts? <span aria-hidden="true">+</span></summary><p>Choose <strong>Disconnect account</strong>, then connect again and sign in with the channel you want to use. Disconnecting clears cached channel data and removes the local YouTube Studio browser profile after it is released by the app.</p></details>
-        <details class="issue"><summary>Can StatLume start automatically? <span aria-hidden="true">+</span></summary><p>Yes. Enable <strong>Start with Windows</strong> in Settings. Microsoft Store installations use the Windows Startup Apps setting; portable installations use the current user’s startup configuration.</p></details>
-      </div>
-    </section>
-  </main>
+<main class="landing-copy support-issues" aria-labelledby="issues-title">
+  <section class="landing-copy-intro"><div><h2 id="issues-title">Common issues</h2></div><div><p>Quick answers for the questions that come up most often when setting up StatLume or changing how the widget behaves.</p></div></section>
+  <div class="landing-card-grid">
+    <article class="landing-card"><h3>What does “OFF” mean?</h3><p>StatLume keeps showing your last valid snapshot when YouTube Studio is temporarily unavailable. It retries automatically and returns to <strong>LIVE</strong> when fresh data is available.</p></article>
+    <article class="landing-card"><h3>Which realtime periods can I view?</h3><p>Switch between the latest minute, 60 minutes, and 48 hours in <strong>Settings → View period</strong>.</p></article>
+    <article class="landing-card"><h3>How do I change the widget view?</h3><p>Right-click the widget to choose Compact, Normal, or Fullscreen. Double-clicking also moves between the focused views.</p></article>
+    <article class="landing-card"><h3>How do I switch YouTube accounts?</h3><p>Choose <strong>Disconnect account</strong>, connect again, and sign in with the channel you want to use.</p></article>
+    <article class="landing-card"><h3>Can StatLume start automatically?</h3><p>Yes. Enable <strong>Start with Windows</strong> in Settings. Store and portable installations use the appropriate Windows startup method.</p></article>
+    <article class="landing-card"><h3>Still need help?</h3><p>Send the details through the form above. Include what happened, what you expected, and the shortest steps that reproduce the issue.</p></article>
+  </div>
+</main>
 
-  <footer class="site-footer">
-    <div class="footer-brand"><a class="brand" href="/"><img src="/assets/statlume-logo.png" alt=""><span>StatLume</span></a><p>Near-real-time YouTube Studio analytics on your desktop.</p></div>
-    <div class="footer-links">
-      <div><span>Product</span><a href="/features/">Features</a><a href="/realtime-youtube-stats/">Realtime stats</a><a href="/youtube-studio-desktop-widget/">Desktop widget</a><a href="/download/">Download</a></div>
-      <div><span>Resources</span><a href="/faq/">FAQ</a><a href="/support/">Support</a><a href="/privacy/">Privacy</a><a href="/terms/">Terms</a></div>
-    </div>
-    <p class="footer-disclaimer">StatLume is not affiliated with Google or YouTube.</p>
-  </footer>
-</div>
+<footer class="site-footer landing-footer"><div class="footer-brand"><a class="brand" href="/"><img src="/assets/statlume-logo.png" alt=""><span>StatLume</span></a><p>Near-real-time YouTube Studio analytics on your desktop.</p></div><div class="footer-links"><div><span>Product</span><a href="/features/">Features</a><a href="/realtime-youtube-stats/">Realtime stats</a><a href="/youtube-studio-desktop-widget/">Desktop widget</a><a href="/download/">Download</a></div><div><span>Resources</span><a href="/faq/">FAQ</a><a href="/support/">Support</a><a href="/privacy/">Privacy</a><a href="/terms/">Terms</a></div></div><p class="footer-disclaimer">StatLume is not affiliated with Google or YouTube.</p></footer>
+
 <script>
 const SUPPORT_ENDPOINT="https://statlume-github-io.pavelsimonua.workers.dev";
 const form=document.getElementById("support-form"),button=document.getElementById("submit-button"),status=document.getElementById("status");
-form.addEventListener("submit",async(event)=>{event.preventDefault();status.className="status";status.textContent="";if(!form.reportValidity())return;button.disabled=true;button.textContent="Sending…";const data=Object.fromEntries(new FormData(form).entries());try{const response=await fetch(SUPPORT_ENDPOINT,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(data)});const result=await response.json().catch(()=>({}));if(!response.ok)throw new Error(result.error||"Unable to submit the request.");status.className="status ok";status.textContent=result.issueNumber?`Thanks! Support ticket #${result.issueNumber} was created.`:"Thanks! Your support request was submitted.";form.reset()}catch(error){status.className="status error";status.textContent=error.message||"Unable to submit the request. Please try again later."}finally{button.disabled=false;button.innerHTML='Send request <span aria-hidden="true">→</span>'}});
+const formPages=[...form.querySelectorAll("[data-form-page]")],nextButton=form.querySelector(".form-next"),backButton=form.querySelector(".form-back");
+const showFormPage=index=>{formPages.forEach((page,pageIndex)=>{page.hidden=pageIndex!==index;page.classList.toggle("is-active",pageIndex===index)});status.textContent=""};
+const validationMessage=field=>field.validity.valueMissing?"Please complete this field.":field.validity.typeMismatch?"Enter a valid email address.":field.validity.tooLong?"This value is too long.":"Please check this value.";
+const clearFieldError=field=>{const container=field.closest(".grid>div");container?.classList.remove("has-error");container?.querySelector(".field-error")?.remove();field.removeAttribute("aria-invalid");field.removeAttribute("aria-describedby")};
+const validateField=field=>{clearFieldError(field);if(field.checkValidity())return true;const container=field.closest(".grid>div"),error=document.createElement("span");error.className="field-error";error.id=`${field.id}-error`;error.textContent=validationMessage(field);container.append(error);container.classList.add("has-error");field.setAttribute("aria-invalid","true");field.setAttribute("aria-describedby",error.id);return false};
+const validateFields=fields=>{const invalid=fields.filter(field=>!validateField(field));if(invalid[0])invalid[0].focus();return invalid.length===0};
+const firstPageRequired=[document.getElementById("title"),document.getElementById("description")],emailField=document.getElementById("email");
+form.querySelectorAll("input,textarea,select").forEach(field=>{field.addEventListener("input",()=>clearFieldError(field));field.addEventListener("change",()=>clearFieldError(field))});
+nextButton.addEventListener("click",()=>{if(!validateFields(firstPageRequired))return;showFormPage(1);formPages[1].querySelector("textarea")?.focus()});
+backButton.addEventListener("click",()=>{showFormPage(0);categoryButton?.focus()});
+const customSelect=document.querySelector("[data-custom-select]"),category=document.getElementById("category"),categoryButton=document.getElementById("category-button"),categoryLabel=categoryButton.querySelector("span"),categoryOptions=[...customSelect.querySelectorAll('[role="option"]')],categoryList=customSelect.querySelector('[role="listbox"]');
+const closeCategory=()=>{categoryList.hidden=true;categoryButton.setAttribute("aria-expanded","false")};
+const openCategory=()=>{categoryList.hidden=false;categoryButton.setAttribute("aria-expanded","true");categoryOptions.find(option=>option.getAttribute("aria-selected")==="true")?.focus()};
+const chooseCategory=option=>{category.value=option.dataset.value;categoryLabel.textContent=option.textContent;categoryOptions.forEach(item=>item.setAttribute("aria-selected",String(item===option)));category.dispatchEvent(new Event("change",{bubbles:true}));closeCategory();categoryButton.focus()};
+categoryButton.addEventListener("click",()=>categoryList.hidden?openCategory():closeCategory());
+categoryOptions.forEach((option,index)=>{option.addEventListener("click",()=>chooseCategory(option));option.addEventListener("keydown",event=>{if(event.key==="ArrowDown"||event.key==="ArrowUp"){event.preventDefault();categoryOptions[(index+(event.key==="ArrowDown"?1:-1)+categoryOptions.length)%categoryOptions.length].focus()}else if(event.key==="Escape"){closeCategory();categoryButton.focus()}else if(event.key==="Home"||event.key==="End"){event.preventDefault();categoryOptions[event.key==="Home"?0:categoryOptions.length-1].focus()}})});
+document.addEventListener("click",event=>{if(!customSelect.contains(event.target))closeCategory()});
+form.addEventListener("reset",()=>requestAnimationFrame(()=>{const option=categoryOptions.find(item=>item.dataset.value===category.value)||categoryOptions[0];categoryLabel.textContent=option.textContent;categoryOptions.forEach(item=>item.setAttribute("aria-selected",String(item===option)));closeCategory();showFormPage(0)}));
+form.addEventListener("submit",async(event)=>{event.preventDefault();status.className="status";status.textContent="";if(!validateFields([...firstPageRequired,emailField])){if(firstPageRequired.some(field=>!field.checkValidity()))showFormPage(0);return}button.disabled=true;button.textContent="Sending…";const data=Object.fromEntries(new FormData(form).entries());try{const response=await fetch(SUPPORT_ENDPOINT,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(data)});const result=await response.json().catch(()=>({}));if(!response.ok)throw new Error(result.error||"Unable to submit the request.");status.className="status ok";status.textContent=result.issueNumber?`Thanks! Support ticket #${result.issueNumber} was created.`:"Thanks! Your support request was submitted.";form.reset()}catch(error){status.className="status error";status.textContent=error.message||"Unable to submit the request. Please try again later."}finally{button.disabled=false;button.textContent="Send request"}});
 </script>
 </body>
 </html>

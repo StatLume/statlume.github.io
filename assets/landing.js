@@ -102,6 +102,7 @@
   const mobileBreakpoint = 760;
   const landingPage = document.querySelector('.landing-stage > .page');
   const carouselControls = document.querySelector('.carousel-controls');
+  const stageAnchor = carouselControls || document.querySelector('.support-form-wrap');
   const scaledCopyProperties = {
     '--landing-side-column': 250,
     '--landing-copy-gap': 72,
@@ -152,11 +153,11 @@
       document.body.style.setProperty(property, `${(value * scale).toFixed(2)}px`);
     });
     requestAnimationFrame(() => {
-      if (!landingPage || !carouselControls) return;
+      if (!landingPage || !stageAnchor) return;
       const pageRect = landingPage.getBoundingClientRect();
-      const controlsRect = carouselControls.getBoundingClientRect();
-      const controlsBottom = controlsRect.bottom - pageRect.top;
-      const requiredHeight = controlsBottom + scaledContentLift + (sectionGap * scale);
+      const anchorRect = stageAnchor.getBoundingClientRect();
+      const anchorBottom = anchorRect.bottom - pageRect.top;
+      const requiredHeight = anchorBottom + scaledContentLift + (sectionGap * scale);
       document.body.style.setProperty('--landing-stage-height', `${requiredHeight.toFixed(2)}px`);
     });
     resizeFrame = 0;
