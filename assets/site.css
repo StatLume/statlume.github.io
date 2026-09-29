@@ -2,6 +2,16 @@
 *{box-sizing:border-box}
 html{scroll-behavior:smooth;scrollbar-gutter:stable;overflow-y:scroll}
 html.home-page{width:100%;height:100%;overflow:hidden;scrollbar-gutter:auto}
+html.home-page,html.landing-page{scrollbar-width:thin;scrollbar-color:rgba(126,177,204,.62) #071218}
+html.home-page::-webkit-scrollbar,html.landing-page::-webkit-scrollbar{width:11px;height:11px}
+html.home-page::-webkit-scrollbar-track,html.landing-page::-webkit-scrollbar-track{background:#071218}
+html.home-page::-webkit-scrollbar-thumb,html.landing-page::-webkit-scrollbar-thumb{border:3px solid #071218;border-radius:999px;background:rgba(126,177,204,.62)}
+html.home-page::-webkit-scrollbar-thumb:hover,html.landing-page::-webkit-scrollbar-thumb:hover{background:rgba(151,202,228,.82)}
+html.support-page,html.legal-page{scrollbar-width:thin;scrollbar-color:#aeb8c2 #f4f6f8}
+html.support-page::-webkit-scrollbar,html.legal-page::-webkit-scrollbar{width:11px;height:11px}
+html.support-page::-webkit-scrollbar-track,html.legal-page::-webkit-scrollbar-track{background:#f4f6f8}
+html.support-page::-webkit-scrollbar-thumb,html.legal-page::-webkit-scrollbar-thumb{border:3px solid #f4f6f8;border-radius:999px;background:#aeb8c2}
+html.support-page::-webkit-scrollbar-thumb:hover,html.legal-page::-webkit-scrollbar-thumb:hover{background:#8f9ba6}
 body{margin:0;font:15px/1.65 system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;background:var(--bg);color:var(--text)}
 body.lightbox-open{overflow:hidden}
 a{color:var(--blue)}

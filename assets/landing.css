@@ -5,7 +5,7 @@ body.home.landing{position:relative!important;width:100%;height:auto!important;m
 .landing .hero-copy{position:relative}
 .landing .hero-copy>.eyebrow{position:absolute;top:-34px;left:0;margin:0}
 .landing .screenshots{overflow:hidden}
-.landing-copy{position:relative;z-index:2;width:min(100% - 64px,1536px);margin:0 auto;padding:76px 0 48px;color:#eef5f8}
+.landing-copy{position:relative;z-index:2;width:min(calc(100% - 64px),var(--landing-content-width,1536px));margin:-96px auto 0;padding:0 0 48px;color:#eef5f8}
 .landing-copy-intro{display:grid;grid-template-columns:minmax(250px,.7fr) minmax(0,1.3fr);gap:72px;align-items:start;margin-bottom:54px}
 .landing-copy .eyebrow{margin:0 0 13px;color:#65baff}
 .landing-copy h2{max-width:430px;margin:0;color:#fff;font-size:36px;line-height:1.12;letter-spacing:-.035em}
@@ -22,7 +22,7 @@ body.home.landing{position:relative!important;width:100%;height:auto!important;m
 .landing-card ul{margin:0;padding-left:18px}
 .landing-card .content-actions{margin-top:22px}
 .landing-card-grid+.landing-copy-intro{margin-top:72px}
-.landing footer.landing-footer{display:grid!important;position:relative;z-index:2;width:min(100% - 48px,1120px);margin:48px auto 0;padding:34px 0 38px;border-top:1px solid rgba(255,255,255,.14);color:#aebbc3}
+.landing footer.landing-footer{display:grid!important;position:relative;z-index:2;width:min(calc(100% - 64px),var(--landing-content-width,1536px));margin:48px auto 0;padding:34px 0 38px;border-top:1px solid rgba(255,255,255,.14);color:#aebbc3}
 .landing .landing-footer .brand,.landing .landing-footer a{color:#dbe6eb}
 .landing .landing-footer .footer-brand p,.landing .landing-footer .footer-links a{color:#aebbc3}
 .landing .landing-footer .footer-disclaimer{border-top-color:rgba(255,255,255,.14);color:#7f909a}
@@ -31,7 +31,7 @@ body.home.landing{position:relative!important;width:100%;height:auto!important;m
   .landing-stage{height:auto;min-height:100svh}
   .landing .hero{height:auto;min-height:0}
   .landing .hero-copy>.eyebrow{top:-32px}
-  .landing-copy{padding-top:64px}
+  .landing-copy{width:min(100% - 56px,920px);margin:-34px auto 0;padding-top:0}
   .landing-copy-intro{grid-template-columns:220px minmax(0,1fr);gap:48px}
   .landing-card-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
 }
@@ -40,7 +40,7 @@ body.home.landing{position:relative!important;width:100%;height:auto!important;m
   .landing-stage{height:auto;min-height:100svh}
   .landing .hero{height:auto;min-height:0}
   .landing .hero-copy>.eyebrow{top:-28px}
-  .landing-copy{width:100%;padding:56px 18px 30px}
+  .landing-copy{width:100%;margin:-18px auto 0;padding:0 18px 30px}
   .landing-copy-intro{display:block;margin-bottom:36px}
   .landing-copy h2{font-size:30px}
   .landing-copy-intro>div:last-child{margin-top:22px}

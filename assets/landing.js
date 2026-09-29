@@ -73,11 +73,13 @@
   const updateScale = () => {
     if (window.innerWidth <= adaptiveBreakpoint) {
       document.body.style.setProperty('--layout-scale', '1');
+      document.body.style.removeProperty('--landing-content-width');
       resizeFrame = 0;
       return;
     }
     const scale = Math.min(window.innerWidth / designWidth, window.innerHeight / designHeight);
     document.body.style.setProperty('--layout-scale', scale.toFixed(4));
+    document.body.style.setProperty('--landing-content-width', `${((designWidth - 64) * scale).toFixed(2)}px`);
     resizeFrame = 0;
   };
   window.addEventListener('resize', () => {
