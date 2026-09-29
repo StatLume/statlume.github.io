@@ -25,7 +25,7 @@
   <meta name="twitter:image" content="https://statlume.github.io/assets/screenshots/release/01.png">
   <link rel="preconnect" href="https://get.microsoft.com">
   <link rel="preconnect" href="https://developer.apple.com">
-  <link rel="stylesheet" href="/assets/site.css?v=20260929-11">
+  <link rel="stylesheet" href="/assets/site.css?v=20260929-8">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -280,15 +280,7 @@
     }
     const viewportWidth = window.visualViewport?.width || window.innerWidth;
     const viewportHeight = window.visualViewport?.height || window.innerHeight;
-    const viewportScale = Math.min(viewportWidth / designWidth, viewportHeight / designHeight);
-    const pixelRatio = Math.max(1, window.devicePixelRatio || 1);
-    const physicalScreenWidth = (window.screen?.width || viewportWidth) * pixelRatio;
-    const physicalScreenHeight = (window.screen?.height || viewportHeight) * pixelRatio;
-    const widthCoverage = viewportWidth / (window.screen?.availWidth || viewportWidth);
-    const heightCoverage = viewportHeight / (window.screen?.availHeight || viewportHeight);
-    const isLaptopFullscreen = physicalScreenWidth <= 2560 && physicalScreenHeight <= 1600 && widthCoverage >= 0.9 && heightCoverage >= 0.68;
-    const fullscreenLaptopScale = isLaptopFullscreen ? 0.8 : 1;
-    const scale = viewportScale * fullscreenLaptopScale;
+    const scale = Math.min(viewportWidth / designWidth, viewportHeight / designHeight);
     const widthScale = viewportWidth / designWidth;
     const headerScale = scale < 1 ? Math.min(widthScale, 0.55 + (scale * 0.45)) : scale;
     const headerCounterScale = headerScale / scale;

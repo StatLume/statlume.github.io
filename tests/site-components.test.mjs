@@ -69,16 +69,6 @@ test('desktop hero remains a single proportional 1600 by 900 composition', async
   assert.doesNotMatch(script, /desktopDensity/, 'do not globally shrink otherwise-correct desktop layouts');
 });
 
-test('fullscreen laptop scaling uses viewport coverage without changing other desktops', async () => {
-  for (const path of ['assets/landing.js', 'index.html']) {
-    const source = await read(path);
-    assert.match(source, /physicalScreenWidth <= 2560 && physicalScreenHeight <= 1600/);
-    assert.match(source, /widthCoverage >= 0\.9 && heightCoverage >= 0\.68/);
-    assert.match(source, /isLaptopFullscreen \? 0\.8 : 1/);
-    assert.match(source, /viewportScale \* fullscreenLaptopScale/);
-  }
-});
-
 test('hero occupies at least one viewport and content never uses a desktop overlap', async () => {
   const css = await read('assets/landing.css');
   const script = await read('assets/landing.js');
