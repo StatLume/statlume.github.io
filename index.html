@@ -265,11 +265,16 @@
   const updateLayoutScale = () => {
     if (window.innerWidth <= adaptiveBreakpoint) {
       document.body.style.setProperty('--layout-scale', '1');
+      document.body.style.setProperty('--header-counter-scale', '1');
       resizeFrame = 0;
       return;
     }
     const scale = Math.min(window.innerWidth / designWidth, window.innerHeight / designHeight);
+    const widthScale = window.innerWidth / designWidth;
+    const headerScale = scale < 1 ? Math.min(widthScale, 0.55 + (scale * 0.45)) : scale;
+    const headerCounterScale = headerScale / scale;
     document.body.style.setProperty('--layout-scale', scale.toFixed(4));
+    document.body.style.setProperty('--header-counter-scale', headerCounterScale.toFixed(4));
     resizeFrame = 0;
   };
   window.addEventListener('resize', () => {
