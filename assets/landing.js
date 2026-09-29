@@ -129,9 +129,7 @@
     }
     const viewportWidth = window.visualViewport?.width || window.innerWidth;
     const viewportHeight = window.visualViewport?.height || window.innerHeight;
-    const viewportScale = Math.min(viewportWidth / designWidth, viewportHeight / designHeight);
-    const desktopDensity = Math.min(1, Math.max(0.76, viewportHeight / 1050));
-    const scale = viewportScale * desktopDensity;
+    const scale = Math.min(viewportWidth / designWidth, viewportHeight / designHeight);
     const widthScale = viewportWidth / designWidth;
     const headerScale = scale < 1 ? Math.min(widthScale, 0.55 + (scale * 0.45)) : scale;
     const headerCounterScale = headerScale / scale;
