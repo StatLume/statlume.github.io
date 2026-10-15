@@ -1,5 +1,6 @@
 (() => {
   const names = ['video', '01', '02', '03', '04', '05', '06'];
+  const mediaVersion = '20261015-02';
   const descriptions = {
     'video': 'StatLume product demo',
     '01': 'StatLume channel analytics for the last 60 minutes',
@@ -40,7 +41,7 @@
         if (name === 'video') {
           return `<div class="screenshot-thumb media-video${active ? ' active' : ''}" data-index="${nameIndex}" role="group" aria-label="${description}"${active ? ' aria-current="true"' : ''}><video controls playsinline preload="metadata" poster="/assets/media/statlume-demo-poster.webp"><source src="/assets/media/statlume-demo.mp4" type="video/mp4">Your browser does not support HTML video.</video></div>`;
         }
-        return `<button class="screenshot-thumb${active ? ' active' : ''}" type="button" data-index="${nameIndex}" aria-label="Show ${description}"${active ? ' aria-current="true"' : ''}><img src="/assets/screenshots/release-previews/${name}.webp" alt="${description}" ${active ? 'loading="eager" fetchpriority="high"' : 'loading="lazy"'} width="960" height="540"></button>`;
+        return `<button class="screenshot-thumb${active ? ' active' : ''}" type="button" data-index="${nameIndex}" aria-label="Show ${description}"${active ? ' aria-current="true"' : ''}><img src="/assets/screenshots/release-previews/${name}.webp?v=${mediaVersion}" alt="${description}" ${active ? 'loading="eager" fetchpriority="high"' : 'loading="lazy"'} width="960" height="540"></button>`;
       }).join('');
       const slides = [...track.children];
       slides.forEach(prepareImage);
