@@ -1,18 +1,13 @@
 (() => {
-  const names = ['01', '02', '03', '04', '05', '06', '07', '07-1', '08', '09', '10', '11'];
+  const names = ['video', '01', '02', '03', '04', '05', '06'];
   const descriptions = {
-    '01': 'StatLume realtime YouTube Studio analytics on a Windows desktop',
-    '02': 'StatLume desktop widget displayed beside YouTube Studio',
-    '03': 'StatLume channel statistics widget in a desktop workspace',
-    '04': 'StatLume realtime views chart for a YouTube channel',
-    '05': 'StatLume compact YouTube analytics view',
-    '06': 'StatLume fullscreen YouTube Studio statistics view',
-    '07': 'StatLume channel activity dashboard on Windows',
-    '07-1': 'StatLume desktop analytics layout for content creators',
-    '08': 'StatLume taskbar view showing channel statistics',
-    '09': 'StatLume YouTube Studio desktop widget on Windows',
-    '10': 'StatLume realtime channel totals and chart data',
-    '11': 'StatLume realtime YouTube stats widget with recent activity'
+    'video': 'StatLume product demo',
+    '01': 'StatLume taskbar counter on a Windows desktop',
+    '02': 'StatLume channel analytics for the last 60 minutes',
+    '03': 'StatLume channel switcher',
+    '04': 'StatLume application menu',
+    '05': 'StatLume settings window',
+    '06': 'About StatLume window'
   };
   const track = document.querySelector('[data-landing-carousel]');
   const viewport = document.querySelector('.carousel-viewport');
@@ -28,7 +23,7 @@
     image.addEventListener('error', finish, {once: true});
   };
   if (track && viewport && previous && next) {
-    const requested = track.dataset.primary || '01';
+    const requested = track.dataset.primary || 'video';
     let current = Math.max(0, names.indexOf(requested));
 
     const select = index => {
@@ -42,11 +37,17 @@
         const name = names[nameIndex];
         const active = position === 1;
         const description = descriptions[name];
-        return `<button class="screenshot-thumb${active ? ' active' : ''}" type="button" data-index="${nameIndex}" aria-label="Show ${description}"${active ? ' aria-current="true"' : ''}><img src="/assets/screenshots/release-previews/${name}.webp" alt="${description}" ${active ? 'loading="eager" fetchpriority="high"' : 'loading="lazy"'} width="1536" height="864"></button>`;
+        if (name === 'video') {
+          return `<div class="screenshot-thumb media-video${active ? ' active' : ''}" data-index="${nameIndex}" role="group" aria-label="${description}"${active ? ' aria-current="true"' : ''}><video controls playsinline preload="metadata" poster="/assets/media/statlume-demo-poster.webp"><source src="/assets/media/statlume-demo.mp4" type="video/mp4">Your browser does not support HTML video.</video></div>`;
+        }
+        return `<button class="screenshot-thumb${active ? ' active' : ''}" type="button" data-index="${nameIndex}" aria-label="Show ${description}"${active ? ' aria-current="true"' : ''}><img src="/assets/screenshots/release-previews/${name}.webp" alt="${description}" ${active ? 'loading="eager" fetchpriority="high"' : 'loading="lazy"'} width="960" height="540"></button>`;
       }).join('');
       const slides = [...track.children];
       slides.forEach(prepareImage);
-      slides.forEach(slide => slide.addEventListener('click', () => select(Number(slide.dataset.index))));
+      slides.forEach(slide => {
+        if (slide.classList.contains('media-video')) return;
+        slide.addEventListener('click', () => select(Number(slide.dataset.index)));
+      });
       const page = Math.min(dots.length - 1, Math.floor(current / Math.ceil(names.length / dots.length)));
       dots.forEach((dot, index) => dot.classList.toggle('active', index === page));
       requestAnimationFrame(() => {
