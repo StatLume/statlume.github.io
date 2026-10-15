@@ -2,8 +2,8 @@
   const names = ['video', '01', '02', '03', '04', '05', '06'];
   const descriptions = {
     'video': 'StatLume product demo',
-    '01': 'StatLume taskbar counter on a Windows desktop',
-    '02': 'StatLume channel analytics for the last 60 minutes',
+    '01': 'StatLume channel analytics for the last 60 minutes',
+    '02': 'StatLume taskbar counter on a Windows desktop',
     '03': 'StatLume channel switcher',
     '04': 'StatLume application menu',
     '05': 'StatLume settings window',
