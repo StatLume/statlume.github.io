@@ -39,7 +39,7 @@
         const active = position === 1;
         const description = descriptions[name];
         if (name === 'video') {
-          return `<div class="screenshot-thumb media-video${active ? ' active' : ''}" data-index="${nameIndex}" role="group" aria-label="${description}"${active ? ' aria-current="true"' : ''}><video controls playsinline preload="metadata" poster="/assets/media/statlume-demo-poster.webp"><source src="/assets/media/statlume-demo.mp4" type="video/mp4">Your browser does not support HTML video.</video></div>`;
+          return `<div class="screenshot-thumb media-video${active ? ' active' : ''}" data-index="${nameIndex}" role="group" aria-label="${description}"${active ? ' aria-current="true"' : ''}><iframe src="https://www.youtube-nocookie.com/embed/HSdTD6y1RAw?rel=0" title="StatLume product demo" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>`;
         }
         return `<button class="screenshot-thumb${active ? ' active' : ''}" type="button" data-index="${nameIndex}" aria-label="Show ${description}"${active ? ' aria-current="true"' : ''}><img src="/assets/screenshots/release-previews/${name}.webp?v=${mediaVersion}" alt="${description}" ${active ? 'loading="eager" fetchpriority="high"' : 'loading="lazy"'} width="960" height="540"></button>`;
       }).join('');
