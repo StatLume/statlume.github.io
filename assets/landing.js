@@ -1,5 +1,5 @@
 (() => {
-  const names = ['video', '01', '02', '03', '04', '05', '06'];
+  const names = ['01', 'video', '02', '03', '04', '05', '06'];
   const mediaVersion = '20261015-02';
   const descriptions = {
     'video': 'StatLume product demo',
@@ -24,7 +24,7 @@
     image.addEventListener('error', finish, {once: true});
   };
   if (track && viewport && previous && next) {
-    const requested = track.dataset.primary || 'video';
+    const requested = track.dataset.primary || '01';
     let current = Math.max(0, names.indexOf(requested));
 
     const select = index => {
